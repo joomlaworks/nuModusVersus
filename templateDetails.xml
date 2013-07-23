@@ -86,7 +86,7 @@
 				</field>
 				<!-- ######################### Google Web Fonts ######################### -->
 				<field name="nutpHeaderGoogleWebFonts" type="nuHeader" label="TPL_NU_BE_GOOGLE_WEB_FONTS" description="TPL_NU_BE_GOOGLE_WEB_FONTS_DESC" class="nuHeaderGoogleWebFonts" />
-				<field name="nutpGoogleWebFonts" type="nuGwf" multiple="multiple" size="10" default="" label="TPL_NU_BE_LOAD_GOOGLE_WEB_FONTS" description="TPL_NU_BE_LOAD_GOOGLE_WEB_FONTS_DESC" />
+				<field name="nutpGoogleWebFonts" type="nuGwf" multiple="multiple" size="10" default="Open Sans" label="TPL_NU_BE_LOAD_GOOGLE_WEB_FONTS" description="TPL_NU_BE_LOAD_GOOGLE_WEB_FONTS_DESC" />
 				<!-- ######################### Meta Tags ######################### -->
 				<field name="nutpHeaderMetaTags" type="nuHeader" label="TPL_NU_BE_META_TAGS" description="TPL_NU_BE_META_TAGS_DESC" class="nuHeaderMeta" />
 				<field name="nutpMetaDistribution" type="list" default="global" label="TPL_NU_BE_CONTENT_DISTRIBUTION" description="TPL_NU_BE_CONTENT_DISTRIBUTION_DESC">
