@@ -260,11 +260,13 @@ if(!in_array($tmpl, array('error','raw'))){
 
 /* -------------------- CSS Handling [CAN EDIT] -------------------- */
 // Google Web Fonts
-$nutpGoogleWebFonts = $this->params->get('nutpGoogleWebFonts', '');
-if($nutpGoogleWebFonts && count($nutpGoogleWebFonts)){
+$nutpGoogleWebFonts = $this->params->get('nutpGoogleWebFonts');
+
+if($nutpGoogleWebFonts && isset($nutpGoogleWebFonts->fonts) && is_array($nutpGoogleWebFonts->fonts)){
   $googleWebFonts = array();
-  foreach($nutpGoogleWebFonts as $font){
-    $googleWebFonts[] = str_replace('//fonts.googleapis.com/css?family=', '', $font->url);
+  foreach($nutpGoogleWebFonts->fonts as $font){
+    $fontUrl = $nutpGoogleWebFonts->urls->$font;
+    $googleWebFonts[] = str_replace('//fonts.googleapis.com/css?family=', '', $fontUrl);
   }
   $document->addStyleSheet('//fonts.googleapis.com/css?family='.implode('|', $googleWebFonts));
 }
