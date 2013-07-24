@@ -159,18 +159,18 @@ if(version_compare(JVERSION, '3.0', 'ge')!==false && $this->params->get('nutpFor
 
 
 /* -------------------- Set the <body> class -------------------- */
-$bodyClass = '';
-if($isFrontpage)        $bodyClass .= ' isFrontpage';
-if($view)               $bodyClass .= ' viewIs'.ucfirst($view);
-if($layout)             $bodyClass .= ' layoutIs'.ucfirst($layout);
-if($page)               $bodyClass .= ' pageIs'.ucfirst($page);
-if($task)               $bodyClass .= ' taskIs'.ucfirst($task);
-if($id)                 $bodyClass .= ' idIs'.ucfirst($id);
-if($itemid)             $bodyClass .= ' itemIdIs'.ucfirst($itemid);
-if($tmpl)               $bodyClass .= ' tmplIs'.ucfirst($tmpl);
-if($tmpl=='component')  $bodyClass .= ' contentpane component componentWrapper';
-if($tmpl=='raw')        $bodyClass .= ' rawWrapper';
-$bodyClass = trim($bodyClass);
+$nuBodyClass = '';
+if($isFrontpage)        $nuBodyClass .= ' isFrontpage';
+if($view)               $nuBodyClass .= ' viewIs'.ucfirst($view);
+if($layout)             $nuBodyClass .= ' layoutIs'.ucfirst($layout);
+if($page)               $nuBodyClass .= ' pageIs'.ucfirst($page);
+if($task)               $nuBodyClass .= ' taskIs'.ucfirst($task);
+if($id)                 $nuBodyClass .= ' idIs'.ucfirst($id);
+if($itemid)             $nuBodyClass .= ' itemIdIs'.ucfirst($itemid);
+if($tmpl)               $nuBodyClass .= ' tmplIs'.ucfirst($tmpl);
+if($tmpl=='component')  $nuBodyClass .= ' contentpane component componentWrapper';
+if($tmpl=='raw')        $nuBodyClass .= ' rawWrapper';
+$nuBodyClass = trim($nuBodyClass);
 
 
 
@@ -210,24 +210,9 @@ $nuHeadBottom = ($nuHeadBottom) ? $nuHeadBottom."\n" : '';
 
 $nuBodyId = $option;
 
-$nuBodyClass = $bodyClass;
-
 $nuBodyTop = ($this->params->get('nutpBodyTop')) ? $this->params->get('nutpBodyTop')."\n" : '';
 
 $nuBodyBottom = ($this->params->get('nutpBodyBottom')) ? $this->params->get('nutpBodyBottom')."\n" : '';
-
-
-
-/* -------------------- Sub-templates -------------------- */
-/* component.php */
-if($tmpl=='component'){
-  // do stuff here for the component sub-template
-}
-
-/* raw.php */
-if($tmpl=='raw'){
-  // do stuff here for the raw sub-template
-}
 
 
 
@@ -249,7 +234,7 @@ if(!in_array($tmpl, array('error','raw'))){
   }
   // Template JS
   $document->addScript(JURI::base(true).'/templates/'.$this->template.'/js/behaviour.js');
-  
+
   // Custom JS
   if($this->params->get('nutpLoadCustomJS',1)){
     $document->addScript(JURI::base(true).'/templates/'.$this->template.'/js/custom.js');
@@ -262,45 +247,64 @@ if(!in_array($tmpl, array('error','raw'))){
 // Google Web Fonts
 $nutpGoogleWebFonts = $this->params->get('nutpGoogleWebFonts');
 
+// No value saved in the database. Read the XML to get the defaults.
+if($nutpGoogleWebFonts && !isset($nutpGoogleWebFonts->fonts))
+{
+  jimport('joomla.form.form');
+  JForm::addFormPath(JPATH_SITE.'/templates/'.$app->getTemplate());
+  $form = JForm::getInstance('template.settings', 'templateDetails', array('control' => 'jform'), false, '/extension/config');
+  $defaultFonts = $form->getFieldAttribute('nutpGoogleWebFonts','default', null, 'params');
+  if($defaultFonts)
+  {
+    $nutpGoogleWebFonts->fonts = explode(',', $defaultFonts);
+  }
+
+  // If fonts URLs are not available read them from the file.
+  if(!isset($nutpGoogleWebFonts->urls))
+  {
+    $nutpGoogleWebFonts->urls = array();
+    $field = $form->getField('nutpGoogleWebFonts','params');
+    $fontsData = json_decode(JFile::read($field->getFile('https://cdn.nuevvo.net/gwf/gwf.php')));
+    foreach($fontsData as $entry)
+    {
+      $nutpGoogleWebFonts->urls[$entry->family] = $entry->url;
+    }
+  }
+
+}
+
+// Build the font URL
 if($nutpGoogleWebFonts && isset($nutpGoogleWebFonts->fonts) && is_array($nutpGoogleWebFonts->fonts)){
   $googleWebFonts = array();
+  $nutpGoogleWebFonts->urls = (array)$nutpGoogleWebFonts->urls;
   foreach($nutpGoogleWebFonts->fonts as $font){
-    $fontUrl = $nutpGoogleWebFonts->urls->$font;
-    $googleWebFonts[] = str_replace('//fonts.googleapis.com/css?family=', '', $fontUrl);
+    if($font)
+    {
+      // Get URL vars
+      $fontURL = $nutpGoogleWebFonts->urls[$font];
+      $fontURLParts = parse_url($fontURL);
+      parse_str($fontURLParts['query'], $vars);
+      $googleWebFonts[] = $vars['family'];
+    }
   }
-  $document->addStyleSheet('//fonts.googleapis.com/css?family='.implode('|', $googleWebFonts));
+  $googleWebFonts = '//fonts.googleapis.com/css?family='.implode('|', $googleWebFonts).'&amp;subset=latin,latin-ext,cyrillic,cyrillic-ext,greek,greek-ext,khmer,vietnamese';
 }
-
-/*
-// Load a Google Web Font
-$document->addStyleSheet('//fonts.googleapis.com/css?family=Open+Sans:400,300,300italic,400italic,600,600italic,700,700italic,800,800italic&amp;subset=latin,greek,vietnamese,cyrillic');
-
-// Load additional Google Web Fonts per language
-switch($language->getTag()){
-  case 'el-GR';
-    $document->addStyleSheet('//fonts.googleapis.com/css?family=X|Y|Z');
-    break;
-  case 'vi-VN';
-    $document->addStyleSheet('//fonts.googleapis.com/css?family=X|Y|Z');
-    break;
-  case 'km-KH';
-    $document->addStyleSheet('//fonts.googleapis.com/css?family=X|Y|Z');
-    break;
-}
-*/
 
 // Template CSS
 switch($tmpl){
   case 'index';
+    if(isset($googleWebFonts)) $document->addStyleSheet($googleWebFonts);
     $document->addStyleSheet(JURI::base(true).'/templates/'.$this->template.'/css/template.css');
     break;
   case 'component';
+    if(isset($googleWebFonts)) $document->addStyleSheet($googleWebFonts);
     $document->addStyleSheet(JURI::base(true).'/templates/'.$this->template.'/css/component.css');
     break;
   case 'raw';
     // No CSS for the raw.php sub-template
     break;
   default:
+    if(isset($googleWebFonts)) $document->addStyleSheet($googleWebFonts);
     $document->addStyleSheet(JURI::base(true).'/templates/'.$this->template.'/css/template.css');
 }
 
