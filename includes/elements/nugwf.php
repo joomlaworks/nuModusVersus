@@ -118,7 +118,12 @@ class JFormFieldNuGwf extends JFormField
 		$class = $this->element['class'] ? ' class="multipleList '.(string)$this->element['class'].'"' : ' class="multipleList"';
 		$default = (string)$this->element['default'];
 		$defaultValue = explode(',', $default);
-		
+
+		if (is_string($this->value))
+		{
+			$this->value = null;
+		}
+
 		$gwf = $this->getFile('https://cdn.nuevvo.net/gwf/gwf.php');
 		$gwfJSON = json_decode(JFile::read($gwf));
 
