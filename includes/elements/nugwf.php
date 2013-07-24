@@ -116,11 +116,14 @@ class JFormFieldNuGwf extends JFormField
 		// Initialize some field attributes
 		$size = $this->element['size'] ? ' size="'.(int)$this->element['size'].'"' : '';
 		$class = $this->element['class'] ? ' class="multipleList '.(string)$this->element['class'].'"' : ' class="multipleList"';
-
+		$default = (string)$this->element['default'];
+		$defaultValue = explode(',', $default);
+		
 		$gwf = $this->getFile('https://cdn.nuevvo.net/gwf/gwf.php');
 		$gwfJSON = json_decode(JFile::read($gwf));
 
 		$options = array();
+		$options[] = JHTML::_('select.option', '', JText::_('TPL_NU_BE_FIELDS_FONTS_NONE'));
 		$inputs = array();
 		foreach ($gwfJSON as $font)
 		{
@@ -129,7 +132,7 @@ class JFormFieldNuGwf extends JFormField
 			$inputs[] = '<input type="hidden" name="'.$name.'" value="'.$font->url.'" />';
 		}
 		$fieldname = str_replace('[]', '[fonts][]', $this->name);
-		$value = isset($this->value['fonts']) ? $this->value['fonts'] : null;
+		$value = isset($this->value['fonts']) ? $this->value['fonts'] : $defaultValue;
 		$select = JHTML::_('select.genericlist', $options, $fieldname, $size.$class.'multiple="multiple"', 'value', 'text', $value);
 		return $select.implode('', $inputs).'';
 	}
