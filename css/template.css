@@ -118,8 +118,7 @@ body {padding:0;margin:0;font-family:'Open Sans',sans-serif;font-size:13px;line-
 .row .row.collapse:after { clear: both; }
 
 @media only screen { 
-  .row .column, 
-  .row .columns { position: relative; padding-left: 1.154em; padding-right: 1.154em; float: left; }
+  .row .column, .row .columns { position: relative; padding-left: 1.154em; padding-right: 1.154em; float: left; }
   .row .small-1 { position: relative; width: 8.33333%; }
   .row .small-2 { position: relative; width: 16.66667%; }
   .row .small-3 { position: relative; width: 25%; }
@@ -355,7 +354,7 @@ h1#logo a img {}
 .pageHeaderWrap {background:#ececec;}
 .pageHeaderWrap .pageHeader {padding:25px 0;position:relative;}
 .pageHeaderWrap .pageHeader:after { top: 100%; border: solid transparent; content: " "; height: 0; width: 0; position: absolute; pointer-events: none; } 
-.pageHeaderWrap .pageHeader:after { border-color: rgba(236, 236, 236, 0); border-top-color: #ececec; border-width: 10px; left: 4%; margin-left: -10px; } 
+.pageHeaderWrap .pageHeader:after { border-color:rgba(236, 236, 236, 0); border-top-color: #ececec; border-width: 10px; left: 4%; margin-left: -10px; } 
 
 .pageHeaderWrap h2.pageTitle, .componentheading {margin:0;font-size:20px;font-weight:600;text-transform:uppercase;}
 .pageHeaderWrap .module {margin:0;}
@@ -1080,9 +1079,9 @@ span.liItemDateModified {display:block;text-align:right;padding:4px;margin:4px 0
     #itemListPrimary span.liItemImage a {border-radius:6px;font-size:0;max-height:270px;overflow:hidden;}
     #itemListPrimary span.liItemImage img {border-bottom:0;}
 
-#itemListPrimary .liItemBodyBlock {opacity:0;position:absolute;top:0;left:0;width:100%;height:100%;text-align:center;border-radius:6px;}
+#itemListPrimary .liItemBodyBlock {opacity:0;filter:alpha(opacity=0);position:absolute;top:0;left:0;width:100%;height:100%;text-align:center;border-radius:6px;}
 #itemListPrimary .liBlock:hover {cursor:pointer;}
-#itemListPrimary .liBlock:hover .liItemBodyBlock {opacity:1;background:rgba(98, 185, 176, 0.86);-moz-transition:all 0.3s ease-in;-webkit-transition:all 0.3s ease-in;transition:all 0.3s ease-in;}
+#itemListPrimary .liBlock:hover .liItemBodyBlock {opacity:1;filter:alpha(opacity=100);background:rgba(98, 185, 176, 0.86);-moz-transition:all 0.3s ease-in;-webkit-transition:all 0.3s ease-in;transition:all 0.3s ease-in;}
 
 #itemListPrimary .liItemBodyBlock h3.liItemTitle {font-size:16px;font-weight:600;}
 #itemListPrimary .liItemBodyBlock h3.liItemTitle a {color:#fff;}
@@ -1118,7 +1117,7 @@ div.userBlock {margin:0 0 30px 0;padding:10px;background:#f8f8f8;border-bottom:3
      
 /* User items */
 .userItemView:first-child, .genericItemView:first-child, .tagItemView:first-child, div.latestItemView:first-child  {padding-top:0;}
-.userItemViewUnpublished {opacity:0.9;border:4px dashed #ccc;background:#fffff2;padding:8px;margin:8px 0;}
+.userItemViewUnpublished {opacity:0.9;filter:alpha(opacity=90);border:4px dashed #ccc;background:#fffff2;padding:8px;margin:8px 0;}
 
 .genericItemImageBlock, .userItemImageBlock, .tagItemImageBlock {margin:0 20px 20px 0;float:left;}
 
@@ -1201,7 +1200,7 @@ h2.latestItemTitleList {font-size:14px;padding:8px 0;border-bottom:1px dotted #e
 .rightBar .module {margin-bottom:30px;}
 h3.moduleTitle {font-size:28px;font-weight:700;margin:0 0 10px;}
 .bottomArea h3.moduleTitle {color:#fff;}
-.bottomArea .btmMenu h3.moduleTitle {color:rgba(0,0,0,0.5);}
+.bottomArea .btmMenu h3.moduleTitle {color:#777;color:rgba(0,0,0,0.5);}
 .rightBar h3.moduleTitle {font-size:16px;text-transform:uppercase;}
 .greyBox {background:#ececec;border-radius:6px;padding:20px;margin-right:1.154em;margin-left:1.154em;} 
 .box {background:#f8f8f8;border-radius:6px;padding:20px;border-bottom:3px solid #e5e6e6;}
@@ -1653,7 +1652,7 @@ table.calendar tr td.calendarTodayLinked a:hover {}
     #slideshow .moduleItemBody {margin:0 auto;max-width:50%;}
     #slideshow .moduleItemBody h2.slideTitle {display:inline-block;background:#e2534b;color:#fff;border-radius:6px;font-weight:800;font-size:28px;line-height:1;padding:5px;margin:0 auto 10px;max-width:66.6667%;text-transform:uppercase;}
     #slideshow .moduleItemBody h2.slideTitle a {color:#fff;}
-    #slideshow .moduleItemBody .moduleItemIntrotext {color:#fff;font-size:14px;line-height:1.4;background:rgba(0,0,0,0.5);padding:10px 20px;border-radius:6px;max-width:75%;margin:0 auto;}
+    #slideshow .moduleItemBody .moduleItemIntrotext {color:#fff;font-size:14px;line-height:1.4;background:#000;background:rgba(0,0,0,0.5);padding:10px 20px;border-radius:6px;max-width:75%;margin:0 auto;}
     #slideshow a.moduleItemImage img {margin-top:-25%; width:100%;}
 
     /* Slideshow Pagination */
@@ -1668,15 +1667,15 @@ table.calendar tr td.calendarTodayLinked a:hover {}
     #slideshow .nuSliderPagination ul li .prev:hover, 
     #slideshow .nuSliderPagination ul li .next:hover {background:#62b9b0;-moz-transition:all 0.3s ease-in;-webkit-transition:all 0.3s ease-in;transition:all 0.3s ease-in;}
     .nuSliderPagination ul li .prev a.previousButton,   
-    .nuSliderPagination ul li .next a.nextButton {display:block;background:rgba(255, 255, 255, 0.15);padding:3px 0;width:auto;height:auto;color:#fff;margin:0;}
+    .nuSliderPagination ul li .next a.nextButton {display:block;background:rgba(255,255,255,0.15);padding:3px 0;width:auto;height:auto;color:#fff;margin:0;}
     #slideshow .nuSliderPagination ul li .prev a.previousButton:hover,   
-    #slideshow .nuSliderPagination ul li .next a.nextButton:hover {background:rgba(255, 255, 255, 0.15);}
+    #slideshow .nuSliderPagination ul li .next a.nextButton:hover {background:rgba(255,255,255,0.15);}
     .nuSliderPagination ul li .prev a.previousButton:before,
     .nuSliderPagination ul li .next a.nextButton:before {font-family:'nufontawesome';font-size:38px;}
     #slideshow .nuSliderPagination ul li .prev a.previousButton:before {content:"\f100";padding:0 16px 0 10px;}
     #slideshow .nuSliderPagination ul li .next a.nextButton:before {content:"\f101";padding:0 10px 0 16px;}
     .nuSliderPagination ul li .prev a.previousButton:hover,
-    .nuSliderPagination ul li .next a.nextButton:hover {background:rgba(255, 255, 255, 0.15);}
+    .nuSliderPagination ul li .next a.nextButton:hover {background:rgba(255,255,255,0.15);}
     #slideshow .nuSliderPagination ul li .prev {left:0;border-radius:0 6px 6px 0;}
     #slideshow .nuSliderPagination ul li .prev a.previousButton {border-radius:0 6px 6px 0;}
     #slideshow .nuSliderPagination ul li .prev a.previousButton:hover {  }
@@ -1831,7 +1830,7 @@ table.calendar tr td.calendarTodayLinked a:hover {}
 .k2Pagination ul li, .joomlaPagination ul li {display:inline-block;margin:0 5px;font-weight:700;font-size:16px;vertical-align:top;}
 .k2Pagination ul li span.pagenav, div.joomlaPagination ul li span.pagenav,
 .k2Pagination ul li a, .joomlaPagination ul li a {border-radius:6px;color:#fff;padding:0;line-height:36px;display:inline-block;border-bottom:3px solid #62b9b0;min-width:40px;min-height:36px;}
-.k2Pagination ul li a, .joomlaPagination ul li a {background:rgba(127, 127, 140, 0.8);border-bottom-color:#7f8c8c;}
+.k2Pagination ul li a, .joomlaPagination ul li a {background:#777;background:rgba(127,127,140,0.8);border-bottom-color:#7f8c8c;}
 .k2Pagination ul li a:hover, .joomlaPagination ul li a:hover {background:rgba(226, 83, 75, 0.8);border-bottom-color:#e2534b;text-decoration:none;}
 .k2Pagination ul li span.pagenav, .joomlaPagination ul li span.pagenav {background:rgba(98, 185, 176, 0.86);border-bottom-color:#62b9b0;}
 .k2Pagination ul li span.pagenav:before, .joomlaPagination ul li span.pagenav:before,
@@ -2172,7 +2171,7 @@ p.nuWarnings,
 ------------------------------------------------------ */
 #system-message { }
 	#system-message ul {margin-bottom:30px;padding:10px 15px;border-radius:6px;border-bottom:3px solid rgba(0, 0, 0, 0.1);}
-	#system-message > dt {margin:0 0 6px;font-size:18px;font-weight:600;color:rgba(0,0,0,0.5);}	
+	#system-message > dt {margin:0 0 6px;font-size:18px;font-weight:600;color:#777;color:rgba(0,0,0,0.5);}	
 	#system-message > dd {margin:0;}
 	#system-message > dd > ul {}
 	
@@ -2199,7 +2198,7 @@ p.nuWarnings,
 	.alert.alert-success { background:#00a550; color:#fff; }
 	.alert.alert-success a {color:#fff;}
 	.alert.alert-message { background:#ececec; color:#7f8c8c; }
-	.alert h4 { margin:0 0 6px;font-size:18px;font-weight:600;color:rgba(0,0,0,0.5);}
+	.alert h4 { margin:0 0 6px;font-size:18px;font-weight:600;color:#777;color:rgba(0,0,0,0.5);}
 	.alert.alert-error h4:before {content:"\f057";}    
     .alert.alert-warning h4:before {content:"\f06a";}
     .alert.alert-success h4:before {content:"\f058";}
@@ -2369,6 +2368,83 @@ p.nuWarnings,
 
 /* Browser specific styles (includings classes from k2.css as well)
 ------------------------------------------------------ */
+.isIE8 .row .column, .isIE8 .row .columns { position:relative; padding-left:1.154em; padding-right:1.154em; float:left; }
+  .isIE8 .row .small-1, .isIE8 .row .large-1 { position:relative; width:8.33333%; }
+  .isIE8 .row .small-2, .isIE8 .row .large-2 { position:relative; width:16.66667%; }
+  .isIE8 .row .small-3, .isIE8 .row .large-3 { position:relative; width:25%; }
+  .isIE8 .row .small-4, .isIE8 .row .large-4 { position:relative; width:33.33333%; }
+  .isIE8 .row .small-5, .isIE8 .row .large-5 { position:relative; width:41.66667%; }
+  .isIE8 .row .small-6, .isIE8 .row .large-6 { position:relative; width:50%; }
+  .isIE8 .row .small-7, .isIE8 .row .large-7 { position:relative; width:58.33333%; }
+  .isIE8 .row .small-8, .isIE8 .row .large-8 { position:relative; width:66.66667%; }
+  .isIE8 .row .small-9, .isIE8 .row .large-9 { position:relative; width:75%; }
+  .isIE8 .row .small-10, .isIE8 .row .large-10 { position:relative; width:83.33333%; }
+  .isIE8 .row .small-11, .isIE8 .row .large-11 { position:relative; width:91.66667%; }
+  .isIE8 .row .small-12, .isIE8 .row .large-12 { position:relative; width:100%; }
+  
+  .isIE8 .row .large-1 {width:8.33333% !important;}
+  .isIE8 .row .large-2 {width:16.66667% !important;}
+  .isIE8 .row .large-3 {width:25% !important;}
+  .isIE8 .row .large-4 {width:33.33333% !important;}
+  .isIE8 .row .large-5 {width:41.66667% !important;}
+  .isIE8 .row .large-6 {width:50% !important;}
+  .isIE8 .row .large-7 {width:58.33333% !important;}
+  .isIE8 .row .large-8 {width:66.66667% !important;}
+  .isIE8 .row .large-9 {width:75% !important;}
+  .isIE8 .row .large-10 {width:83.33333% !important;}
+  .isIE8 .row .large-11 {width:91.66667% !important;}
+  .isIE8 .row .large-12 {width:100% !important;}
+
+/* Elements for rgba COLOR1 */
+.isIE8 input.button, .isIE8 button, .isIE8 input.btn,
+.isIE8 .contact button.button:hover, .isIE8 .contact button.button:focus,
+.isIE8 .itemCommentsForm form input#submitCommentButton:hover, 
+.isIE8 .itemCommentsForm form input#submitCommentButton:focus,
+.isIE8 #itemListPrimary .liBlock:hover .liItemBodyBlock,
+.isIE8 table.calendar tr td.calendarToday,
+.isIE8 .searchMod .modSearchBlock form input.button,
+.isIE8 .k2Pagination ul li span.pagenav, .isIE8 .joomlaPagination ul li span.pagenav,
+.isIE8 .block03, .isIE8 .btn03, .isIE8 .btn04:hover,
+.isIE8 ul.sigProClassic li.sigProThumb a.sigProLink:hover span.sigProPseudoCaption,
+.isIE8 span.itemAddLink, .isIE8 span.list-edit, .isIE8 span.itemEditLink,
+.isIE8 #slideshow .nuSliderPagination ul li .prev a.previousButton:hover, .isIE8 #slideshow .nuSliderPagination ul li .next a.nextButton:hover {background:#62b9b0;}
+    
+.isIE8 header, .isIE8 .bottomArea {background-color:#62b9b0;}
+
+.isIE8 .newsfeed h3, .isIE8 .newsfeed h3 a, .isIE8 dl.search-results dt a, 
+.isIE8 .itemHeader h2.itemTitle, .isIE8 .itemHeader h2.itemTitle a, 
+.isIE8 .itemAuthorBlock div.itemAuthorDetails h3.itemAuthorName a,
+.isIE8 .liItemHeader h3.liItemTitle a, 
+.isIE8 div.userBlock h2 a,
+.isIE8 .latestItemsCategory h2, .isIE8 .latestItemsCategory h2 a,
+.isIE8 .latestItemsUser h2, .isIE8 .latestItemsUser h2 a,
+.isIE8 .biggerTitle .modItemsBlock a.moduleItemTitle,
+.isIE8 .modUserBlock .modUserBlockDetails span.ubName,
+.isIE8 .modCCBlock ul li span.lcComment,
+.isIE8 .modCCBlock ul li span.tcUsername,
+.isIE8 .modAuthorsListBlock ul li a.abAuthorName,
+.isIE8 .modUsersBlock ul li .ubUserName,
+.isIE8 .rightBar .latestBlogPosts.biggerTitle a.moduleItemTitle {color:#62b9b0;}
+
+.isIE8 .bubble02 .nuBubbleContent:after {border-top-color:#62b9b0;}
+
+/* Elements for rgba COLOR2 */
+.isIE8 input.button:hover, .isIE8 button:hover, .isIE8 input.button:focus, .isIE8 button:focus, .isIE8 input.btn:hover, .isIE8 input.btn:focus,
+.isIE8 .contact button.button,
+.isIE8 .itemCommentsForm form input#submitCommentButton,
+.isIE8 .modSearchBlock form input.button,
+.isIE8 .k2Pagination ul li a:hover, .isIE8 .joomlaPagination ul li a:hover,
+.isIE8 .block04, .isIE8 .btn04, .isIE8 .btn01:hover, .isIE8 .btn02:hover, .isIE8 .btn03:hover,
+.isIE8 span.itemAddLink:hover, .isIE8 span.list-edit:hover, .isIE8 span.itemEditLink:hover,
+.isIE8 #slideshow .nuSliderPagination ul li .prev a.previousButton, .isIE8 #slideshow .nuSliderPagination ul li .next a.nextButton,
+.isIE8 .nuSliderPagination ul li .prev a.previousButton:hover, .isIE8 .nuSliderPagination ul li .next a.nextButton:hover {background:#e2534b;}
+
+.isIE8 .mainNavigation ul ul:after,
+.isIE8 .searchMod .modSearchBlock:after {border-bottom-color:#e2534b;}
+.isIE8 .bubble03 .nuBubbleContent:after {border-top-color:#e2534b;}
+
+.isIE8 .nuSliderPagination ul li .prev a.previousButton, .isIE8 .nuSliderPagination ul li .next a.nextButton {background:#777;} 
+
 /* non-semantic styles
 ------------------------------------------------------ */
 .ir { display: block; border: 0; text-indent: -999em; overflow: hidden; background-color: transparent; background-repeat: no-repeat; text-align: left; direction: ltr; *line-height: 0; }
