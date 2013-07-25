@@ -623,6 +623,7 @@ span.siteRoot {display:none;}
 #recaptcha_response_field {border-color: #ccc !important;background-color:#fff !important;}
     
 /* --- Primary lists in K2 --- */
+.latestBlogPosts ul,
 ul.breadcrumb,
 .modCCBlock ul,
 .modItemsBlock ul,
@@ -648,6 +649,7 @@ ul.pagenav,
 .tagspopular ul,
 .socialMenu ul {margin:0;padding:0;list-style:none;}
 
+.latestBlogPosts ul li,
 ul.breadcrumb li,
 .modCCBlock ul li,
 .modItemsBlock ul li,
@@ -1772,9 +1774,9 @@ table.calendar tr td.calendarTodayLinked a:hover {}
 /* Latest Blog Posts (onlyTitle) (Right) */  
 .rightBar .latestBlogPosts {}
 .rightBar .latestBlogPosts ul {}
-.rightBar .latestBlogPosts .modItemsBlock ul li {border-bottom:3px solid #e5e6e6;padding:0 0 10px;margin:0 0 10px;}
-.rightBar .latestBlogPosts .modItemsBlock ul li:before {}
-.rightBar .latestBlogPosts .modItemsBlock ul li .moduleItemBody {}
+.rightBar .latestBlogPosts ul li {border-bottom:3px solid #e5e6e6;padding:0 0 10px;margin:0 0 10px;}
+.rightBar .latestBlogPosts ul li:before {}
+.rightBar .latestBlogPosts ul li .moduleItemBody {}
 .rightBar .latestBlogPosts a.moduleItemImage {margin:0 20px 6px 0;}
 .rightBar .latestBlogPosts a.moduleItemTitle {color:#e2534b;display:block;margin:0 0 5px;}
 .rightBar .latestBlogPosts.biggerTitle a.moduleItemTitle {color:rgba(98, 185, 176, 0.86);}
@@ -1784,9 +1786,9 @@ table.calendar tr td.calendarTodayLinked a:hover {}
 .rightBar .latestBlogPosts a.moduleItemReadMore span {padding:10px 15px;}
 
 /* Latest Blog Post () */
-.rightBar .latestBlogPosts.onlyTitle .modItemsBlock ul li {padding-left:14px;border-bottom:1px solid #e5e6e6;position:relative;}
-.rightBar .latestBlogPosts.onlyTitle .modItemsBlock ul li:before {content:"\f105";position:absolute;}
-.rightBar .latestBlogPosts.onlyTitle .modItemsBlock ul li .moduleItemBody {padding-left:14px;}
+.rightBar .latestBlogPosts.onlyTitle ul li {padding-left:14px;border-bottom:1px solid #e5e6e6;position:relative;}
+.rightBar .latestBlogPosts.onlyTitle ul li:before {content:"\f105";position:absolute;}
+.rightBar .latestBlogPosts.onlyTitle ul li .moduleItemBody {padding-left:14px;}
 
 /* K2 Tools (Categories Submenu Menu) */
 .categoriesSubmenu {}
