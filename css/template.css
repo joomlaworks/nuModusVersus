@@ -63,12 +63,7 @@ Modules
         mod_k2_tools
         mod_k2_comments
         mod_k2_user
-        mod_k2_users  
-    nuContent
-        mod_nuContent
-        mod_nuContent_tools
-        mod_nuContent_users
-        mod_nuContent_comments
+        mod_k2_users     
 Plugins
     Pagination
     Tooltip
@@ -584,7 +579,7 @@ dl.search-results { margin:0; padding:20px 0; overflow:hidden; }
     dl.search-results span.highlight {font-weight:700;text-decoration:underline;}
     
     
-/* K2 and com_content with nuContent Enabled
+/* K2 and com_content
 ----------------------------------------------------------------------*/
 
 /* --- Global K2 container --- */
@@ -1188,12 +1183,6 @@ h2.latestItemTitleList {font-size:14px;padding:8px 0;border-bottom:1px dotted #e
 .cat-items table tr:last-child td:first-child {border-bottom-left-radius:6px;}
 .cat-items table th:last-child td:last-child {border-bottom-right-radius:6px;}
 
-/* nuComments Counter + nuContent Tags + nuComments Block (Disqus) */
-.nuContentCommentsCounter, .nuContentTagsBlock {display:inline-block;margin:0 0 8px;}
-.nuContentCommentsCounter, .nuContentTagsBlock {padding-left:0;padding-right:20px;}
-.nuContentCommentsCounter i {padding-right:5px;}
-.nuContentComments {background:#ececec;border-radius:6px;padding:20px;margin:0 0 30px;}
-
 /* Modules
 ----------------------------------------------------------------------*/ 
 .module {margin-bottom:20px;}
@@ -1207,7 +1196,7 @@ h3.moduleTitle {font-size:28px;font-weight:700;margin:0 0 10px;}
 .box .box {background:none;border-radius:0;padding:0;border-bottom:0;}
 .biggerTitle .modItemsBlock a.moduleItemTitle {font-size:16px;color:rgba(98, 185, 176, 0.86);font-weight:600;margin:0 0 5px;}
 
-/* mod_k2_content + mod_nucontent_items
+/* mod_k2_content
 ----------------------------------------------------------------------------- */
 .modItemsBlock {}
 .modItemsBlock p.modulePretext {}
@@ -1300,7 +1289,7 @@ h3.moduleTitle {font-size:28px;font-weight:700;margin:0 0 10px;}
     .modUserBlock form {text-align:center;}
     
 
-/* mod_k2_comments + mod_nucontent_comments
+/* mod_k2_comments
 ----------------------------------------------------------------------------- */
 /* Latest Comments and Top Commenters */
 .modCCBlock { }
@@ -1333,7 +1322,7 @@ h3.moduleTitle {font-size:28px;font-weight:700;margin:0 0 10px;}
     .modCCBlock ul li span.tcLatestCommentDate { }
     .modCCBlock ul li span.tcLatestCommentDate span { }
 
-/* mod_k2_tools + mod_nucontent_tools 
+/* mod_k2_tools
 ----------------------------------------------------------------------------- */
 
 /* --- Archives --- */
@@ -1379,7 +1368,7 @@ ul.breadcrumb li {display:inline;}
 
 /* --- Calendar --- */
 .modCalendarBlock {height:190px;margin-bottom:8px;} /* use this height value so that the calendar height won't change on Month change via ajax */
-.k2CalendarLoader, .nuContentCalendarLoader {background:#fff url(../images/system/k2CalendarLoader.gif) no-repeat 50% 50%;}
+.k2CalendarLoader {background:#fff url(../images/system/k2CalendarLoader.gif) no-repeat 50% 50%;}
 table.calendar {margin:0 auto;background:#fff;border-collapse:collapse;width:100%;}
 table.calendar tr td {text-align:center;vertical-align:middle;padding:6px;border:1px solid #e5e6e6;background:#f8f8f8;font-size:12px;}
 table.calendar tr td.calendarNavMonthPrev, 
@@ -1446,7 +1435,7 @@ table.calendar tr td.calendarTodayLinked a:hover {}
 /* --- Custom Code --- */
 .modCustomCodeBlock { }
 
-/* mod_k2_users + mod_nucontent_users 
+/* mod_k2_users
 ----------------------------------------------------------------------------- */
 .modUsersBlock { }
     .modUsersBlock ul { }
