@@ -133,16 +133,14 @@ JHtml::_('behavior.caption');
             <ul>  
     				<?php if ($params->get('show_print_icon')): ?>
     				<!-- Print Icon -->
-    				<li class="itemPrintLink">
-    					<i class="icon-print"></i>
+    				<li class="itemPrintLink">    					
     					<?php echo JHtml::_('icon.print_popup', $this->item, $params); ?>
     				</li>
     				<?php endif; ?>
     
     				<?php if ($params->get('show_email_icon')): ?>
     				<!-- Email Icon -->
-    				<li class="itemEmailLink">
-    				  <i class="icon-envelope"></i>
+    				<li class="itemEmailLink">    				  
     					<?php echo JHtml::_('icon.email', $this->item, $params); ?>
     				</li>
     				<?php endif; ?>	
@@ -154,8 +152,7 @@ JHtml::_('behavior.caption');
   		  <div class="small-6 floatRight itemToolbar">
           <ul> 
             <!-- Print Screen Icon -->
-            <li class="itemPrintLink">
-              <i class="icon-print"></i>
+            <li class="itemPrintLink">              
               <?php echo JHtml::_('icon.print_screen', $this->item, $params); ?>
             </li>
           </ul>
@@ -218,7 +215,7 @@ JHtml::_('behavior.caption');
 			<?php if ($params->get('show_publish_date')): ?>
 			<!-- Article Published Date -->
 			<span class="itemDatePublished">
-				<?php echo JText::sprintf('COM_CONTENT_PUBLISHED_DATE', JHtml::_('date', $this->item->published, JText::_(''))); ?>
+			  <?php echo JText::sprintf('COM_CONTENT_PUBLISHED_DATE_ON', JHtml::_('date', $this->item->publish_up, JText::_('DATE_FORMAT_LC2'))); ?>				
 			</span>
 			<?php endif; ?>
 	

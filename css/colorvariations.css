@@ -44,7 +44,7 @@ div.userBlock h2 a,
 .modCCBlock ul li span.tcUsername,
 .modAuthorsListBlock ul li a.abAuthorName,
 .modUsersBlock ul li .ubUserName,
-.rightBar .latestBlogPosts.biggerTitle a.moduleItemTitle  {color:rgba(_COLOR1_RGB_,0.86);}
+.rightBar .latestBlogPosts.biggerTitle a.moduleItemTitle, .biggerTitle h4 a  {color:rgba(_COLOR1_RGB_,0.86);}
 
 .bubble02 .nuBubbleContent:after {border-color:rgba(_COLOR1_RGB_,0);}
 
@@ -193,13 +193,13 @@ div.tip, div.tip-title {background:_COLOR2_ !important;}
 .isIE8 div.userBlock h2 a,
 .isIE8 .latestItemsCategory h2, .isIE8 .latestItemsCategory h2 a,
 .isIE8 .latestItemsUser h2, .isIE8 .latestItemsUser h2 a,
-.isIE8 .biggerTitle .modItemsBlock a.moduleItemTitle,
+.isIE8 .biggerTitle a.moduleItemTitle,
 .isIE8 .modUserBlock .modUserBlockDetails span.ubName,
 .isIE8 .modCCBlock ul li span.lcComment,
 .isIE8 .modCCBlock ul li span.tcUsername,
 .isIE8 .modAuthorsListBlock ul li a.abAuthorName,
 .isIE8 .modUsersBlock ul li .ubUserName,
-.isIE8 .rightBar .latestBlogPosts.biggerTitle a.moduleItemTitle {color:COLOR1;}
+.isIE8 .rightBar .latestBlogPosts.biggerTitle a.moduleItemTitle, .biggerTitle h4 a {color:COLOR1;}
 
 .isIE8 .bubble02 .nuBubbleContent:after {border-top-color:COLOR1;}
 

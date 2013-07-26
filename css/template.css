@@ -208,7 +208,7 @@ body {padding:0;margin:0;font-family:'Open Sans',sans-serif;font-size:13px;line-
   font-weight: normal; font-style: normal;
 }
 
-[class^="icon-"], [class*=" icon-"], i.iconFont, li:before {font-family:'nufontawesome';display:inline-block;font-style:normal;text-align:center;vertical-align:top;font-weight:400;color:#62b9b0;}
+[class^="icon-"], [class*=" icon-"], i.iconFont, li:before, #com_users .profile a:before {font-family:'nufontawesome';display:inline-block;font-style:normal;text-align:center;vertical-align:top;font-weight:400;color:#62b9b0;}
 [class^="icon-"]:before, [class*=" icon-"]:before {speak:none;}
 
 i.icon-angle-right:before {content:"\f105";}
@@ -221,7 +221,7 @@ i.icon-chevron-right:before {content:"\f054";}
 i.icon-comments:before {content:"\f086";}
 i.icon-edit:before {content:"\f044";}
 i.icon-edit-sign:before {content:"\f14b";}
-i.icon-envelope:before {content:"\f0e0";}
+i.icon-envelope:before, span.icon-envelope:before {content:"\f0e0";}
 i.icon-exclamation-sign:before {content:"\f06a";}
 i.icon-eye-open:before {content:"\f06e";}
 i.icon-film:before {content:"\f008";}
@@ -236,7 +236,7 @@ i.icon-ok-sign:before {content:"\f058";}
 i.icon-phone:before {content:"\f095";}
 i.icon-picture:before {content:"\f03e";}
 i.icon-plus-sign:before {content:"\f055";}
-i.icon-print:before {content:"\f02f";}
+i.icon-print:before, span.icon-print:before {content:"\f02f";}
 i.icon-remove-sign:before {content:"\f057";}
 i.icon-reorder:before {content:"\f0c9";}
 i.icon-rss:before {content:"\f09e";}
@@ -355,8 +355,8 @@ h1#logo a img {}
 .pageHeaderWrap .module {margin:0;}
 
 section.contentArea {}
-section.largePaddingTop {padding:70px 0 0;}
-section.smallPaddingTop {padding:35px 0 0;}
+section.largePaddingTop {padding:70px 0 30px;}
+section.smallPaddingTop {padding:35px 0 30px;}
 body.isFrontpage section.largePaddingTop {padding:0;}
 
 .bottomArea {background:url(../images/patterns/rulerPatternWhite.png) repeat-x 0 0 rgba(98, 185, 176, 0.8);color:#fff;padding:40px 0 20px;}
@@ -413,7 +413,7 @@ footer a {color:#fff;font-weight:600;}
     #com_users .login-description {margin:0 0 20px;}
     
 	#com_users fieldset {display:inline-block;border:0;background:#f8f8f8;border-bottom:3px solid #e5e6e6;border-radius:6px;padding:15px 20px 5px;margin:0 0 8px;text-align:center;}
-	#com_users .control-group {padding:0 0 10px;}
+	#com_users .control-group, #com_users .login-fields {padding:0 0 10px;}
 	#com_users dt {float:left;clear:left;margin:0 10px 10px 0;min-width:180px;font-weight:600;}
 	#com_users dd {margin:0 0 10px;}
 	#com_users legend {background:#62b9b0;border-radius:6px;color:#fff;font-size:18px;font-weight:600;line-height:1;padding:12px 18px;}
@@ -427,6 +427,7 @@ footer a {color:#fff;font-weight:600;}
 	#com_users .remind input[type="password"], 
 	#com_users .reset input[type="password"] {  }
 	#com_users label {display:block;padding:0 0 6px;text-align:left;}
+	#com_users label#remember-lbl {display:inline;}
 	#com_users input#remember {}
 	#com_users button {max-width:100%; min-width:125px;}	
 	#com_users .content ul.nav {margin:20px 0;padding:0 15px;list-style:none;}
@@ -440,7 +441,8 @@ footer a {color:#fff;font-weight:600;}
 	#com_users .profile a:hover {}
 	#com_users .profile ul {margin:0;padding:0;list-style:none;} 
 	#com_users .profile ul li {}
-	#com_users .profile ul li:before {content:"\f044";/*content:"\f14b";*/font-size:22px;vertical-align:middle;}
+	#com_users .profile ul li:before, 
+	#com_users .profile a:before {content:"\f044";/*content:"\f14b";*/font-size:22px;vertical-align:middle;}
 	#com_users .profile ul li a {}
 	    
 /*----------------------------------------------------------------------
@@ -510,6 +512,7 @@ img.k2AccountPageImage {border:4px solid #ddd;margin:10px 0;padding:0;display:bl
 .newsfeed-category ul li img {}
 .newsfeed-category span.list {padding-left:14px;}
 .newsfeed-category #filter-search {float:left;}
+.newsfeed-category div.list-title {display:inline;}
 
 /* single feed */
 .newsfeed {}
@@ -543,7 +546,7 @@ img.k2AccountPageImage {border:4px solid #ddd;margin:10px 0;padding:0;display:bl
 .tag-category a {  }
 .tag-category input#filter-search {float:left;}
 .tag-category ul {}
-.tag-category ul li {}
+.tag-category ul li {border-bottom:1px solid #e5e6e6 !important;display:block;height:auto;margin:0 0 10px !important;padding:0 0 10px !important;}
 .tag-category ul li:before {vertical-align:middle;top:5px;}
 .tag-category ul li img {float:left;margin:20px 20px 10px 0;border-radius:6px;border-bottom:3px solid #e5e6e6;}
 .tag-category ul li h3 {padding-left:14px;font-size:18px;}
@@ -623,7 +626,6 @@ span.siteRoot {display:none;}
 #recaptcha_response_field {border-color: #ccc !important;background-color:#fff !important;}
     
 /* --- Primary lists in K2 --- */
-.latestBlogPosts ul,
 ul.breadcrumb,
 .modCCBlock ul,
 .modItemsBlock ul,
@@ -647,9 +649,9 @@ ul.breadcrumb,
 .itemComments ul.itemCommentsList,
 ul.pagenav, 
 .tagspopular ul,
-.socialMenu ul {margin:0;padding:0;list-style:none;}
+.socialMenu ul,
+.latestBlogPosts ul {margin:0;padding:0;list-style:none;}
 
-.latestBlogPosts ul li,
 ul.breadcrumb li,
 .modCCBlock ul li,
 .modItemsBlock ul li,
@@ -672,7 +674,8 @@ ul.breadcrumb li,
 .itemComments ul.itemCommentsList li, 
 ul.pagenav li, 
 .tagspopular ul li, 
-.socialMenu ul li {margin:0;list-style:none;} 
+.socialMenu ul li,
+.latestBlogPosts ul li {margin:0;list-style:none;} 
 
 .lastItem {border:0;}    
 
@@ -739,7 +742,7 @@ a.itemPrintThisPage:hover {background:#eee;text-decoration:none;}
     .itemToolbar ul li span.itemTextResizerTitle {vertical-align:top;margin:0 5px 0 0;}
     .itemToolbar ul li a#fontDecrease {margin:0 0 0 3px;opacity:0.8;filter:alpha(opacity=80);}   
     .itemToolbar ul li a#fontIncrease {margin:0 0 0 3px;}
-    
+
 .itemRatingBlock {}
     .itemRatingBlock span {display:block;float:left;font-style:normal;padding:0 4px 0 0;margin:0;}
 
@@ -792,12 +795,12 @@ a.itemPrintThisPage:hover {background:#eee;text-decoration:none;}
     .itemNavigation ul.pagenav li {display:inline-block;}
     .itemNavigation ul.pagenav li a {font-size:0;}
     .itemNavigation ul.pagenav li a:before {font-family:'nufontawesome';font-size:20px;vertical-align:middle;color:#f3f3f3;}
-    .itemNavigation ul.pagenav li.previous {}
-    .itemNavigation ul.pagenav li.previous a {}
-    .itemNavigation ul.pagenav li.previous a:before {content:"\f053";}
-    .itemNavigation ul.pagenav li.next {}
-    .itemNavigation ul.pagenav li.next a {}    
-    .itemNavigation ul.pagenav li.next a:before {content:"\f054";}
+    .itemNavigation ul.pagenav li.previous, .itemNavigation ul.pagenav li.pagenav-prev {}
+    .itemNavigation ul.pagenav li.previous a, .itemNavigation ul.pagenav li.pagenav-prev a {}
+    .itemNavigation ul.pagenav li.previous a:before, .itemNavigation ul.pagenav li.pagenav-prev a:before {content:"\f053";}
+    .itemNavigation ul.pagenav li.next, .itemNavigation ul.pagenav li.pagenav-next {}
+    .itemNavigation ul.pagenav li.next a, .itemNavigation ul.pagenav li.pagenav-next a {}    
+    .itemNavigation ul.pagenav li.next a:before, .itemNavigation ul.pagenav li.pagenav-next a:before {content:"\f054";}
 
 .itemAttachmentsBlock {padding:4px;border-bottom:1px solid #e5e6e6;}
     .itemAttachmentsBlock span {font-weight:bold;padding:0 4px 0 0;}
@@ -1021,6 +1024,8 @@ h3.itemCommentsCounter, .itemCommentsForm h3 {font-size:24px;margin:0 0 20px;}
     span.liItemImage, span.liItemImage a {display:block;} 
     span.liItemImage {}
     span.liItemImage img {border-radius:6px;border-bottom:3px solid #e5e6e6;}
+    
+    #joomlaContainer span.liItemImage img {width:100%;}
 
 .liItemIntroText {line-height:1.6;}
     .liItemIntroText img {}
@@ -1193,10 +1198,12 @@ h3.moduleTitle {font-size:28px;font-weight:700;margin:0 0 10px;}
 .bottomArea h3.moduleTitle {color:#fff;}
 .bottomArea .btmMenu h3.moduleTitle {color:#777;color:rgba(0,0,0,0.5);}
 .rightBar h3.moduleTitle {font-size:16px;text-transform:uppercase;}
+.rightBar h4, .rightBar a.mod-articles-category-title {font-size:13px;font-weight:400;line-height:1;}
+.rightBar h4 a {}
 .greyBox {background:#ececec;border-radius:6px;padding:20px;margin-right:1.154em;margin-left:1.154em;} 
 .box {background:#f8f8f8;border-radius:6px;padding:20px;border-bottom:3px solid #e5e6e6;}
 .box .box {background:none;border-radius:0;padding:0;border-bottom:0;}
-.biggerTitle .modItemsBlock a.moduleItemTitle {font-size:16px;color:rgba(98, 185, 176, 0.86);font-weight:600;margin:0 0 5px;}
+.biggerTitle a.moduleItemTitle, .biggerTitle h4 {font-size:16px;color:rgba(98, 185, 176, 0.86);font-weight:600;margin:0 0 5px;}
 
 /* mod_k2_content
 ----------------------------------------------------------------------------- */
@@ -1330,14 +1337,14 @@ h3.moduleTitle {font-size:28px;font-weight:700;margin:0 0 10px;}
 /* --- Archives --- */
 .modArchivesBlock {}
     .modArchivesBlock ul {padding:0 10px;}
-    .modArchivesBlock ul li { }
+    .modArchivesBlock ul li {padding:5px 0;}
     .modArchivesBlock ul li i {padding-right:8px;}
     .modArchivesBlock ul li:last-child { }
     .modArchivesBlock ul li a {text-decoration:none;}
     .modArchivesBlock ul li a:hover { }
     .modArchivesBlock ul li a span.catTitle {display:inline-block;padding:0 4px;}
     .modArchivesBlock ul li a:hover span.catTitle {text-decoration:underline;}
-    .modArchivesBlock ul li a:hover span.catCounter {text-decoration:none;}
+    .modArchivesBlock ul li a:hover span.catCounter {text-decoration:none;}        
 
 /* --- Authors --- */
 .modAuthorsListBlock { }
@@ -1353,7 +1360,8 @@ h3.moduleTitle {font-size:28px;font-weight:700;margin:0 0 10px;}
     .modAuthorsListBlock ul li .abAuthorName span {display:inline-block;}
     
     .modAuthorsListBlock ul li .abAuthorLatestItem {clear:both;padding:0 0 0 12px;}
-    .modAuthorsListBlock ul li .abAuthorLatestItem a {padding-left:10px;}
+    .modAuthorsListBlock ul li .abAuthorLatestItem i.icon-angle-right {float:left;}
+    .modAuthorsListBlock ul li .abAuthorLatestItem a {padding-left:10px;display:block;}
     .modAuthorsListBlock ul li .abAuthorLatestItem a:hover {text-decoration:none;}
     .modAuthorsListBlock ul li .abAuthorLatestItem a:hover span {text-decoration:underline;}
     .modAuthorsListBlock ul li .abAuthorLatestItem span.abAuthorCommentsCount {margin-left:8px;color:#7f8c8c;}
@@ -1405,12 +1413,13 @@ table.calendar tr td.calendarTodayLinked a:hover {}
     .modCategoriesListBlock ul li:before {content:"\f0a9";padding-right:8px;}
     .modCategoriesListBlock ul li a {}
     .modCategoriesListBlock ul li a:hover {text-decoration:none;}
-    .modCategoriesListBlock ul li a span.catTitle {display:inline-block;padding-right:4px;text-transform:uppercase;}
+    .modCategoriesListBlock ul li a span.catTitle, 
+    .modCategoriesListBlock ul li h4 {display:inline-block;padding-right:4px;text-transform:uppercase;}
     .modCategoriesListBlock ul li a span.catCounter {}
     .modCategoriesListBlock ul li a:hover span.catTitle {text-decoration:underline;}
     .modCategoriesListBlock ul li a:hover span.catCounter {text-decoration:none;}
     .modCategoriesListBlock ul li.activeCategory {}
-    .modCategoriesListBlock ul li.activeCategory a {font-weight:700;}
+    .modCategoriesListBlock ul li.activeCategory a {font-weight:700;}   
        
 /* --- Search Box --- */
 .modSearchBlock {position:relative;}
@@ -1532,7 +1541,7 @@ table.calendar tr td.calendarTodayLinked a:hover {}
     /* Third Level */    
     .mainNavigation ul ul ul, 
     .mainNavigation ul li:hover ul ul {display:none;top:0;margin-top:-5px;}
-    .mainNavigation ul ul li:hover ul {display:block;left:248px;}      
+    .mainNavigation ul ul li:hover ul {display:block;left:246px;}      
     .mainNavigation ul ul ul:after {content:" "; height:0; width:0; position:absolute; pointer-events:none; } 
     .mainNavigation ul ul ul:after {border-color:; border-bottom-color:; border-width:0; left:0; margin-left:0;}    
     .mainNavigation ul ul ul li a,
@@ -1698,7 +1707,6 @@ table.calendar tr td.calendarTodayLinked a:hover {}
 .modSliderBlock .nuSliderPagination ul li .next a.nextButton:before {font-size:26px;display:block;padding:2px 14px 1px;}
 .modSliderBlock .nuSliderPagination ul li .prev a.previousButton:before {content:"\f104";}
 .modSliderBlock .nuSliderPagination ul li .next a.nextButton:before {content:"\f105";}
-
            
 /* K2 Content 3 Images (ImageOnly) */  
 .imagePreviews {text-align:center;margin-bottom:6%;}  
@@ -1778,8 +1786,9 @@ table.calendar tr td.calendarTodayLinked a:hover {}
 .rightBar .latestBlogPosts ul li:before {}
 .rightBar .latestBlogPosts ul li .moduleItemBody {}
 .rightBar .latestBlogPosts a.moduleItemImage {margin:0 20px 6px 0;}
-.rightBar .latestBlogPosts a.moduleItemTitle {color:#e2534b;display:block;margin:0 0 5px;}
-.rightBar .latestBlogPosts.biggerTitle a.moduleItemTitle {color:rgba(98, 185, 176, 0.86);}
+.rightBar .latestBlogPosts a.moduleItemTitle, 
+.rightBar .latestBlogPosts.onlyTitle a.mod-articles-category-title {color:#e2534b;display:block;margin:0 0 5px;}
+.rightBar .latestBlogPosts.biggerTitle a.moduleItemTitle, .biggerTitle h4 a {color:rgba(98, 185, 176, 0.86);}
 .rightBar .latestBlogPosts span.moduleItemDateCreated {}
 .rightBar .latestBlogPosts .moduleItemIntrotext {padding:5px 0 10px;}
 .rightBar .latestBlogPosts a.moduleItemReadMore {width:auto;float:right;margin:8px 0 0;}
@@ -1788,7 +1797,10 @@ table.calendar tr td.calendarTodayLinked a:hover {}
 /* Latest Blog Post () */
 .rightBar .latestBlogPosts.onlyTitle ul li {padding-left:14px;border-bottom:1px solid #e5e6e6;position:relative;}
 .rightBar .latestBlogPosts.onlyTitle ul li:before {content:"\f105";position:absolute;}
-.rightBar .latestBlogPosts.onlyTitle ul li .moduleItemBody {padding-left:14px;}
+.rightBar .latestBlogPosts.onlyTitle ul li .moduleItemBody,  
+/* for Joomla! category list module */
+.rightBar .latestBlogPosts.onlyTitle a.mod-articles-category-title,
+.rightBar .latestBlogPosts.onlyTitle span.mod-articles-category-date {padding-left:14px;}
 
 /* K2 Tools (Categories Submenu Menu) */
 .categoriesSubmenu {}
@@ -2162,11 +2174,11 @@ p.nuWarnings,
 ------------------------------------------------------ */
 #system-message { }
 	#system-message ul {margin-bottom:30px;padding:10px 15px;border-radius:6px;border-bottom:3px solid rgba(0, 0, 0, 0.1);}
-	#system-message > dt {margin:0 0 6px;font-size:18px;font-weight:600;color:#777;color:rgba(0,0,0,0.5);}	
+	#system-message > dt {display:none;}	
 	#system-message > dd {margin:0;}
-	#system-message > dd > ul {}
-	
-	#system-message > dd > ul > li {margin:0;}
+	#system-message > dd > ul {list-style:none;margin-bottom:30px;padding:10px 15px;border-radius:6px;border-bottom:3px solid rgba(0, 0, 0, 0.1);}	
+	#system-message > dd > ul > li {}
+	#system-message > dd > ul > li:before {color:rgba(0,0,0,0.5);font-family:"nufontawesome";font-size:22px;display:inline-block;padding-right:8px;vertical-align:middle;}
 	
 	/* System Standard Messages */
 	#system-message > .message > ul {background:#ececec; color:#7f8c8c;}	
@@ -2178,6 +2190,13 @@ p.nuWarnings,
 	#system-message > .notice > ul {background:#f8f8f8; color:#7f8c8c;}	
 	/* System Success Messages */
 	#system-message > .success > ul {background:#00a550; color:#fff;}
+
+    #system-message > .notice > ul > li:before,
+    #system-message > .message > ul > li:before {content:"\f05a";padding-right:10px;}
+	#system-message > .error > ul > li:before {content:"\f057";padding-right:10px;}    
+    #system-message > .warning > ul > li:before {content:"\f06a";padding-right:10px;}
+    #system-message > .success > ul > li:before {content:"\f058";padding-right:10px;}      
+	
 
 /* Joomla 3.0 messages */
 .alert { margin-bottom:30px; padding:10px 15px; border-radius:6px; border-bottom:3px solid rgba(0, 0, 0, 0.1);}
