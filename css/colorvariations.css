@@ -1,5 +1,5 @@
 /**
- * @version     1.0.0
+ * @version     1.0.1
  * @package     nuModusVersus
  * @author      Nuevvo - http://nuevvo.com
  * @copyright   Copyright (c) 2010 - 2013 Nuevvo Webware Ltd. All rights reserved.
