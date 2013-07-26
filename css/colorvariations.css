@@ -6,15 +6,6 @@
  * @license     http://nuevvo.com/license
  */
 
-/*
-Note to developers:
-Any CSS value that starts and finishes with an underscore (_) is a value that is replaced dynamically when your site loads for the first time. We highly recommend NOT editing this CSS file to make "color variation" specific changes, as your changes may be lost when an update for this template is released. Instead, use the custom.css file to apply any such changes, with actual CSS values and not the _SOMETHING_ variables.
-
-.variationText1 {color:_COLOR1_;}
-.variationText2 {color:_COLOR2_;}
-.variationImage {background-image:url(_TEMPLATEPATH_/images/variations/_IMAGEFOLDER_/image.png);}
-*/
-
 .skills ul li span {background-image:url(_TEMPLATEPATH_/images/variations/_IMAGEFOLDER_/skillsSprite.png);}
 
 /* Elements for rgba COLOR1 */
