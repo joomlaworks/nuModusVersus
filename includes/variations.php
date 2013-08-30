@@ -1,6 +1,6 @@
 <?php
 /**
- * @version     1.0.1
+ * @version     1.0.2
  * @package     nuModusVersus
  * @author      Nuevvo - http://nuevvo.com
  * @copyright   Copyright (c) 2010 - 2013 Nuevvo Webware Ltd. All rights reserved.
@@ -9,6 +9,22 @@
 
 // no direct access
 defined('_JEXEC') or die('Restricted access');
+
+
+/* -------------------- Load additional Google Web Fonts per language [CAN EDIT] -------------------- */
+/*
+switch($language->getTag()){
+  case 'el-GR';
+    $document->addStyleSheet('//fonts.googleapis.com/css?family=X|Y|Z');
+    break;
+  case 'vi-VN';
+    $document->addStyleSheet('//fonts.googleapis.com/css?family=X|Y|Z');
+    break;
+  case 'km-KH';
+    $document->addStyleSheet('//fonts.googleapis.com/css?family=X|Y|Z');
+    break;
+}
+*/
 
 /* -------------------- Content Hightlights [CAN EDIT] -------------------- */
 if($this->params->get('contentHighlights')){
@@ -102,6 +118,17 @@ if($this->params->get('categoryColors')){
 	}
 }
 
+
+/* -------------------- Sub-templates [CAN EDIT] -------------------- */
+/* component.php */
+if($tmpl=='component'){
+  // do stuff here for the component sub-template
+}
+
+/* raw.php */
+if($tmpl=='raw'){
+  // do stuff here for the raw sub-template
+}
 
 
 /* -------------------- Custom Template Logic [CAN EDIT] -------------------- */

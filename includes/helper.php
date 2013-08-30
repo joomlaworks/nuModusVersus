@@ -1,6 +1,6 @@
 <?php
 /**
- * @version     1.0.1
+ * @version     1.0.2
  * @package     nuModusVersus
  * @author      Nuevvo - http://nuevvo.com
  * @copyright   Copyright (c) 2010 - 2013 Nuevvo Webware Ltd. All rights reserved.
@@ -179,7 +179,7 @@ $nuHeadTop = ($this->params->get('nutpHeadTop')) ? $this->params->get('nutpHeadT
 if(version_compare(JVERSION, '3.0', 'ge')===false) $nuHeadTop .= $topMetaTags;
 
 $nuHeadBottom = $this->params->get('nutpHeadBottom');
-$nuHeadBottom .= ($ogMetaTags) ? $ogMetaTags : '';
+$nuHeadBottom .= (isset($ogMetaTags)) ? $ogMetaTags : '';
 $nuHeadBottom .= '
   <!--[if lt IE 9]>
   <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.6.2/html5shiv.js"></script>
@@ -247,35 +247,30 @@ if(!in_array($tmpl, array('error','raw'))){
 // Google Web Fonts
 $nutpGoogleWebFonts = $this->params->get('nutpGoogleWebFonts');
 
-if(is_string($nutpGoogleWebFonts))
-{
+if(is_string($nutpGoogleWebFonts)){
   $nutpGoogleWebFonts = new stdClass;
 }
 
-// No value saved in the database. Read the XML to get the defaults.
-if($nutpGoogleWebFonts && !isset($nutpGoogleWebFonts->fonts))
-{
+// No value saved in the database, so read the XML to get the defaults
+if($nutpGoogleWebFonts && !isset($nutpGoogleWebFonts->fonts)){
   jimport('joomla.form.form');
-  JForm::addFormPath(JPATH_SITE.'/templates/'.$app->getTemplate());
-  $form = JForm::getInstance('template.settings', 'templateDetails', array('control' => 'jform'), false, '/extension/config');
-  $defaultFonts = $form->getFieldAttribute('nutpGoogleWebFonts','default', null, 'params');
-  if($defaultFonts)
-  {
+  //JForm::addFormPath(JPATH_SITE.'/templates/'.$app->getTemplate()); // $this->template ?
+  //$form = JForm::getInstance('template.settings', 'templateDetails', array('control' => 'jform'), false, '/extension/config');
+  $form = JForm::getInstance('template.settings', JPATH_SITE.'/templates/'.$app->getTemplate().'/templateDetails.xml', array('control' => 'jform'), false, '/extension/config');
+  $defaultFonts = $form->getFieldAttribute('nutpGoogleWebFonts', 'default', null, 'params');
+  if($defaultFonts){
     $nutpGoogleWebFonts->fonts = explode(',', $defaultFonts);
   }
 
-  // If fonts URLs are not available read them from the file.
-  if(!isset($nutpGoogleWebFonts->urls))
-  {
+  // If font URLs are not available read them from file
+  if(!isset($nutpGoogleWebFonts->urls)){
     $nutpGoogleWebFonts->urls = array();
     $field = $form->getField('nutpGoogleWebFonts','params');
     $fontsData = json_decode(JFile::read($field->getFile('https://cdn.nuevvo.net/gwf/gwf.php')));
-    foreach($fontsData as $entry)
-    {
+    foreach($fontsData as $entry){
       $nutpGoogleWebFonts->urls[$entry->family] = $entry->url;
     }
   }
-
 }
 
 // Build the font URL

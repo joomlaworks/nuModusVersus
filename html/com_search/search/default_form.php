@@ -1,6 +1,6 @@
 <?php
 /**
- * @version     1.0.1
+ * @version     1.0.2
  * @package     BusinessOne
  * @author      Nuevvo - http://nuevvo.com
  * @copyright   Copyright (c) 2010 - 2013 Nuevvo Webware Ltd. All rights reserved.
