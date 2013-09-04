@@ -61,7 +61,7 @@ require_once(dirname(__FILE__).'/includes/helper.php');
       </div>
     <?php endif; ?>
     
-    <?php if($this->countModules('nuModusVersus_Below_Slideshow') || ($isFrontpage && $this->params->get('nuContentHighlights'))): ?>
+    <?php if($this->countModules('nuModusVersus_Below_Slideshow') || ($isFrontpage && $this->params->get('contentHighlights'))): ?>
       <div class="belowSlideshow">
         <div class="row">          
           <jdoc:include type="modules" name="nuModusVersus_Below_Slideshow" style="nu" />         
