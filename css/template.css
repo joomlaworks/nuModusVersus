@@ -2032,10 +2032,12 @@ body.edit .calendar tfoot .hilite { background: #666; border: 1px solid #f40; pa
 body.edit .calendar tfoot .active { background: #999; padding: 2px 0px 0px 2px; }
 
 /* (tooltip)(plugin) */
-div.tip { float:left; padding:8px; max-width:200px; z-index:13000; background:#e2534b !important; border:0; z-index:9999; border-radius:6px;}
+div.tip, div.tooltip { float:left; padding:8px; max-width:200px; z-index:13000; background:#e2534b !important; border:0; z-index:9999; border-radius:6px;}
 div.tip-title { padding:0; margin:0; font-size:14px; font-weight:700; background:#e2534b; color:#fff; margin:0 0 5px; }
 div.tip-text { margin:0; padding:8px 12px; background: #fff; border-radius:3px;}
-
+div.tooltip {position:absolute !important;}
+div.tooltip-inner {margin:0;padding:8px 12px;background:#fff;border-radius:3px;}
+div.tooltip-inner strong {padding:0;display:inline-block;font-size:14px;font-weight:700;margin:0 0 5px;}
 
 /* Typography (see the demo for more info)
 ------------------------------------------------------ */
