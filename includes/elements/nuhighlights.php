@@ -29,8 +29,8 @@ class JFormFieldNuHighlights extends JFormField
 		$options[] = JHTML::_('select.option', 'zocial', 'Zocial');
 		$fontsSelect = JHTML::_('select.genericlist', $options, $this->name.'[font]', '', 'value', 'text', @$this->value['font'], 'nuHighlightsFont');
 
-		$document = JFactory::getDocument();
-		$document->addScript('//ajax.googleapis.com/ajax/libs/webfont/1/webfont.js');
+		//$document = JFactory::getDocument();
+		//$document->addScript('//ajax.googleapis.com/ajax/libs/webfont/1/webfont.js');
 
 		require_once dirname(__FILE__).'/nuimage.php';
 
