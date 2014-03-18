@@ -134,7 +134,6 @@ class JFormFieldNuGwf extends JFormField
 		{
 			$options[] = JHTML::_('select.option', $font->family, $font->family);
 			$name = str_replace('[]', '[urls]['.$font->family.']', $this->name);
-			$inputs[] = '<input type="hidden" name="'.$name.'" value="'.$font->url.'" />';
 		}
 		$fieldname = str_replace('[]', '[fonts][]', $this->name);
 		$value = isset($this->value['fonts']) ? $this->value['fonts'] : $defaultValue;
