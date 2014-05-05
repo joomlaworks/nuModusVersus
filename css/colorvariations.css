@@ -1,5 +1,5 @@
 /**
- * @version     1.0.2
+ * @version     1.0.5
  * @package     nuModusVersus
  * @author      Nuevvo - http://nuevvo.com
  * @copyright   Copyright (c) 2010 - 2013 Nuevvo Webware Ltd. All rights reserved.
@@ -173,7 +173,7 @@ div.tip, div.tip-title {background:_COLOR2_ !important;}
 .isIE8 .block03, .isIE8 .btn03, .isIE8 .btn04:hover,
 .isIE8 ul.sigProClassic li.sigProThumb a.sigProLink:hover span.sigProPseudoCaption,
 .isIE8 span.itemAddLink, .isIE8 span.list-edit, .isIE8 span.itemEditLink,
-.isIE8 #slideshow .nuSliderPagination ul li .prev a.previousButton:hover, .isIE8 #slideshow .nuSliderPagination ul li .next a.nextButton:hover {background:COLOR1;}
+.isIE8 #slideshow .nuSliderPagination ul li .prev a.previousButton:hover, .isIE8 #slideshow .nuSliderPagination ul li .next a.nextButton:hover {background:_COLOR1_;}
     
 .isIE8 header, .isIE8 .bottomArea {background-color:COLOR1;}
 
@@ -190,9 +190,9 @@ div.tip, div.tip-title {background:_COLOR2_ !important;}
 .isIE8 .modCCBlock ul li span.tcUsername,
 .isIE8 .modAuthorsListBlock ul li a.abAuthorName,
 .isIE8 .modUsersBlock ul li .ubUserName,
-.isIE8 .rightBar .latestBlogPosts.biggerTitle a.moduleItemTitle, .biggerTitle h4 a {color:COLOR1;}
+.isIE8 .rightBar .latestBlogPosts.biggerTitle a.moduleItemTitle, .biggerTitle h4 a {color:_COLOR1_;}
 
-.isIE8 .bubble02 .nuBubbleContent:after {border-top-color:COLOR1;}
+.isIE8 .bubble02 .nuBubbleContent:after {border-top-color:_COLOR1_;}
 
 
 /* Elements for rgba COLOR2 */
@@ -204,11 +204,11 @@ div.tip, div.tip-title {background:_COLOR2_ !important;}
 .isIE8 .block04, .isIE8 .btn04, .isIE8 .btn01:hover, .isIE8 .btn02:hover, .isIE8 .btn03:hover,
 .isIE8 span.itemAddLink:hover, .isIE8 span.list-edit:hover, .isIE8 span.itemEditLink:hover,
 .isIE8 #slideshow .nuSliderPagination ul li .prev a.previousButton, .isIE8 #slideshow .nuSliderPagination ul li .next a.nextButton,
-.isIE8 .nuSliderPagination ul li .prev a.previousButton:hover, .isIE8 .nuSliderPagination ul li .next a.nextButton:hover {background:COLOR2;}
+.isIE8 .nuSliderPagination ul li .prev a.previousButton:hover, .isIE8 .nuSliderPagination ul li .next a.nextButton:hover {background:_COLOR2_;}
 
 .isIE8 .mainNavigation ul ul:after,
-.isIE8 .searchMod .modSearchBlock:after {border-bottom-color:COLOR2;}
-.isIE8 .bubble03 .nuBubbleContent:after {border-top-color:COLOR2;}
+.isIE8 .searchMod .modSearchBlock:after {border-bottom-color:_COLOR2_;}
+.isIE8 .bubble03 .nuBubbleContent:after {border-top-color:_COLOR2_;}
 
 @media screen and (max-width: 600px) { 
  
