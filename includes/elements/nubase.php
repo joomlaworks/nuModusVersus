@@ -23,8 +23,9 @@ class JFormFieldNuBase extends JFormField {
 		} else {
 			$document->addScript('//ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js');
 		}
+		$document->addScript('//ajax.googleapis.com/ajax/libs/webfont/1/webfont.js');
 		$document->addScript(JURI::root(true).'/templates/'.$template.'/includes/elements/assets/js/behaviour.js');
-		$document->addScriptDeclaration('
+	/*	$document->addScriptDeclaration('
 			WebFontConfig = {
 				custom: {
 					families: [\'entypoftp\'],
@@ -45,6 +46,7 @@ class JFormFieldNuBase extends JFormField {
 			<link rel="stylesheet" href="//cdn.nuevvo.net/webfonts/entypoftp/css/fontello-ie7.css">
 			<![endif]-->
 		');
+		*/
 		ob_start();
 		include dirname(__FILE__).'/tmpl/settings.php';
 		$contents = ob_get_clean();

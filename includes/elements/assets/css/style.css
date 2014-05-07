@@ -10,6 +10,81 @@
 ----------------------------------------------------- */
 .clr {clear:both;}
 
+@font-face {
+  font-family: 'entypoftp';
+  src: url('../font/entypoftp.eot?7184180');
+  src: url('../font/entypoftp.eot?7184180#iefix') format('embedded-opentype'),
+       url('../font/entypoftp.woff?7184180') format('woff'),
+       url('../font/entypoftp.ttf?7184180') format('truetype'),
+       url('../font/entypoftp.svg?7184180#entypoftp') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+
+/* Chrome hack: SVG is rendered more smooth in Windozze. 100% magic, uncomment if you need it. */
+/* Note, that will break hinting! In other OS-es font will be not as sharp as it could be */
+/*
+@media screen and (-webkit-min-device-pixel-ratio:0) {
+  @font-face {
+    font-family: 'fontello';
+    src: url('../font/entypoftp.svg?7184180#entypoftp') format('svg');
+  }
+}
+*/
+
+[class^="icon-enftp-"]:before, [class*=" icon-enftp-"]:before {
+	font-family: "entypoftp";
+	font-style: normal;
+	font-weight: normal;
+	speak: none;
+
+	display: inline-block;
+	text-decoration: inherit;
+	width: 1em;
+	margin-right: .2em;
+	text-align: center;
+	/* opacity: .8; */
+
+	/* For safety - reset parent styles, that can break glyph codes*/
+	font-variant: normal;
+	text-transform: none;
+
+	/* fix buttons height, for twitter bootstrap */
+	line-height: 1em;
+
+	/* Animation center compensation - margins should be symmetric */
+	/* remove if not needed */
+	margin-left: .2em;
+
+	/* you can be more comfortable with increased icons size */
+	/* font-size: 120%; */
+
+	/* Uncomment for 3D effect */
+	/* text-shadow: 1px 1px 1px rgba(127, 127, 127, 0.3); */
+}
+
+.icon-enftp-tools:before { content: '\e807'; } /* 'î ‡' */
+.icon-enftp-cog:before { content: '\e80c'; } /* 'î Œ' */
+.icon-enftp-check:before { content: '\e80b'; } /* 'î ‹' */
+.icon-enftp-cancel:before { content: '\e80a'; } /* 'î Š' */
+.icon-enftp-help-circled:before { content: '\e806'; } /* 'î †' */
+.icon-enftp-info-circled:before { content: '\e805'; } /* 'î …' */
+.icon-enftp-eye:before { content: '\e809'; } /* 'î ‰' */
+.icon-enftp-tag:before { content: '\e808'; } /* 'î ˆ' */
+.icon-enftp-code:before { content: '\e802'; } /* 'î ‚' */
+.icon-enftp-brush:before { content: '\e813'; } /* 'î “' */
+.icon-enftp-picture:before { content: '\e80f'; } /* 'î ' */
+.icon-enftp-video:before { content: '\e810'; } /* 'î ' */
+.icon-enftp-user:before { content: '\e811'; } /* 'î ‘' */
+.icon-enftp-alert:before { content: '\e800'; } /* 'î €' */
+.icon-enftp-briefcase:before { content: '\e801'; } /* 'î ' */
+.icon-enftp-clipboard:before { content: '\e803'; } /* 'î ƒ' */
+.icon-enftp-megaphone:before { content: '\e804'; } /* 'î „' */
+.icon-enftp-camera:before { content: '\e80e'; } /* 'î Ž' */
+.icon-enftp-search:before { content: '\e812'; } /* 'î ’' */
+.icon-enftp-lock:before { content: '\e80d'; } /* 'î ' */
+.clr {clear:both;}
+
 /* Hide icon fonts while they load */
 .wf-loading [class^="icon-"], [class*=" icon-"] {visibility:hidden;}
 .wf-active [class^="icon-"], [class*=" icon-"] {visibility:visible;}
@@ -333,3 +408,5 @@ div#nuParamsPanes div.nuParamsPane {display:none;min-height:150px;padding:0 20px
 .minicolors-theme-bootstrap.minicolors-position-left .minicolors-panel {left:-63px;}
 /* Don't forget to adjust the left position in case the opacity slider is visible! */
 .minicolors-theme-bootstrap.minicolors-position-left.minicolors-with-opacity .minicolors-panel {left:-84px;}
+
+

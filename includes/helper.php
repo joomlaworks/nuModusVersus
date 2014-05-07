@@ -255,26 +255,6 @@ if(is_string($nutpGoogleWebFonts)){
 	$nutpGoogleWebFonts = new stdClass;
 }
 
-$nutpGoogleWebFonts->urls = array();
-$fontsData = array();
-// Read fonts from cache. If cache file is not available download from CDN and create it.
-if(JFile::exists(JPATH_SITE.'/templates/'.$app->getTemplate().'/includes/elements/cache/gwf.json'))
-{
-	$fontsData = json_decode(JFile::read(JPATH_SITE.'/templates/'.$app->getTemplate().'/includes/elements/cache/gwf.json'));
-}
-else
-{
-	$form = JForm::getInstance('template.settings', JPATH_SITE.'/templates/'.$app->getTemplate().'/templateDetails.xml', array('control' => 'jform'), false, '/extension/config');
-	$field = $form->getField('nutpGoogleWebFonts','params');
-	$fontsData = json_decode(JFile::read($field->getFile('https://cdn.nuevvo.net/gwf/gwf.php')));
-}
-
-// Build the URLs array
-foreach($fontsData as $entry)
-{
-	$nutpGoogleWebFonts->urls[$entry->family] = $entry->url;
-}
-
 // No value saved in the database, so read the XML to get the defaults
 if($nutpGoogleWebFonts && !isset($nutpGoogleWebFonts->fonts)){
 	jimport('joomla.form.form');
@@ -285,6 +265,26 @@ if($nutpGoogleWebFonts && !isset($nutpGoogleWebFonts->fonts)){
 	if($defaultFonts){
 		$nutpGoogleWebFonts->fonts = explode(',', $defaultFonts);
 	}
+	
+	$nutpGoogleWebFonts->urls = array();
+	$fontsData = array();
+	// Read fonts from cache. If cache file is not available download from CDN and create it.
+	if(JFile::exists(JPATH_SITE.'/templates/'.$app->getTemplate().'/includes/elements/cache/gwf.json'))
+	{
+		$fontsData = json_decode(JFile::exists(JPATH_SITE.'/templates/'.$app->getTemplate().'/includes/elements/cache/gwf.json'));
+	}
+	else
+	{
+		$field = $form->getField('nutpGoogleWebFonts','params');
+		$fontsData = json_decode(JFile::read($field->getFile('https://cdn.nuevvo.net/gwf/gwf.php')));
+	}
+
+	// Build the URLs array
+	foreach($fontsData as $entry)
+	{
+		$nutpGoogleWebFonts->urls[$entry->family] = $entry->url;
+	}
+	
 }
 
 // Build the font URL
