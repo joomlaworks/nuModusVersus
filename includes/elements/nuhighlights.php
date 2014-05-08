@@ -1,9 +1,9 @@
 <?php
 /**
- * @version			1.0.1 (July 19th, 2013)
+ * @version			1.0.1 (May 8th, 2014)
  * @package			Akhtarma
  * @author			Nuevvo - http://nuevvo.com
- * @copyright		Copyright (c) 2010 - 2013 Nuevvo Webware Ltd. All rights reserved.
+ * @copyright		Copyright (c) 2010 - 2015 Nuevvo Webware Ltd. All rights reserved.
  * @license			http://nuevvo.com/license
  */
 
@@ -28,9 +28,6 @@ class JFormFieldNuHighlights extends JFormField
 		$options[] = JHTML::_('select.option', 'fontawesome', 'Font Awesome');
 		$options[] = JHTML::_('select.option', 'zocial', 'Zocial');
 		$fontsSelect = JHTML::_('select.genericlist', $options, $this->name.'[font]', '', 'value', 'text', @$this->value['font'], 'nuHighlightsFont');
-
-		//$document = JFactory::getDocument();
-		//$document->addScript('//ajax.googleapis.com/ajax/libs/webfont/1/webfont.js');
 
 		require_once dirname(__FILE__).'/nuimage.php';
 
@@ -70,6 +67,7 @@ class JFormFieldNuHighlights extends JFormField
 		{
 			foreach ($this->value['entries'] as $key => $highlight)
 			{
+				$highlight = (object)$highlight;
 				$output .= '
 				<div class="nuHighlight">
 					<div class="nuHighlightInner">
