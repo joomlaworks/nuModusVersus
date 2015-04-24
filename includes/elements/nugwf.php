@@ -124,7 +124,7 @@ class JFormFieldNuGwf extends JFormField
 			$this->value = null;
 		}
 
-		$gwf = $this->getFile('https://cdn.nuevvo.net/gwf/gwf.php');
+		$gwf = $this->getFile('https://cdn.joomlaworks.org/gwf/gwf.php');
 		$gwfJSON = json_decode(JFile::read($gwf));
 
 		$options = array();
