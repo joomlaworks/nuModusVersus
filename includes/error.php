@@ -56,7 +56,7 @@ $url = $uri->toString();
 
 
 /* -------------------- Template Constants -------------------- */
-if(!defined('NU_CDN')) 					define('NU_CDN', 'http://cdn.nuevvo.net');
+if(!defined('NU_CDN')) 					define('NU_CDN', 'https://cdn.joomlaworks.org');
 
 
 

@@ -12,11 +12,11 @@
 
 @font-face {
   font-family: 'entypoftp';
-  src: url('http://cdn.nuevvo.net/webfonts/entypoftp/font/entypoftp.eot?7184180');
-  src: url('http://cdn.nuevvo.net/webfonts/entypoftp/font/entypoftp.eot?7184180#iefix') format('embedded-opentype'),
-       url('http://cdn.nuevvo.net/webfonts/entypoftp/font/entypoftp.woff?7184180') format('woff'),
-       url('http://cdn.nuevvo.net/webfonts/entypoftp/font/entypoftp.ttf?7184180') format('truetype'),
-       url('http://cdn.nuevvo.net/webfonts/entypoftp/font/entypoftp.svg?7184180#entypoftp') format('svg');
+  src: url('https://cdn.joomlaworks.org/webfonts/entypoftp/font/entypoftp.eot?7184180');
+  src: url('https://cdn.joomlaworks.org/webfonts/entypoftp/font/entypoftp.eot?7184180#iefix') format('embedded-opentype'),
+       url('https://cdn.joomlaworks.org/webfonts/entypoftp/font/entypoftp.woff?7184180') format('woff'),
+       url('https://cdn.joomlaworks.org/webfonts/entypoftp/font/entypoftp.ttf?7184180') format('truetype'),
+       url('https://cdn.joomlaworks.org/webfonts/entypoftp/font/entypoftp.svg?7184180#entypoftp') format('svg');
   font-weight: normal;
   font-style: normal;
 }

@@ -75,7 +75,7 @@ function nuLoadFont(font) {
 		WebFont.load({
 			custom : {
 				families : [font],
-				urls : ['http://cdn.nuevvo.net/webfonts/' + font + '/css/fontello.css']
+				urls : ['https://cdn.joomlaworks.org/webfonts/' + font + '/css/fontello.css']
 			}
 		});
 	}
@@ -85,7 +85,7 @@ function nuLoadFont(font) {
 nuFontDefinitions = Array;
 function nuLoadFontDefinitions(font) {
 	if ( typeof (nuFontDefinitions[font]) == 'undefined') {
-		$nu.getScript('//cdn.nuevvo.net/webfonts/' + font + '/embed.js', function(data, textStatus, jqxhr) {
+		$nu.getScript('//cdn.joomlaworks.org/webfonts/' + font + '/embed.js', function(data, textStatus, jqxhr) {
 			var tmp = $nu('<div></div>');
 			$nu.each(fontDefinitions, function(index, className) {
 				var i = jQuery('<i>').addClass(className);

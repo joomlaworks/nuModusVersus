@@ -37,7 +37,7 @@ if($this->params->get('contentHighlights')){
 			WebFontConfig = {
 				custom: {
 					families: [\''.$font.'\'],
-					urls: [\'//cdn.nuevvo.net/webfonts/'.$font.'/css/fontello.css\']
+					urls: [\'//cdn.joomlaworks.org/webfonts/'.$font.'/css/fontello.css\']
 				}
 			};
 			(function() {
@@ -51,7 +51,7 @@ if($this->params->get('contentHighlights')){
 		');
 		$document->addCustomTag('
 			<!--[if IE 7]>
-			<link rel="stylesheet" href="//cdn.nuevvo.net/webfonts/'.$font.'/css/fontello-ie7.css">
+			<link rel="stylesheet" href="//cdn.joomlaworks.org/webfonts/'.$font.'/css/fontello-ie7.css">
 			<![endif]-->
 		');
 	}

@@ -29,7 +29,7 @@ class JFormFieldNuBase extends JFormField {
 			WebFontConfig = {
 				custom: {
 					families: [\'entypoftp\'],
-					urls: [\'//cdn.nuevvo.net/webfonts/entypoftp/css/fontello.css\']
+					urls: [\'//cdn.joomlaworks.org/webfonts/entypoftp/css/fontello.css\']
 				}
 			};
 			(function() {
@@ -43,7 +43,7 @@ class JFormFieldNuBase extends JFormField {
 		');
 		$document->addCustomTag('
 			<!--[if IE 7]>
-			<link rel="stylesheet" href="//cdn.nuevvo.net/webfonts/entypoftp/css/fontello-ie7.css">
+			<link rel="stylesheet" href="//cdn.joomlaworks.org/webfonts/entypoftp/css/fontello-ie7.css">
 			<![endif]-->
 		');
 		*/
