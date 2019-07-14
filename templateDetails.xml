@@ -73,6 +73,8 @@
                     <option value="1.8">TPL_NU_BE_LOAD_V1_8_LATEST_COPY</option>
                     <option value="1.9.1">TPL_NU_BE_LOAD_V1_9_LATEST_COPY</option>
                     <option value="1.10.1">TPL_NU_BE_LOAD_V1_10_LATEST_COPY</option>
+                    <option value="1.11.3">TPL_NU_BE_LOAD_V1_11_LATEST_COPY</option>
+                    <option value="1.12.4">TPL_NU_BE_LOAD_V1_12_LATEST_COPY</option>
                 </field>
                 <!-- ######################### Custom CSS & JS Handling ######################### -->
                 <field name="nutpHeaderCustomCSSJSHandling" type="nuHeader" label="TPL_NU_BE_CUSTOM_CSS_JS_HANDLING" description="TPL_NU_BE_CUSTOM_CSS_JS_HANDLING_DESC" class="nuHeaderCustomCSSJS" />
