@@ -26,16 +26,14 @@ defined('_JEXEC') or die('Restricted access');
 
 function modChrome_nu($module, &$params, &$attribs)
 {
-	if (!empty($module->content)): ?>
-		<div class="module <?php echo $params->get('moduleclass_sfx'); ?>">
-			<?php if ($module->showtitle): ?>
-				<h3 class="moduleTitle"><?php echo $module->title; ?></h3>
-			<?php endif; ?>
-      <div class="moduleContent">
-	     <?php echo $module->content; ?>
-      </div>
-		</div>
-	<?php endif;
+    if (!empty($module->content)): ?>
+        <div class="module <?php echo $params->get('moduleclass_sfx'); ?>">
+            <?php if ($module->showtitle): ?>
+            <h3 class="moduleTitle"><?php echo $module->title; ?></h3>
+            <?php endif; ?>
+            <div class="moduleContent">
+                <?php echo $module->content; ?>
+            </div>
+        </div>
+    <?php endif;
 }
-
-?>

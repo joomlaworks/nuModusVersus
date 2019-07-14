@@ -12,31 +12,30 @@ defined('_JEXEC') or die('Restricted access');
 
 class JFormFieldNuHighlights extends JFormField
 {
+    public $type = 'NuHighlights';
 
-	var $type = 'NuHighlights';
+    public function getInput()
+    {
+        jimport('joomla.filesystem.folder');
 
-	function getInput()
-	{
-		jimport('joomla.filesystem.folder');
+        $template = $this->form->getValue('template');
 
-		$template = $this->form->getValue('template');
+        // Fonts
+        $options = array();
+        $options[] = JHTML::_('select.option', '', JText::_('TPL_NU_BE_FIELDS_NONE'));
+        $options[] = JHTML::_('select.option', 'entypo', 'Entypo');
+        $options[] = JHTML::_('select.option', 'fontawesome', 'Font Awesome');
+        $options[] = JHTML::_('select.option', 'zocial', 'Zocial');
+        $fontsSelect = JHTML::_('select.genericlist', $options, $this->name.'[font]', '', 'value', 'text', @$this->value['font'], 'nuHighlightsFont');
 
-		// Fonts
-		$options = array();
-		$options[] = JHTML::_('select.option', '', JText::_('TPL_NU_BE_FIELDS_NONE'));
-		$options[] = JHTML::_('select.option', 'entypo', 'Entypo');
-		$options[] = JHTML::_('select.option', 'fontawesome', 'Font Awesome');
-		$options[] = JHTML::_('select.option', 'zocial', 'Zocial');
-		$fontsSelect = JHTML::_('select.genericlist', $options, $this->name.'[font]', '', 'value', 'text', @$this->value['font'], 'nuHighlightsFont');
+        require_once dirname(__FILE__).'/nuimage.php';
 
-		require_once dirname(__FILE__).'/nuimage.php';
-
-		$media = new JFormFieldNuImage;
-		$xml = '<field name="'.$this->name.'[entries][][image]'.'" type="nuImage" label="TPL_NU_BE_LOGO_IMAGE" description="TPL_NU_BE_LOGO_IMAGE_DESC" filter="raw" />';
-		$element = new SimpleXMLElement($xml);
-		$media->setup($element, null);
-		$media->setForm($this->form);
-		$output = '
+        $media = new JFormFieldNuImage;
+        $xml = '<field name="'.$this->name.'[entries][][image]'.'" type="nuImage" label="TPL_NU_BE_LOGO_IMAGE" description="TPL_NU_BE_LOGO_IMAGE_DESC" filter="raw" />';
+        $element = new SimpleXMLElement($xml);
+        $media->setup($element, null);
+        $media->setForm($this->form);
+        $output = '
 		<div id="nuHighlights">
 			<label for="nuHighlightsFont" id="nuHighlightsFamilySelect">'.JText::_('TPL_NU_BE_FIELDS_SELECT_FONT').'</label>'.$fontsSelect.'
 			<div class="clr"></div>
@@ -63,12 +62,10 @@ class JFormFieldNuHighlights extends JFormField
 				<a class="nuRemoveButton"></a>
 			</div>
 		';
-		if ($this->value && isset($this->value['entries']) && is_array($this->value['entries']))
-		{
-			foreach ($this->value['entries'] as $key => $highlight)
-			{
-				$highlight = (object)$highlight;
-				$output .= '
+        if ($this->value && isset($this->value['entries']) && is_array($this->value['entries'])) {
+            foreach ($this->value['entries'] as $key => $highlight) {
+                $highlight = (object)$highlight;
+                $output .= '
 				<div class="nuHighlight">
 					<div class="nuHighlightInner">
 						<input size="58" type="text" name="'.$this->name.'[entries]['.$key.'][title]'.'" value="'.htmlspecialchars($highlight->title, ENT_QUOTES, 'UTF-8').'" />
@@ -92,15 +89,14 @@ class JFormFieldNuHighlights extends JFormField
 				<a class="nuRemoveButton" title="'.JText::_('TPL_NU_BE_FIELDS_REMOVE').'"></a>
 			</div>
 			';
-			}
-		}
-		$output .= '</div>';
-		return $output;
-	}
+            }
+        }
+        $output .= '</div>';
+        return $output;
+    }
 
-	function getLabel()
-	{
-		return null;
-	}
-
+    public function getLabel()
+    {
+        return null;
+    }
 }

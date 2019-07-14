@@ -12,23 +12,25 @@ defined('_JEXEC') or die('Restricted access');
 
 jimport('joomla.form.formfield');
 
-class JFormFieldNuTextArea extends JFormField {
+class JFormFieldNuTextArea extends JFormField
+{
+    public $type = 'NuTextArea';
+    
+    public function getClass()
+    {
+        return $this->element['class'] ? (string)$this->element['class'] : null;
+    }
 
-	var $type = 'NuTextArea';
-	
-	function getClass(){
-		return $this->element['class'] ? (string)$this->element['class'] : null;
-	}
+    public function getInput()
+    {
+        // Initialize some field attributes
+        $cols = $this->element['cols'] ? (int)$this->element['cols'] : 20;
+        $rows = $this->element['rows'] ? (int)$this->element['rows'] : 8;
+        $class = $this->element['class'] ? ' '.(string)$this->element['class'] : '';
 
-	function getInput() {
-		// Initialize some field attributes
-		$cols = $this->element['cols'] ? (int)$this->element['cols'] : 20;
-		$rows = $this->element['rows'] ? (int)$this->element['rows'] : 8;
-		$class = $this->element['class'] ? ' '.(string)$this->element['class'] : '';
-
-		$document = JFactory::getDocument();
-		$document->addScript('//cdn.joomlaworks.org/ace/src-min-noconflict/ace.js');
-		$document->addScriptDeclaration('
+        $document = JFactory::getDocument();
+        $document->addScript('//cdn.joomlaworks.org/ace/src-min-noconflict/ace.js');
+        $document->addScriptDeclaration('
 			(function($){
 				$(document).ready(function(){
 					var editor = ace.edit("editor_'.$this->id.'");
@@ -47,7 +49,6 @@ class JFormFieldNuTextArea extends JFormField {
 			})(jQuery);
 		');
 
-		return '<div id="editor_'.$this->id.'" class="aceEditorBlock'.$class.'"></div><textarea id="'.$this->id.'" name="'.$this->name.'" cols="'.$cols.'" rows="'.$rows.'">'.$this->value.'</textarea>';
-	}
-
+        return '<div id="editor_'.$this->id.'" class="aceEditorBlock'.$class.'"></div><textarea id="'.$this->id.'" name="'.$this->name.'" cols="'.$cols.'" rows="'.$rows.'">'.$this->value.'</textarea>';
+    }
 }

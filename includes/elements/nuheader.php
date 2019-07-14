@@ -10,23 +10,24 @@
 // no direct access
 defined('_JEXEC') or die('Restricted access');
 
-class JFormFieldNuHeader extends JFormField {
+class JFormFieldNuHeader extends JFormField
+{
+    public $type = 'NuHeader';
 
-	var $type = 'NuHeader';
+    public function getInput()
+    {
+        return null;
+    }
 
-	function getInput() {
-		return null;
-	}
-
-	function getLabel() {
-		$class = (string)$this->element->attributes()->class ? ' '.(string)$this->element->attributes()->class : '';
-		$output = '<div class="nuHeaderInner'.$class.'"><h3>'.JText::_((string)$this->element->attributes()->label).'</h3>';
-		$description = JText::_((string)$this->element->attributes()->description);
-		if ($description) {
-			$output .= '<span>'.$description.'</span>';
-		}
-		$output .= '</div>';
-		return $output;
-	}
-
+    public function getLabel()
+    {
+        $class = (string)$this->element->attributes()->class ? ' '.(string)$this->element->attributes()->class : '';
+        $output = '<div class="nuHeaderInner'.$class.'"><h3>'.JText::_((string)$this->element->attributes()->label).'</h3>';
+        $description = JText::_((string)$this->element->attributes()->description);
+        if ($description) {
+            $output .= '<span>'.$description.'</span>';
+        }
+        $output .= '</div>';
+        return $output;
+    }
 }

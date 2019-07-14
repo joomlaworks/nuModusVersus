@@ -12,15 +12,14 @@ defined('_JEXEC') or die('Restricted access');
 
 class JFormFieldNuImage extends JFormField
 {
+    public $type = 'NuImage';
 
-	var $type = 'NuImage';
-
-	function getInput()
-	{
-		$template = $this->form->getValue('template');
-		$document = JFactory::getDocument();
-		JHtml::_('behavior.modal');
-		$document->addScriptDeclaration('
+    public function getInput()
+    {
+        $template = $this->form->getValue('template');
+        $document = JFactory::getDocument();
+        JHtml::_('behavior.modal');
+        $document->addScriptDeclaration('
 			function jInsertFieldValue(value, id) {
 				var old_value = document.id(id).value;
 				if (old_value != value) {
@@ -57,8 +56,8 @@ class JFormFieldNuImage extends JFormField
 				tip.setStyle("display", "block");
 			}
 		');
-		$id = uniqid('nuImage');
-		$output = '
+        $id = uniqid('nuImage');
+        $output = '
 			<div class="nuImage" id="'.$id.'">
 				<a class="nuImagePreviewButton" data-nuimage-id="'.$id.'" href="#" title="'.JText::_('TPL_NU_BE_FIELDS_CLICKTOVIEW').' '.$this->value.'"><i class="icon-eye"></i></a>
 				<input name="'.$this->name.'" id="'.$id.'_field" value="'.$this->value.'" readonly="readonly" type="text" />
@@ -66,7 +65,6 @@ class JFormFieldNuImage extends JFormField
 				<a class="nuImageClearButton" data-nuimage-id="'.$id.'" href="#"><i class="icon-remove"></i></a>
 			</div>
 		';
-		return $output;
-	}
-
+        return $output;
+    }
 }
