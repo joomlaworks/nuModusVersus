@@ -1,10 +1,10 @@
 <?php
 /**
- * @version     1.0.1 (July 19th, 2013)
- * @package     Akhtarma
- * @author      Nuevvo - http://nuevvo.com
- * @copyright   Copyright (c) 2010 - 2013 Nuevvo Webware Ltd. All rights reserved.
- * @license     http://nuevvo.com/license
+ * @version    1.1.0
+ * @package    nuModusVersus (Akhtarma)
+ * @author     JoomlaWorks - https://www.joomlaworks.net
+ * @copyright  Copyright (c) 2006 - 2019 JoomlaWorks Ltd. All rights reserved.
+ * @license    https://www.joomlaworks.net/license
  */
 
 // no direct access
@@ -22,7 +22,7 @@ if(version_compare(JVERSION, '3.0', 'ge')!==false){
 
 	<div class="nuSettingsTitle">
 		<i></i>
-		<a class="nuHelpLink" href="http://nuevvo.com/members" title="<?php echo JText::_('TPL_NU_BE_HELP_TIP'); ?>" target="_blank"></a>
+		<a class="nuHelpLink" href="https://www.joomlaworks.net/members" title="<?php echo JText::_('TPL_NU_BE_HELP_TIP'); ?>" target="_blank"></a>
 		<span><?php echo JText::_('TPL_NU_BE_TEMPLATE_PARAMS'); ?></span>
 		<div class="nuClear"></div>
 	</div>

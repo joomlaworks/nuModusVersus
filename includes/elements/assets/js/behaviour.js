@@ -1,9 +1,9 @@
 /**
- * @version     1.0.1 (July 19th, 2013)
- * @package     Akhtarma
- * @author      Nuevvo - http://nuevvo.com
- * @copyright   Copyright (c) 2010 - 2013 Nuevvo Webware Ltd. All rights reserved.
- * @license     http://nuevvo.com/license
+ * @version    1.1.0
+ * @package    nuModusVersus (Akhtarma)
+ * @author     JoomlaWorks - https://www.joomlaworks.net
+ * @copyright  Copyright (c) 2006 - 2019 JoomlaWorks Ltd. All rights reserved.
+ * @license    https://www.joomlaworks.net/license
  */
 
 // jQuery Swipebox
@@ -68,7 +68,7 @@ a.fn.tabs=function(b,c){var d=this.data("tabs");d&&(d.destroy(),this.removeData(
 // Init
 var $nu = jQuery.noConflict();
 
-// Function for loading a font family from Nuevvo CDN
+// Function for loading a font family from the JoomlaWorks CDN
 function nuLoadFont(font) {
 	var loadedClass = 'wf-' + font + '-n4-inactive';
 	if (!$nu('html').hasClass(loadedClass)) {

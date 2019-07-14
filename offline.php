@@ -1,10 +1,10 @@
 <?php
 /**
- * @version     1.0.2
- * @package     nuModusVersus
- * @author      Nuevvo - http://nuevvo.com
- * @copyright   Copyright (c) 2010 - 2013 Nuevvo Webware Ltd. All rights reserved.
- * @license     http://nuevvo.com/license
+ * @version    1.1.0
+ * @package    nuModusVersus
+ * @author     JoomlaWorks - https://www.joomlaworks.net
+ * @copyright  Copyright (c) 2006 - 2019 JoomlaWorks Ltd. All rights reserved.
+ * @license    https://www.joomlaworks.net/license
  */
 
 // no direct access
@@ -26,7 +26,7 @@ require_once(dirname(__FILE__).'/includes/helper.php');
 			var offlineMessages = {
 				siteName: '<?php echo nuText($app->getCfg('sitename')); ?>',
 				offlineMsg: '<?php echo (strlen(trim($app->getCfg('offline_message'))<5)) ? nuText('JOFFLINE_MESSAGE') : nuText($app->getCfg('offline_message')); ?>',
-				offlineImg: '<?php echo ($app->getCfg('offline_image') ? JURI::root(false).$app->getCfg('offline_image') : NU_CDN.'/templates/images/nuevvo_345x90_24.png'); ?>',
+				offlineImg: '<?php echo ($app->getCfg('offline_image') ? JURI::root(false).$app->getCfg('offline_image') : NU_CDN.'/templates/images/jw_362x90_24.png'); ?>',
 				formAction: '<?php echo JRoute::_('index.php', true); ?>',
 				formLabelUsername: '<?php echo nuText('JGLOBAL_USERNAME'); ?>',
 				formLabelPassword: '<?php echo nuText('JGLOBAL_PASSWORD'); ?>',

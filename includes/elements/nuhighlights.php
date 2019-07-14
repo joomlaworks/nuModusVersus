@@ -1,10 +1,10 @@
 <?php
 /**
- * @version			1.0.1 (May 8th, 2014)
- * @package			Akhtarma
- * @author			Nuevvo - http://nuevvo.com
- * @copyright		Copyright (c) 2010 - 2015 Nuevvo Webware Ltd. All rights reserved.
- * @license			http://nuevvo.com/license
+ * @version    1.1.0
+ * @package    nuModusVersus (Akhtarma)
+ * @author     JoomlaWorks - https://www.joomlaworks.net
+ * @copyright  Copyright (c) 2006 - 2019 JoomlaWorks Ltd. All rights reserved.
+ * @license    https://www.joomlaworks.net/license
  */
 
 // no direct access

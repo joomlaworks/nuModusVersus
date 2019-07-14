@@ -1,10 +1,10 @@
 <?php
 /**
- * @version     1.0.2
- * @package     nuModusVersus
- * @author      Nuevvo - http://nuevvo.com
- * @copyright   Copyright (c) 2010 - 2013 Nuevvo Webware Ltd. All rights reserved.
- * @license     http://nuevvo.com/license
+ * @version    1.1.0
+ * @package    nuModusVersus
+ * @author     JoomlaWorks - https://www.joomlaworks.net
+ * @copyright  Copyright (c) 2006 - 2019 JoomlaWorks Ltd. All rights reserved.
+ * @license    https://www.joomlaworks.net/license
  */
 
 $count = 1; 

@@ -1,10 +1,10 @@
 <?php
 /**
- * @version     1.0.6
- * @package     nuModusVersus
- * @author      Nuevvo - http://nuevvo.com
- * @copyright   Copyright (c) 2010 - 2013 Nuevvo Webware Ltd. All rights reserved.
- * @license     http://nuevvo.com/license
+ * @version    1.1.0
+ * @package    nuModusVersus
+ * @author     JoomlaWorks - https://www.joomlaworks.net
+ * @copyright  Copyright (c) 2006 - 2019 JoomlaWorks Ltd. All rights reserved.
+ * @license    https://www.joomlaworks.net/license
  */
 
 // no direct access
@@ -168,11 +168,11 @@ require_once(dirname(__FILE__).'/includes/helper.php');
   			<div class="footerArea row">  
   			  <div id="copyrightsAndCredits" class="column <?php if($this->countModules('nuModusVersus_Footer')) echo 'small-6'; else echo 'small-12'; ?>">			
     				<div id="copyrights">
-    					<small>Copyright &copy; <?php echo (date('Y')=='2013') ? '2013' : '2013 - '.date('Y'); ?>. All rights reserved.</small>						
+    					<small>Copyright &copy; <?php echo date('Y'); ?>. All rights reserved.</small>						
     				</div>
     				<div id="credits">
     						<small>Designed by <a target="_blank" href="<?php echo $this->params->get('nutpCreditsLink'); ?>" title="<?php echo $this->params->get('nutpCreditsName'); ?>"><?php echo $this->params->get('nutpCreditsName'); ?></a>.
-    						  Developed by <a target="_blank" href="http://nuevvo.com" title="Nuevvo">Nuevvo</a>
+    						  Developed by <a target="_blank" href="https://www.joomlaworks.net" title="JoomlaWorks">JoomlaWorks</a>
     						</small>
     				</div>
       		  <div class="clr"></div>  			

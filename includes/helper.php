@@ -1,10 +1,10 @@
 <?php
 /**
- * @version     1.0.0
- * @package     Boilerplate
- * @author      Nuevvo - http://nuevvo.com
- * @copyright Copyright (c) 2010 - 2013 Nuevvo Webware Ltd. All rights reserved.
- * @license     http://nuevvo.com/license
+ * @version    1.1.0
+ * @package    nuModusVersus (Akhtarma)
+ * @author     JoomlaWorks - https://www.joomlaworks.net
+ * @copyright  Copyright (c) 2006 - 2019 JoomlaWorks Ltd. All rights reserved.
+ * @license    https://www.joomlaworks.net/license
  */
 
 // no direct access
@@ -112,7 +112,7 @@ $document->setMetaData('apple-mobile-web-app-capable', 'yes');
 $document->setMetaData('distribution', $this->params->get('nutpMetaDistribution'));
 
 $document->setMetaData('designer', $this->params->get('nutpCreditsName').' - '.$this->params->get('nutpCreditsLink'));
-$creditsMessage = '<a target="_blank" title="'.htmlentities($this->params->get('nutpCreditsName', 'Designed by Nuevvo'), ENT_QUOTES, 'utf-8').'" href="'.$this->params->get('nutpCreditsLink', 'http://nuevvo.com').'">'.$this->params->get('nutpCreditsName', 'designed by Nuevvo').'</a>';
+$creditsMessage = '<a target="_blank" title="'.htmlentities($this->params->get('nutpCreditsName', 'Designed by JoomlaWorks'), ENT_QUOTES, 'utf-8').'" href="'.$this->params->get('nutpCreditsLink', 'https://www.joomlaworks.net').'">'.$this->params->get('nutpCreditsName', 'designed by JoomlaWorks').'</a>';
 
 if ($this->params->get('nutpCopyrightStartYear') && $this->params->get('nutpCopyrightStartYear') < date('Y')) {
     $metaCopyrightMessage = 'Copyright (c) '.$this->params->get('nutpCopyrightStartYear').' - '.date('Y').' '.htmlentities($this->params->get('nutpCopyright', $sitename), ENT_QUOTES, 'utf-8');
