@@ -129,9 +129,6 @@ if ($this->params->get('nutpGoogleVerificationID')) {
 if ($this->params->get('nutpBingVerificationID')) {
     $document->setMetaData('msvalidate.01', $this->params->get('nutpBingVerificationID'));
 }
-if ($this->params->get('nutpAlexaVerificationID')) {
-    $document->setMetaData('alexaVerifyID', $this->params->get('nutpAlexaVerificationID'));
-}
 
 // Custom global RSS/Atom feeds
 if ($this->params->get('nutpFeedLink1') && $this->params->get('nutpFeedLink1Title')) {
@@ -269,24 +266,12 @@ $nuBodyBottom = ($this->params->get('nutpBodyBottom')) ? $this->params->get('nut
 /* -------------------- JS Handling -------------------- */
 if (!in_array($tmpl, array('error','raw'))) {
     // Load jQuery
-    $nutpJqueryHandling = $this->params->get('nutpJqueryHandling', '1.10.1');
-    if (version_compare(JVERSION, '3.0', 'ge')!==false) {
-        JHtml::_('jquery.framework');
-    } else {
-        if ($nutpJqueryHandling) {
-            if (version_compare(JVERSION, '1.6.0', 'ge')) {
-                JHtml::_('behavior.framework');
-            } else {
-                JHTML::_('behavior.mootools');
-            }
-            $document->addScript('//ajax.googleapis.com/ajax/libs/jquery/'.$nutpJqueryHandling.'/jquery.min.js');
-        }
-    }
+    JHtml::_('jquery.framework');
+
     // Template JS. Do not load in in front-end editing.
     if (!($option == 'com_k2' && $view == 'item' && ($task == 'add' || $task == 'edit'))) {
         $document->addScript(JURI::base(true).'/templates/'.$this->template.'/js/behaviour.js');
     }
-
 
     // Custom JS
     if ($this->params->get('nutpLoadCustomJS', 1)) {

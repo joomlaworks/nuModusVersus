@@ -29,7 +29,7 @@ class JFormFieldNuTextArea extends JFormField
         $class = $this->element['class'] ? ' '.(string)$this->element['class'] : '';
 
         $document = JFactory::getDocument();
-        $document->addScript('//cdn.joomlaworks.org/ace/src-min-noconflict/ace.js');
+        $document->addScript('https://cdnjs.cloudflare.com/ajax/libs/ace/1.4.5/ace.js');
         $document->addScriptDeclaration('
 			(function($){
 				$(document).ready(function(){
