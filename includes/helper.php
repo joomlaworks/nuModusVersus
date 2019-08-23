@@ -285,7 +285,7 @@ if (!in_array($tmpl, array('error','raw'))) {
 // Google Web Fonts
 $nutpGoogleWebFonts = $this->params->get('nutpGoogleWebFonts');
 
-if (is_string($nutpGoogleWebFonts)) {
+if (!is_object($nutpGoogleWebFonts)) {
     $nutpGoogleWebFonts = new stdClass;
 }
 
