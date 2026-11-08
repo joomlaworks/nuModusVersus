@@ -45,6 +45,7 @@ Free template. See the [Terms of Service](https://www.joomlaworks.net/about/tos)
 - **Vendor prefixes removed** where all browsers support the standard property (`-moz-`, `-o-`, `-ms-` and most `-webkit-` declarations, prefixed gradients and keyframes); legacy gradients converted to the standard syntax; `::-webkit-input-placeholder` & co. replaced by `::placeholder`
 - CSS syntax errors and invalid declarations fixed (see below); empty rule sets and the obsolete `speak` property removed; stylesheets formatted one rule per line
 - Images optimized losslessly (jpegoptim & optipng)
+- Added the standard `mobile-web-app-capable` meta tag next to Apple's (Chrome deprecates the Apple-only one)
 - Template manifest: Joomla 3.9 minimum, new update server, version 2.0
 
 Fixes specific to nuModusVersus:

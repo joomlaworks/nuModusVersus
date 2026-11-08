@@ -98,6 +98,7 @@ if (version_compare(JVERSION, '3.0', 'ge') !== false) {
 
 /* -------------------- Meta Information -------------------- */
 $document->setMetaData('viewport', 'width=device-width, user-scalable=0, initial-scale=1.0');
+$document->setMetaData('mobile-web-app-capable', 'yes');
 $document->setMetaData('apple-mobile-web-app-capable', 'yes');
 
 $document->setMetaData('distribution', $this->params->get('nutpMetaDistribution'));
