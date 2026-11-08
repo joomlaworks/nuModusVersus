@@ -16,8 +16,6 @@ $images = json_decode($this->item->images);
 $canEdit = $this->item->params->get('access-edit');
 JHtml::addIncludePath(JPATH_COMPONENT.'/helpers/html');
 $info = $this->item->params->get('info_block_position', 0);
-JHtml::_('behavior.tooltip');
-JHtml::_('behavior.framework');
 
 ?>
 

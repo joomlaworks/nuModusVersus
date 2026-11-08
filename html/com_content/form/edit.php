@@ -11,7 +11,6 @@
 defined('_JEXEC') or die;
 
 JHtml::_('behavior.keepalive');
-JHtml::_('behavior.tooltip');
 JHtml::_('behavior.calendar');
 JHtml::_('behavior.formvalidation');
 
@@ -29,7 +28,7 @@ endif;
 
 <script type="text/javascript">
 	Joomla.submitbutton = function(task) {
-		if (task == 'article.cancel' || document.formvalidator.isValid(document.id('adminForm'))) {
+		if (task == 'article.cancel' || document.formvalidator.isValid(document.getElementById('adminForm'))) {
 			<?php echo $this->form->getField('articletext')->save(); ?>
 			Joomla.submitform(task);
 		} else {

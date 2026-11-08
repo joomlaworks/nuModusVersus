@@ -262,7 +262,7 @@ $document->addScriptDeclaration("
 												<?php echo JText::_('K2_ITEM_IMAGE_PREVIEW'); ?>
 											</td>
 											<td>
-												<a class="modal" rel="{handler: 'image'}" href="<?php echo $this->row->image; ?>" title="<?php echo JText::_('K2_CLICK_ON_IMAGE_TO_PREVIEW_IN_ORIGINAL_SIZE'); ?>">
+												<a data-k2-modal="image" href="<?php echo $this->row->image; ?>" title="<?php echo JText::_('K2_CLICK_ON_IMAGE_TO_PREVIEW_IN_ORIGINAL_SIZE'); ?>">
 													<img alt="<?php echo $this->row->title; ?>" src="<?php echo $this->row->thumb; ?>" class="k2AdminImage" />
 												</a>
 												<input type="checkbox" name="del_image" id="del_image" />
@@ -388,7 +388,7 @@ $document->addScriptDeclaration("
 															<input type="text" size="50" name="videoID" value="<?php echo $this->lists['providerVideo'] ?>" />
 															<br />
 															<br />
-															<a class="modal" rel="{handler: 'iframe', size: {x: 990, y: 600}}" href="http://www.joomlaworks.net/allvideos-documentation"><?php echo JText::_('K2_READ_THE_ALLVIDEOS_DOCUMENTATION_FOR_MORE'); ?></a> </div>
+															<a data-k2-modal="iframe" href="http://www.joomlaworks.net/allvideos-documentation"><?php echo JText::_('K2_READ_THE_ALLVIDEOS_DOCUMENTATION_FOR_MORE'); ?></a> </div>
 													</div>
 													<div id="k2VideoTab4" class="simpleTabsContent">
 														<div class="panel" id="embedVideo">
@@ -790,7 +790,7 @@ $document->addScriptDeclaration("
 											<td id="k2AuthorOptions">
 												<span id="k2Author"><?php echo $this->row->author; ?></span>
 												<?php if ($this->mainframe->isAdmin() || ($this->mainframe->isSite() && $this->permissions->get('editAll'))): ?>
-												<a class="modal" rel="{handler:'iframe', size: {x: 800, y: 460}}" href="index.php?option=com_k2&amp;view=users&amp;task=element&amp;tmpl=component"><?php echo JText::_('K2_CHANGE'); ?></a>
+												<a data-k2-modal="iframe" href="index.php?option=com_k2&amp;view=users&amp;task=element&amp;tmpl=component"><?php echo JText::_('K2_CHANGE'); ?></a>
 												<input type="hidden" name="created_by" value="<?php echo $this->row->created_by; ?>" />
 												<?php endif; ?>
 											</td>

@@ -20,11 +20,8 @@ class JFormFieldNuBase extends JFormField
         $template = $this->form->getValue('template');
         $document = JFactory::getDocument();
         $document->addStyleSheet(JURI::root(true).'/templates/'.$template.'/includes/elements/assets/css/style.css');
-        if (version_compare(JVERSION, '3.0', 'ge')) {
-            JHtml::_('jquery.framework');
-        } else {
-            $document->addScript('//ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js');
-        }
+        JHtml::_('jquery.framework');
+
         $document->addScript('//ajax.googleapis.com/ajax/libs/webfont/1/webfont.js');
         $document->addScript(JURI::root(true).'/templates/'.$template.'/includes/elements/assets/js/behaviour.js');
         /*

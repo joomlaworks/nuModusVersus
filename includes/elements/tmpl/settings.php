@@ -10,11 +10,7 @@
 // no direct access
 defined('_JEXEC') or die('Restricted access');
 
-if (version_compare(JVERSION, '3.0', 'ge') !== false) {
-    $containerClass = "isJoomla3x";
-} else {
-    $containerClass = "isJoomla25";
-}
+$containerClass = "isJoomla3x";
 
 ?>
 

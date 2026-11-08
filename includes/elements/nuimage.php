@@ -21,42 +21,31 @@ class JFormFieldNuImage extends JFormField
         $document = JFactory::getDocument();
         JHtml::_('behavior.modal');
         $document->addScriptDeclaration('
-			function jInsertFieldValue(value, id) {
-				var old_value = document.id(id).value;
-				if (old_value != value) {
-					var elem = document.id(id);
-					elem.value = value;
-					elem.fireEvent("change");
-					if (typeof(elem.onchange) === "function") {
-						elem.onchange();
-					}
-					jMediaRefreshPreview(id);
-				}
-			}
-			function jMediaRefreshPreview(id) {
-				var value = document.id(id).value;
-				var img = document.id(id + "_preview");
-				if (img) {
-					if (value) {
-						img.src = "'.JURI::root().'" + value;
-						document.id(id + "_preview_empty").setStyle("display", "none");
-						document.id(id + "_preview_img").setStyle("display", "");
-					} else {
-						img.src = ""
-						document.id(id + "_preview_empty").setStyle("display", "");
-						document.id(id + "_preview_img").setStyle("display", "none");
-					}
-				}
-			}
-			function jMediaRefreshPreviewTip(tip){
-				var img = tip.getElement("img.media-preview");
-				tip.getElement("div.tip").setStyle("max-width", "none");
-				var id = img.getProperty("id");
-				id = id.substring(0, id.length - "_preview".length);
-				jMediaRefreshPreview(id);
-				tip.setStyle("display", "block");
-			}
-		');
+            function jInsertFieldValue(value, id) {
+                var elem = document.getElementById(id);
+                if (elem && elem.value != value) {
+                    elem.value = value;
+                    elem.dispatchEvent(new Event("change", { bubbles: true }));
+                    jMediaRefreshPreview(id);
+                }
+            }
+            function jMediaRefreshPreview(id) {
+                var elem = document.getElementById(id);
+                var img = document.getElementById(id + "_preview");
+                if (!elem || !img) {
+                    return;
+                }
+                var empty = document.getElementById(id + "_preview_empty");
+                var holder = document.getElementById(id + "_preview_img");
+                img.src = elem.value ? "'.JURI::root().'" + elem.value : "";
+                if (empty) {
+                    empty.style.display = elem.value ? "none" : "";
+                }
+                if (holder) {
+                    holder.style.display = elem.value ? "" : "none";
+                }
+            }
+        ');
         $id = uniqid('nuImage');
         $output = '
 			<div class="nuImage" id="'.$id.'">

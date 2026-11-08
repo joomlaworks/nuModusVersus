@@ -44,7 +44,7 @@ $user = JFactory::getUser();
 		<?php if (isset($this->addLink) && JRequest::getInt('id') == $user->id): ?>
 		<!-- Item add link -->
 		<span class="itemAddLink">
-			<a class="modal" rel="{handler:'iframe',size:{x:990,y:550}}" href="<?php echo $this->addLink; ?>">
+			<a data-k2-modal="iframe" href="<?php echo $this->addLink; ?>">
 				<?php echo JText::_('K2_POST_A_NEW_ITEM'); ?>
 			</a>
 		</span>
@@ -112,7 +112,7 @@ $user = JFactory::getUser();
 					<?php if (isset($item->editLink)): ?>
 					<!-- Item edit link -->
 					<span class="itemEditLink">
-						<a class="modal" rel="{handler:'iframe',size:{x:990,y:550}}" href="<?php echo $item->editLink; ?>">
+						<a data-k2-modal="iframe" href="<?php echo $item->editLink; ?>">
 							<?php echo JText::_('K2_EDIT_ITEM'); ?>
 						</a>
 					</span>

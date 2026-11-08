@@ -72,7 +72,7 @@ K2HelperUtilities::setDefaultImage($this->item, 'itemlist', $this->params);
   			<?php if (isset($this->item->editLink)): ?>
   			<!-- Item edit link -->
   			<span class="catItemEditLink">
-  				<a class="modal" rel="{handler:'iframe',size:{x:990,y:550}}" href="<?php echo $this->item->editLink; ?>">
+  				<a data-k2-modal="iframe" href="<?php echo $this->item->editLink; ?>">
   					<?php echo JText::_('K2_EDIT_ITEM'); ?>
   				</a>
   			</span>
