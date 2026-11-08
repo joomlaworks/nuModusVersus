@@ -259,6 +259,7 @@ if (!in_array($tmpl, array('error','raw'))) {
 
     // Template JS. Do not load in in front-end editing.
     if (!($option == 'com_k2' && $view == 'item' && ($task == 'add' || $task == 'edit'))) {
+        $document->addScript(JURI::base(true).'/templates/'.$this->template.'/js/nuslider.js');
         $document->addScript(JURI::base(true).'/templates/'.$this->template.'/js/behaviour.js');
     }
 
