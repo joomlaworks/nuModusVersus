@@ -42,8 +42,6 @@ Third-party code bundled with the template (versions as shipped; upstream status
 | Library | Version | Location | License | Upstream |
 |---|---|---|---|---|
 | jQuery Tools (tabs) | 1.2.7 | `js/behaviour.js` | Public domain | Abandoned (2012) |
-| jQuery Tools toolbox.mousewheel | 1.2.7 | `js/behaviour.js` | Public domain | Abandoned; unused |
-| Hammer.js | 1.0.5 | `js/behaviour.js` | MIT | Latest 2.0.8 (2016), unmaintained |
 | normalize.css | 2012-03-11 / 2.1.2 | `css/component.css` / `css/template.css` | MIT | Latest 8.0.1 |
 | ZURB Foundation grid (CSS) | 4.x | `css/template.css`, `css/component.css` | MIT | Latest 6.9 |
 | Font Awesome | 3.2.0 | `fonts/nufontawesome` | SIL OFL 1.1 (font), MIT (CSS) | Latest 7.x (renamed classes) |
@@ -59,6 +57,15 @@ Third-party code bundled with the template (versions as shipped; upstream status
 | Ace editor | CDN build | `includes/elements/nutextarea.php` | BSD-3-Clause | Actively maintained |
 
 ## Changelog
+
+### Unreleased
+
+Modernisation:
+
+- **No MooTools needed any more:** K2 popups use K2's own modal (`data-k2-modal`), layouts no longer load MooTools or its tooltips, nuContent image popups use Joomla's modal behaviour without evaluated options (works with a strict Content Security Policy), and the template settings image field is plain JavaScript
+- Removed code for Joomla versions before 3 and the "jQuery version" template parameter
+- **nuSlider 2.0:** the content slider is now plain JavaScript in its own file (`js/nuslider.js`), with the same options and markup; Hammer.js, Minimit Anima, Bez, jquery.transform and the requestAnimationFrame polyfill were removed
+- Removed the unused jQuery Tools mousewheel script
 
 ### v2.0 - November 8th, 2026
 
