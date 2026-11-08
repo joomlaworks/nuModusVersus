@@ -33,6 +33,9 @@ $layout = JRequest::getCmd('layout');
 $page   = JRequest::getCmd('page');
 $task   = JRequest::getCmd('task');
 $id     = JRequest::getInt('id');
+if (is_array($id)) {
+    $id = (int) reset($id);
+}
 $itemid = JRequest::getInt('Itemid');
 $tmpl   = JRequest::getCmd('tmpl');
 
@@ -40,9 +43,11 @@ $tmpl   = JRequest::getCmd('tmpl');
 
 /* -------------------- Helper Functions -------------------- */
 // Convert language strings to a JSON friendly format for the error/offline pages
-function nuText($str)
-{
-    return str_replace("'", "\\'", JText::_($str));
+if (!function_exists('nuText')) {
+    function nuText($str)
+    {
+        return str_replace("'", "\\'", JText::_($str));
+    }
 }
 
 

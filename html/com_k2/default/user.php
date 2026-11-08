@@ -58,7 +58,7 @@ $user = JFactory::getUser();
 		<h2><?php echo $this->user->name; ?></h2>
 		<?php endif; ?>
 		
-		<?php if ($this->params->get('userDescription') && trim($this->user->profile->description)): ?>
+		<?php if ($this->params->get('userDescription') && trim(isset($this->user->profile->description) ? $this->user->profile->description : '')): ?>
 		<div class="userDescription"><?php echo $this->user->profile->description; ?></div>
 		<?php endif; ?>
 		

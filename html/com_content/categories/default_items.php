@@ -20,7 +20,7 @@ if (!empty($this->items[$this->parent->id]) && $this->maxLevelcat != 0) :
                 $class = ' subCategoryContainerLast';
             }
             ?>
-	<div class="subCategoryContainer<?php echo $class; ?>">
+	<div class="subCategoryContainer<?php echo isset($class) ? $class : ''; ?>">
 	<?php $class = ''; ?>
   	<div class="subCategory">
   		<h2><a href="<?php echo JRoute::_(ContentHelperRoute::getCategoryRoute($item->id));?>">

@@ -25,7 +25,7 @@ If you wish to use the live search option, it's important that you maintain the 
 } ?>">
 	<form action="<?php echo $action; ?>" method="get" autocomplete="off" class="k2SearchBlockForm">
 
-		<input type="text" value="<?php echo $text; ?>" name="searchword" maxlength="<?php echo $maxlength; ?>" size="<?php echo $width; ?>" alt="<?php echo $button_text; ?>" class="inputbox" onblur="if(this.value=='') this.value='<?php echo $text; ?>';" onfocus="if(this.value=='<?php echo $text; ?>') this.value='';" />
+		<input type="text" value="<?php echo $text; ?>" name="searchword" alt="<?php echo $button_text; ?>" class="inputbox" onblur="if(this.value=='') this.value='<?php echo $text; ?>';" onfocus="if(this.value=='<?php echo $text; ?>') this.value='';" />
 
 		<?php if ($button): ?>
 		<?php if ($imagebutton): ?>
