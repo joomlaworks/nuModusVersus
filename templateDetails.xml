@@ -122,8 +122,7 @@
                 <!-- ######################### Social Links ######################### -->
                 <field name="nutpHeaderSocialLinks" type="nuHeader" label="TPL_NU_BE_SOCIAL_LINKS" description="TPL_NU_BE_SOCIAL_LINKS_DESC" class="nuHeaderSocialLinks"/>
                 <field name="siteSocialFacebook" type="nuText" default="" size="40" prefix="https://www.facebook.com/" label="TPL_NU_BE_SL_FACEBOOK" description=""/>
-                <field name="siteSocialTwitter" type="nuText" default="" size="40" prefix="https://twitter.com/" label="TPL_NU_BE_SL_TWITTER" description=""/>
-                <field name="siteSocialGooglePlus" type="nuText" default="" size="40" prefix="https://plus.google.com/" label="TPL_NU_BE_SL_GOOGLEPLUS" description=""/>
+                <field name="siteSocialTwitter" type="nuText" default="" size="40" prefix="https://x.com/" label="TPL_NU_BE_SL_TWITTER" description=""/>
                 <field name="siteSocialFoursquare" type="nuText" default="" size="40" prefix="https://foursquare.com/" label="TPL_NU_BE_SL_FOURSQUARE" description=""/>
                 <field name="siteSocialYouTube" type="nuText" default="" size="40" prefix="http://www.youtube.com/" label="TPL_NU_BE_SL_YOUTUBE" description=""/>
                 <field name="siteSocialVimeo" type="nuText" default="" size="40" prefix="http://vimeo.com/" label="TPL_NU_BE_SL_VIMEO" description=""/>

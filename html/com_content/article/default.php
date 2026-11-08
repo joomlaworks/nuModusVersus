@@ -10,6 +10,8 @@
 // no direct access
 defined('_JEXEC') or die;
 
+require_once dirname(__DIR__, 3).'/includes/socialshare.php';
+
 JHtml::addIncludePath(JPATH_COMPONENT . '/helpers');
 
 // Create shortcuts to some parameters.
@@ -239,12 +241,9 @@ JHtml::_('behavior.caption');
 	<div class="itemSocialAndNavigation">			
 	<!-- Social sharing -->
 	<div class="small-10 mobile-4 floatLeft itemSocialSharing">
-		<!-- Twitter Button -->
+		<!-- Post on X (formerly Twitter) -->
 		<div class="itemTwitterButton">
-			<a href="https://twitter.com/share" class="twitter-share-button" data-count="horizontal">
-				<?php echo JText::_('TWEET'); ?>
-			</a>
-			<script type="text/javascript" src="//platform.twitter.com/widgets.js"></script>
+			<?php echo NuSocialShare::xShareLink(JFactory::getApplication()->getTemplate(true)->params->get('siteSocialTwitter')); ?>
 		</div>
 		<!-- Facebook Button -->
 		<div class="itemFacebookButton">
@@ -259,18 +258,6 @@ JHtml::_('behavior.caption');
 				}(document, 'script', 'facebook-jssdk'));
 			</script>
 			<div class="fb-like" data-send="false" data-width="200" data-show-faces="true"></div>
-		</div>
-		<!-- Google +1 Button -->
-		<div class="itemGooglePlusOneButton">
-			<g:plusone annotation="inline" width="120"></g:plusone>
-			<script type="text/javascript">
-			  (function() {
-			  	window.___gcfg = {lang: 'en'}; // Define button default language here
-			    var po = document.createElement('script'); po.type = 'text/javascript'; po.async = true;
-			    po.src = 'https://apis.google.com/js/plusone.js';
-			    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(po, s);
-			  })();
-			</script>
 		</div>
 		<div class="clr"></div>
 	</div>

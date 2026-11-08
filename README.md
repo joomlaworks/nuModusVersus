@@ -45,6 +45,7 @@ Third-party code bundled with the template (versions as shipped; upstream status
 | normalize.css | 2012-03-11 / 2.1.2 | `css/component.css` / `css/template.css` | MIT | Latest 8.0.1 |
 | ZURB Foundation grid (CSS) | 4.x | `css/template.css`, `css/component.css` | MIT | Latest 6.9 |
 | Font Awesome | 3.2.0 | `fonts/nufontawesome` | SIL OFL 1.1 (font), MIT (CSS) | Latest 7.x (renamed classes) |
+| Bootstrap Icons (social network icons) | 1.13.2 | `css/template.css`, `includes/socialshare.php` | MIT | Current |
 
 ### Template settings (backend)
 
@@ -66,6 +67,9 @@ Modernisation:
 - Removed code for Joomla versions before 3 and the "jQuery version" template parameter
 - **nuSlider 2.0:** the content slider is now plain JavaScript in its own file (`js/nuslider.js`), with the same options and markup; Hammer.js, Minimit Anima, Bez, jquery.transform and the requestAnimationFrame polyfill were removed
 - Removed the unused jQuery Tools mousewheel script
+- **Twitter is now X:** the social profile setting links to `x.com` and is labelled "X", and the Twitter share widget is replaced by a plain "Post on X" link (`includes/socialshare.php`), so no `platform.twitter.com` script loads; the "via" account is the K2 Twitter username or, for articles, the template's X profile
+- **Google+ removed** (the service closed in 2019): the Google +1 buttons and their `apis.google.com` script, the Google+ profile setting and the Google+ icon styles
+- **Social network icons from [Bootstrap Icons](https://icons.getbootstrap.com):** X, Facebook, YouTube, Vimeo, Instagram, Pinterest, Dribbble, Behance, GitHub and LinkedIn icons are SVGs drawn as CSS masks in the link's text colour (round and square variants included); class names are unchanged, so menu items that use them as link CSS classes keep working. Other networks keep the icon font
 
 ### v2.0 - November 8th, 2026
 
