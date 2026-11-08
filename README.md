@@ -33,6 +33,31 @@ nuModusVersus is a free port of the original ["Modus Versus" PSD template](http:
 
 Free template. See the [Terms of Service](https://www.joomlaworks.net/about/tos).
 
+## Third-party code
+
+Third-party code bundled with the template (versions as shipped; upstream status as of November 2026). Everything else is JoomlaWorks code.
+
+### Front-end
+
+| Library | Version | Location | License | Upstream |
+|---|---|---|---|---|
+| jQuery Tools (tabs) | 1.2.7 | `js/behaviour.js` | Public domain | Abandoned (2012) |
+| jQuery Tools toolbox.mousewheel | 1.2.7 | `js/behaviour.js` | Public domain | Abandoned; unused |
+| Hammer.js | 1.0.5 | `js/behaviour.js` | MIT | Latest 2.0.8 (2016), unmaintained |
+| normalize.css | 2012-03-11 / 2.1.2 | `css/component.css` / `css/template.css` | MIT | Latest 8.0.1 |
+| ZURB Foundation grid (CSS) | 4.x | `css/template.css`, `css/component.css` | MIT | Latest 6.9 |
+| Font Awesome | 3.2.0 | `fonts/nufontawesome` | SIL OFL 1.1 (font), MIT (CSS) | Latest 7.x (renamed classes) |
+
+### Template settings (backend)
+
+| Library | Version | Location | License | Upstream |
+|---|---|---|---|---|
+| jQuery MiniColors | ~2.0 | `includes/elements/assets/js/behaviour.js` | MIT | Latest 2.3.6 |
+| jQuery Swipebox | early 1.x | `includes/elements/assets/js/behaviour.js` | MIT | Latest 1.4.6, barely maintained |
+| jQuery Tools (tabs) | 1.2.7 | `includes/elements/assets/js/behaviour.js` | Public domain | Abandoned (2012) |
+| Google WebFont Loader | 1.x (Google CDN) | `includes/elements/nubase.php`, `includes/variations.php` | Apache-2.0 | Latest 1.6.28, unmaintained |
+| Ace editor | CDN build | `includes/elements/nutextarea.php` | BSD-3-Clause | Actively maintained |
+
 ## Changelog
 
 ### v2.0 - November 8th, 2026
