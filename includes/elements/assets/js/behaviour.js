@@ -1,8 +1,8 @@
 /**
- * @version    1.1.0
+ * @version    2.0
  * @package    nuModusVersus (Akhtarma)
  * @author     JoomlaWorks - https://www.joomlaworks.net
- * @copyright  Copyright (c) 2006 - 2019 JoomlaWorks Ltd. All rights reserved.
+ * @copyright  Copyright (c) 2006 - 2026 JoomlaWorks Ltd. All rights reserved.
  * @license    https://www.joomlaworks.net/license
  */
 

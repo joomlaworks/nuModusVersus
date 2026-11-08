@@ -1,9 +1,9 @@
 <?php
 /**
- * @version    1.1.0
+ * @version    2.0
  * @package    nuModusVersus
  * @author     JoomlaWorks - https://www.joomlaworks.net
- * @copyright  Copyright (c) 2006 - 2019 JoomlaWorks Ltd. All rights reserved.
+ * @copyright  Copyright (c) 2006 - 2026 JoomlaWorks Ltd. All rights reserved.
  * @license    https://www.joomlaworks.net/license
  */
 
@@ -13,21 +13,23 @@ defined('_JEXEC') or die;
 ?>
 
 <!-- Start K2 Generic (search/date) Layout -->
-<div id="k2Container" class="genericView<?php if($this->params->get('pageclass_sfx')) echo ' '.$this->params->get('pageclass_sfx'); ?>">
+<div id="k2Container" class="genericView<?php if ($this->params->get('pageclass_sfx')) {
+    echo ' '.$this->params->get('pageclass_sfx');
+} ?>">
 
-	<?php if($this->params->get('show_page_title') || JRequest::getCmd('task')=='search' || JRequest::getCmd('task')=='date'): ?>
+	<?php if ($this->params->get('show_page_title') || JRequest::getCmd('task') == 'search' || JRequest::getCmd('task') == 'date'): ?>
 	<!-- Page title -->
 	<div class="componentheading<?php echo $this->params->get('pageclass_sfx')?>">
 		<?php echo $this->escape($this->params->get('page_title')); ?>
 	</div>
 	<?php endif; ?>
 
-	<?php if(JRequest::getCmd('task')=='search' && $this->params->get('googleSearch')): ?>
+	<?php if (JRequest::getCmd('task') == 'search' && $this->params->get('googleSearch')): ?>
 	<!-- Google Search container -->
 	<div id="<?php echo $this->params->get('googleSearchContainer'); ?>"></div>
 	<?php endif; ?>
 
-	<?php if(count($this->items) && $this->params->get('genericFeedIcon',1)): ?>
+	<?php if (!empty($this->items) && $this->params->get('genericFeedIcon', 1)): ?>
 	<!-- RSS feed icon -->
 	<div class="k2FeedIcon">
 		<a href="<?php echo $this->feed; ?>" title="<?php echo JText::_('K2_SUBSCRIBE_TO_THIS_RSS_FEED'); ?>">
@@ -37,17 +39,17 @@ defined('_JEXEC') or die;
 	</div>
 	<?php endif; ?>
 
-	<?php if(count($this->items)): ?>
+	<?php if (!empty($this->items)): ?>
 
 	<div class="genericItemList">
-		<?php foreach($this->items as $item): ?>
+		<?php foreach ($this->items as $item): ?>
 
 		<!-- Start K2 Item Layout -->
 		<div class="liBlock genericItemView">
 
 			<div class="liItemHeader genericItemHeader">
 				
-			  <?php if($this->params->get('genericItemTitle')): ?>
+			  <?php if ($this->params->get('genericItemTitle')): ?>
 			  <!-- Item title -->
 			  <h3 class="liItemTitle genericItemTitle">
 			  	<?php if ($this->params->get('genericItemTitleLinked')): ?>
@@ -60,14 +62,14 @@ defined('_JEXEC') or die;
 			  </h3>
 			  <?php endif; ?>
 			  
-			  <?php if($this->params->get('genericItemDateCreated')): ?>
+			  <?php if ($this->params->get('genericItemDateCreated')): ?>
         <!-- Date created -->
         <span class="liItemDateCreated genericItemDateCreated">
-          <?php echo JHTML::_('date', $item->created , 'd F Y'); ?>
+          <?php echo JHTML::_('date', $item->created, 'd F Y'); ?>
         </span>
         <?php endif; ?>
 			  
-			  <?php if($this->params->get('genericItemCategory')): ?>
+			  <?php if ($this->params->get('genericItemCategory')): ?>
         <!-- Item category name -->
         <div class="liItemCategory genericItemCategory">
           <span><?php echo JText::_('K2_PUBLISHED_IN'); ?></span>
@@ -78,19 +80,27 @@ defined('_JEXEC') or die;
 		  </div>
 
 		  <div class="liItemBody genericItemBody">
-			  <?php if($this->params->get('genericItemImage') && !empty($item->imageGeneric)): ?>
+			  <?php if ($this->params->get('genericItemImage') && !empty($item->imageGeneric)): ?>
 			  <!-- Item Image -->
 			  <div class="liItemImageBlock genericItemImageBlock">
 				  <span class="liItemImage genericItemImage">
-				    <a href="<?php echo $item->link; ?>" title="<?php if(!empty($item->image_caption)) echo K2HelperUtilities::cleanHtml($item->image_caption); else echo K2HelperUtilities::cleanHtml($item->title); ?>">
-				    	<img src="<?php echo $item->imageGeneric; ?>" alt="<?php if(!empty($item->image_caption)) echo K2HelperUtilities::cleanHtml($item->image_caption); else echo K2HelperUtilities::cleanHtml($item->title); ?>" style="width:<?php echo $this->params->get('itemImageGeneric'); ?>px; height:auto;" />
+				    <a href="<?php echo $item->link; ?>" title="<?php if (!empty($item->image_caption)) {
+				        echo K2HelperUtilities::cleanHtml($item->image_caption);
+				    } else {
+				        echo K2HelperUtilities::cleanHtml($item->title);
+				    } ?>">
+				    	<img src="<?php echo $item->imageGeneric; ?>" alt="<?php if (!empty($item->image_caption)) {
+				    	    echo K2HelperUtilities::cleanHtml($item->image_caption);
+				    	} else {
+				    	    echo K2HelperUtilities::cleanHtml($item->title);
+				    	} ?>" style="width:<?php echo $this->params->get('itemImageGeneric'); ?>px; height:auto;" />
 				    </a>
 				  </span>
 				  <div class="clr"></div>
 			  </div>
 			  <?php endif; ?>
 
-			  <?php if($this->params->get('genericItemIntroText')): ?>
+			  <?php if ($this->params->get('genericItemIntroText')): ?>
 			  <!-- Item introtext -->
 			  <div class="liItemIntroText genericItemIntroText">
 			  	<?php echo $item->introtext; ?>
@@ -102,15 +112,15 @@ defined('_JEXEC') or die;
 
 		  <div class="clr"></div>
 
-		  <?php if($this->params->get('genericItemExtraFields') && count($item->extra_fields)): ?>
+		  <?php if ($this->params->get('genericItemExtraFields') && !empty($item->extra_fields)): ?>
 		  <!-- Item extra fields -->
 		  <div class="liItemExtraFields genericItemExtraFields">
 		  	<h4><?php echo JText::_('K2_ADDITIONAL_INFO'); ?></h4>
 		  	<ul>
-				<?php foreach ($item->extra_fields as $key=>$extraField): ?>
-				<?php if($extraField->value != ''): ?>
-				<li class="<?php echo ($key%2) ? "odd" : "even"; ?> type<?php echo ucfirst($extraField->type); ?> group<?php echo $extraField->group; ?>">
-					<?php if($extraField->type == 'header'): ?>
+				<?php foreach ($item->extra_fields as $key => $extraField): ?>
+				<?php if ($extraField->value != ''): ?>
+				<li class="<?php echo ($key % 2) ? "odd" : "even"; ?> type<?php echo ucfirst($extraField->type); ?> group<?php echo $extraField->group; ?>">
+					<?php if ($extraField->type == 'header'): ?>
 					<h4 class="extraFieldsHeader"><?php echo $extraField->name; ?></h4>
 					<?php else: ?>
 					<span class="extraFieldsLabel"><?php echo $extraField->name; ?></span>
@@ -142,7 +152,7 @@ defined('_JEXEC') or die;
 	</div>
 
 	<!-- Pagination -->
-	<?php if($this->pagination->getPagesLinks()): ?>
+	<?php if ($this->pagination->getPagesLinks()): ?>
 	<div class="k2Pagination">
 		<?php echo $this->pagination->getPagesLinks(); ?>
 		<div class="clr"></div>
@@ -152,7 +162,7 @@ defined('_JEXEC') or die;
 
 	<?php else: ?>
 
-	<?php if(!$this->params->get('googleSearch')): ?>
+	<?php if (!$this->params->get('googleSearch')): ?>
 	<!-- No results found -->
 	<div id="genericItemListNothingFound">
 		<p><?php echo JText::_('K2_NO_RESULTS_FOUND'); ?></p>

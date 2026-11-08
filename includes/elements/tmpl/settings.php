@@ -1,19 +1,19 @@
 <?php
 /**
- * @version    1.1.0
+ * @version    2.0
  * @package    nuModusVersus (Akhtarma)
  * @author     JoomlaWorks - https://www.joomlaworks.net
- * @copyright  Copyright (c) 2006 - 2019 JoomlaWorks Ltd. All rights reserved.
+ * @copyright  Copyright (c) 2006 - 2026 JoomlaWorks Ltd. All rights reserved.
  * @license    https://www.joomlaworks.net/license
  */
 
 // no direct access
 defined('_JEXEC') or die('Restricted access');
 
-if(version_compare(JVERSION, '3.0', 'ge')!==false){
-	$containerClass = "isJoomla3x";
+if (version_compare(JVERSION, '3.0', 'ge') !== false) {
+    $containerClass = "isJoomla3x";
 } else {
-	$containerClass = "isJoomla25";
+    $containerClass = "isJoomla25";
 }
 
 ?>
@@ -39,25 +39,25 @@ if(version_compare(JVERSION, '3.0', 'ge')!==false){
         <div class="nuParamsPane">
             <table id="nuParamsStandard" class="nuTmplParams" cellpadding="0" cellspacing="0">
                 <tbody>
-                    <?php foreach($this->form->getFieldset('nuParamsStandard') as $field): ?>
+                    <?php foreach ($this->form->getFieldset('nuParamsStandard') as $field): ?>
                     <?php
-						$label = $field->getLabel();
-						$input = $field->getInput();
-						$class = (JString::strtolower($field->type) == 'nutextarea') ? $field->getClass() : '';
-					?>
-                    <?php if($input || $label): ?>
-                    <?php if(JString::strtolower($field->type) == 'nuheader'): ?>
+                        $label = $field->getLabel();
+                        $input = $field->getInput();
+                        $class = (JString::strtolower($field->type) == 'nutextarea') ? $field->getClass() : '';
+                        ?>
+                    <?php if ($input || $label): ?>
+                    <?php if (JString::strtolower($field->type) == 'nuheader'): ?>
                     <tr class="nuHeaderRow">
-                        <?php if($label):?>
+                        <?php if ($label):?>
                         <td class="nuHeader" colspan="2"><?php echo $label; ?></td>
                         <?php endif; ?>
                     </tr>
                     <?php else: ?>
                     <tr class="<?php echo $class; ?>">
-                        <?php if($label):?>
+                        <?php if ($label):?>
                         <td class="nuLabel" colspan="<?php echo $input && $label ? '1' : '2'; ?>"><?php echo $label; ?></td>
                         <?php endif; ?>
-                        <?php if($input):?>
+                        <?php if ($input):?>
                         <td class="nuField" colspan="<?php echo $input && $label ? '1' : '2'; ?>"><?php echo $input; ?></td>
                         <?php endif; ?>
                     </tr>
@@ -70,15 +70,15 @@ if(version_compare(JVERSION, '3.0', 'ge')!==false){
         <div class="nuParamsPane">
             <table id="nuParamsCodeBlocks" class="nuTmplParams" cellpadding="0" cellspacing="0">
                 <tbody>
-                    <?php foreach($this->form->getFieldset('nuParamsCodeBlocks') as $field): ?>
+                    <?php foreach ($this->form->getFieldset('nuParamsCodeBlocks') as $field): ?>
                     <?php
-						$label = $field->getLabel();
-						$input = $field->getInput();
-						$class = (JString::strtolower($field->type) == 'nutextarea') ? $field->getClass() : '';
-					?>
-                    <?php if($input || $label): ?>
-                    <?php if(JString::strtolower($field->type) == 'nuheader'): ?>
-                    <?php if($label):?>
+                            $label = $field->getLabel();
+                        $input = $field->getInput();
+                        $class = (JString::strtolower($field->type) == 'nutextarea') ? $field->getClass() : '';
+                        ?>
+                    <?php if ($input || $label): ?>
+                    <?php if (JString::strtolower($field->type) == 'nuheader'): ?>
+                    <?php if ($label):?>
                     <tr class="nuHeaderRow">
                         <td class="nuHeader"><?php echo $label; ?></td>
                     </tr>
@@ -86,10 +86,10 @@ if(version_compare(JVERSION, '3.0', 'ge')!==false){
                     <?php else: ?>
                     <tr class="<?php echo $class; ?>">
                         <td class="nuCodeBlock">
-                            <?php if($label):?>
+                            <?php if ($label):?>
                             <?php echo $label; ?>
                             <?php endif; ?>
-                            <?php if($input):?>
+                            <?php if ($input):?>
                             <?php echo $input; ?>
                             <?php endif; ?>
                         </td>
@@ -103,25 +103,25 @@ if(version_compare(JVERSION, '3.0', 'ge')!==false){
         <div class="nuParamsPane">
             <table id="nuParamsTemplateSpecific" class="nuTmplParams" cellpadding="0" cellspacing="0">
                 <tbody>
-                    <?php foreach($this->form->getFieldset('nuParamsTemplateSpecific') as $field): ?>
+                    <?php foreach ($this->form->getFieldset('nuParamsTemplateSpecific') as $field): ?>
                     <?php
-						$label = $field->getLabel();
-						$input = $field->getInput();
-						$class = (JString::strtolower($field->type) == 'nutextarea') ? $field->getClass() : '';
-					?>
-                    <?php if($input || $label): ?>
-                    <?php if(JString::strtolower($field->type) == 'nuheader'): ?>
+                            $label = $field->getLabel();
+                        $input = $field->getInput();
+                        $class = (JString::strtolower($field->type) == 'nutextarea') ? $field->getClass() : '';
+                        ?>
+                    <?php if ($input || $label): ?>
+                    <?php if (JString::strtolower($field->type) == 'nuheader'): ?>
                     <tr class="nuHeaderRow">
-                        <?php if($label):?>
+                        <?php if ($label):?>
                         <td class="nuHeader" colspan="2"><?php echo $label; ?></td>
                         <?php endif; ?>
                     </tr>
                     <?php else: ?>
                     <tr class="<?php echo $class; ?>">
-                        <?php if($label):?>
+                        <?php if ($label):?>
                         <td class="nuLabel" colspan="<?php echo $input && $label ? '1' : '2'; ?>"><?php echo $label; ?></td>
                         <?php endif; ?>
-                        <?php if($input):?>
+                        <?php if ($input):?>
                         <td class="nuField" colspan="<?php echo $input && $label ? '1' : '2'; ?>"><?php echo $input; ?></td>
                         <?php endif; ?>
                     </tr>

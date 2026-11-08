@@ -1,9 +1,9 @@
 <?php
 /**
- * @version    1.1.0
+ * @version    2.0
  * @package    nuModusVersus
  * @author     JoomlaWorks - https://www.joomlaworks.net
- * @copyright  Copyright (c) 2006 - 2019 JoomlaWorks Ltd. All rights reserved.
+ * @copyright  Copyright (c) 2006 - 2026 JoomlaWorks Ltd. All rights reserved.
  * @license    https://www.joomlaworks.net/license
  */
 
@@ -12,15 +12,15 @@ defined('_JEXEC') or die;
 $class = ' class="first"';
 ?>
 
-<?php if (count($this->children[$this->category->id]) > 0) : ?>
+<?php if (!empty($this->children[$this->category->id])) : ?>
 	<ul>
-	<?php foreach($this->children[$this->category->id] as $id => $child) : ?>
+	<?php foreach ($this->children[$this->category->id] as $id => $child) : ?>
 		<?php
-		if ($this->params->get('show_empty_categories') || $child->getNumItems(true) || count($child->getChildren())) :
-			if (!isset($this->children[$this->category->id][$id + 1])) :
-				$class = ' class="last"';
-			endif;
-		?>
+        if ($this->params->get('show_empty_categories') || $child->getNumItems(true) || !empty($child->getChildren())) :
+            if (!isset($this->children[$this->category->id][$id + 1])) :
+                $class = ' class="last"';
+            endif;
+            ?>
 
 		<li<?php echo $class; ?>>
 			<?php $class = ''; ?>
@@ -34,7 +34,7 @@ $class = ' class="first"';
 				</div>
 			<?php endif; ?>
 			<?php endif; ?>
-			<?php if ( $this->params->get('show_cat_num_articles', 1)) : ?>
+			<?php if ($this->params->get('show_cat_num_articles', 1)) : ?>
 			<dl>
 				<dt>
 					<?php echo JText::_('COM_CONTENT_NUM_ITEMS') ; ?>
@@ -45,15 +45,15 @@ $class = ' class="first"';
 			</dl>
 			<?php endif ; ?>
 
-			<?php if (count($child->getChildren()) > 0 ) :
-				$this->children[$child->id] = $child->getChildren();
-				$this->category = $child;
-				$this->maxLevel--;
-				if ($this->maxLevel != 0) :
-					echo $this->loadTemplate('children');
-				endif;
-				$this->category = $child->getParent();
-				$this->maxLevel++;
+			<?php if (!empty($child->getChildren())) :
+			    $this->children[$child->id] = $child->getChildren();
+			    $this->category = $child;
+			    $this->maxLevel--;
+			    if ($this->maxLevel != 0) :
+			        echo $this->loadTemplate('children');
+			    endif;
+			    $this->category = $child->getParent();
+			    $this->maxLevel++;
 			endif; ?>
 			</li>
 		<?php endif; ?>

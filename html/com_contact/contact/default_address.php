@@ -1,12 +1,12 @@
 <?php
 /**
- * @version    1.1.0
+ * @version    2.0
  * @package    nuModusVersus
  * @author     JoomlaWorks - https://www.joomlaworks.net
- * @copyright  Copyright (c) 2006 - 2019 JoomlaWorks Ltd. All rights reserved.
+ * @copyright  Copyright (c) 2006 - 2026 JoomlaWorks Ltd. All rights reserved.
  * @license    https://www.joomlaworks.net/license
  */
- 
+
 defined('_JEXEC') or die;
 
 /* marker_class: Class based on the selection of text, none, or icons
@@ -54,7 +54,7 @@ defined('_JEXEC') or die;
 	</div>
 <?php endif; ?>
 
-<?php if($this->params->get('show_email') || $this->params->get('show_telephone')||$this->params->get('show_fax')||$this->params->get('show_mobile')|| $this->params->get('show_webpage') ) : ?>
+<?php if ($this->params->get('show_email') || $this->params->get('show_telephone') || $this->params->get('show_fax') || $this->params->get('show_mobile') || $this->params->get('show_webpage')) : ?>
 	<div class="contact-contactinfo">
 <?php endif; ?>
 <?php if ($this->contact->email_to && $this->params->get('show_email')) : ?>
@@ -113,6 +113,6 @@ defined('_JEXEC') or die;
 		</span>
 	</p>
 <?php endif; ?>
-<?php if($this->params->get('show_email') || $this->params->get('show_telephone')||$this->params->get('show_fax')||$this->params->get('show_mobile')|| $this->params->get('show_webpage') ) : ?>
+<?php if ($this->params->get('show_email') || $this->params->get('show_telephone') || $this->params->get('show_fax') || $this->params->get('show_mobile') || $this->params->get('show_webpage')) : ?>
 	</div>
 <?php endif; ?>

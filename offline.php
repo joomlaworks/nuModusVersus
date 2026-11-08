@@ -1,9 +1,9 @@
 <?php
 /**
- * @version    1.1.0
+ * @version    2.0
  * @package    nuModusVersus
  * @author     JoomlaWorks - https://www.joomlaworks.net
- * @copyright  Copyright (c) 2006 - 2019 JoomlaWorks Ltd. All rights reserved.
+ * @copyright  Copyright (c) 2006 - 2026 JoomlaWorks Ltd. All rights reserved.
  * @license    https://www.joomlaworks.net/license
  */
 
@@ -21,8 +21,8 @@ require_once(dirname(__FILE__).'/includes/helper.php');
         <script type="text/javascript">
             var offlineMessages = {
                 siteName: '<?php echo nuText($app->getCfg('sitename')); ?>',
-                offlineMsg: '<?php echo (strlen(trim($app->getCfg('offline_message'))<5)) ? nuText('JOFFLINE_MESSAGE') : nuText($app->getCfg('offline_message')); ?>',
-                offlineImg: '<?php echo ($app->getCfg('offline_image') ? JURI::root(false).$app->getCfg('offline_image') : NU_CDN.'/templates/images/jw_362x90_24.png'); ?>',
+                offlineMsg: '<?php echo (strlen(trim($app->getCfg('offline_message')) < 5)) ? nuText('JOFFLINE_MESSAGE') : nuText($app->getCfg('offline_message')); ?>',
+                offlineImg: '<?php echo($app->getCfg('offline_image') ? JURI::root(false).$app->getCfg('offline_image') : NU_CDN.'/templates/images/jw_362x90_24.png'); ?>',
                 formAction: '<?php echo JRoute::_('index.php', true); ?>',
                 formLabelUsername: '<?php echo nuText('JGLOBAL_USERNAME'); ?>',
                 formLabelPassword: '<?php echo nuText('JGLOBAL_PASSWORD'); ?>',

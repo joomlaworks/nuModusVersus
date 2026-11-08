@@ -1,9 +1,9 @@
 <?php
 /**
- * @version    1.1.0
+ * @version    2.0
  * @package    nuModusVersus
  * @author     JoomlaWorks - https://www.joomlaworks.net
- * @copyright  Copyright (c) 2006 - 2019 JoomlaWorks Ltd. All rights reserved.
+ * @copyright  Copyright (c) 2006 - 2026 JoomlaWorks Ltd. All rights reserved.
  * @license    https://www.joomlaworks.net/license
  */
 
@@ -13,16 +13,18 @@ defined('_JEXEC') or die;
 ?>
 
 <!-- Start K2 Tag Layout -->
-<div id="k2Container" class="tagView<?php if($this->params->get('pageclass_sfx')) echo ' '.$this->params->get('pageclass_sfx'); ?>">
+<div id="k2Container" class="tagView<?php if ($this->params->get('pageclass_sfx')) {
+    echo ' '.$this->params->get('pageclass_sfx');
+} ?>">
 
-	<?php if($this->params->get('show_page_title')): ?>
+	<?php if ($this->params->get('show_page_title')): ?>
 	<!-- Page title -->
 	<div class="componentheading<?php echo $this->params->get('pageclass_sfx')?>">
 		<?php echo $this->escape($this->params->get('page_title')); ?>
 	</div>
 	<?php endif; ?>
 
-	<?php if($this->params->get('tagFeedIcon',1)): ?>
+	<?php if ($this->params->get('tagFeedIcon', 1)): ?>
 	<!-- RSS feed icon -->
 	<div class="k2FeedIcon">
 		<a href="<?php echo $this->feed; ?>" title="<?php echo JText::_('K2_SUBSCRIBE_TO_THIS_RSS_FEED'); ?>">
@@ -32,18 +34,18 @@ defined('_JEXEC') or die;
 	</div>
 	<?php endif; ?>
 
-	<?php if(count($this->items)): ?>
+	<?php if (!empty($this->items)): ?>
 	<div class="tagItemList">
-		<?php foreach($this->items as $item): ?>
+		<?php foreach ($this->items as $item): ?>
 
 		<!-- Start K2 Item Layout -->
 		<div class="liBlock tagItemView">
 
 			<div class="liItemHeader tagItemHeader">							
-			  <?php if($item->params->get('tagItemTitle',1)): ?>
+			  <?php if ($item->params->get('tagItemTitle', 1)): ?>
 			  <!-- Item title -->
 			  <h3 class="liItemTitle tagItemTitle">
-			  	<?php if ($item->params->get('tagItemTitleLinked',1)): ?>
+			  	<?php if ($item->params->get('tagItemTitleLinked', 1)): ?>
 					<a href="<?php echo $item->link; ?>">
 			  		<?php echo $item->title; ?>
 			  	</a>
@@ -53,14 +55,14 @@ defined('_JEXEC') or die;
 			  </h3>
 			  <?php endif; ?>
 			  
-			  <?php if($item->params->get('tagItemDateCreated',1)): ?>
+			  <?php if ($item->params->get('tagItemDateCreated', 1)): ?>
         <!-- Date created -->
         <span class="liItemDateCreated tagItemDateCreated">
-          <?php echo JHTML::_('date', $item->created , 'd F Y'); ?>
+          <?php echo JHTML::_('date', $item->created, 'd F Y'); ?>
         </span>
         <?php endif; ?>
         
-        <?php if($item->params->get('tagItemCategory')): ?>
+        <?php if ($item->params->get('tagItemCategory')): ?>
         <!-- Item category name -->
         <div class="liItemCategory tagItemCategory">
           <span><?php echo JText::_('K2_PUBLISHED_IN'); ?></span>
@@ -71,19 +73,27 @@ defined('_JEXEC') or die;
 		  </div>
 
 		  <div class="liItemBody tagItemBody">
-			  <?php if($item->params->get('tagItemImage',1) && !empty($item->imageGeneric)): ?>
+			  <?php if ($item->params->get('tagItemImage', 1) && !empty($item->imageGeneric)): ?>
 			  <!-- Item Image -->
 			  <div class="liItemImageBlock tagItemImageBlock">
 				  <span class="liItemImage tagItemImage">
-				    <a href="<?php echo $item->link; ?>" title="<?php if(!empty($item->image_caption)) echo K2HelperUtilities::cleanHtml($item->image_caption); else echo K2HelperUtilities::cleanHtml($item->title); ?>">
-				    	<img src="<?php echo $item->imageGeneric; ?>" alt="<?php if(!empty($item->image_caption)) echo K2HelperUtilities::cleanHtml($item->image_caption); else echo K2HelperUtilities::cleanHtml($item->title); ?>" style="width:<?php echo $item->params->get('itemImageGeneric'); ?>px; height:auto;" />
+				    <a href="<?php echo $item->link; ?>" title="<?php if (!empty($item->image_caption)) {
+				        echo K2HelperUtilities::cleanHtml($item->image_caption);
+				    } else {
+				        echo K2HelperUtilities::cleanHtml($item->title);
+				    } ?>">
+				    	<img src="<?php echo $item->imageGeneric; ?>" alt="<?php if (!empty($item->image_caption)) {
+				    	    echo K2HelperUtilities::cleanHtml($item->image_caption);
+				    	} else {
+				    	    echo K2HelperUtilities::cleanHtml($item->title);
+				    	} ?>" style="width:<?php echo $item->params->get('itemImageGeneric'); ?>px; height:auto;" />
 				    </a>
 				  </span>
 				  <div class="clr"></div>
 			  </div>
 			  <?php endif; ?>
 			  
-			  <?php if($item->params->get('tagItemIntroText',1)): ?>
+			  <?php if ($item->params->get('tagItemIntroText', 1)): ?>
 			  <!-- Item introtext -->
 			  <div class="liItemIntroText tagItemIntroText">
 			  	<?php echo $item->introtext; ?>
@@ -105,15 +115,15 @@ defined('_JEXEC') or die;
 		  
 		  <div class="clr"></div>
 		  
-		  <?php if($item->params->get('tagItemExtraFields',0) && count($item->extra_fields)): ?>
+		  <?php if ($item->params->get('tagItemExtraFields', 0) && !empty($item->extra_fields)): ?>
 		  <!-- Item extra fields -->  
 		  <div class="liItemExtraFields tagItemExtraFields">
 		  	<h4><?php echo JText::_('K2_ADDITIONAL_INFO'); ?></h4>
 		  	<ul>
-				<?php foreach ($item->extra_fields as $key=>$extraField): ?>
-				<?php if($extraField->value != ''): ?>
-				<li class="<?php echo ($key%2) ? "odd" : "even"; ?> type<?php echo ucfirst($extraField->type); ?> group<?php echo $extraField->group; ?>">
-					<?php if($extraField->type == 'header'): ?>
+				<?php foreach ($item->extra_fields as $key => $extraField): ?>
+				<?php if ($extraField->value != ''): ?>
+				<li class="<?php echo ($key % 2) ? "odd" : "even"; ?> type<?php echo ucfirst($extraField->type); ?> group<?php echo $extraField->group; ?>">
+					<?php if ($extraField->type == 'header'): ?>
 					<h4 class="extraFieldsHeader"><?php echo $extraField->name; ?></h4>
 					<?php else: ?>
 					<span class="extraFieldsLabel"><?php echo $extraField->name; ?></span>
@@ -135,7 +145,7 @@ defined('_JEXEC') or die;
 	</div>
 
 	<!-- Pagination -->
-	<?php if($this->pagination->getPagesLinks()): ?>
+	<?php if ($this->pagination->getPagesLinks()): ?>
 	<div class="k2Pagination">
 		<?php echo $this->pagination->getPagesLinks(); ?>
 		<div class="clr"></div>

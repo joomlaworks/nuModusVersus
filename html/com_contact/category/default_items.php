@@ -1,9 +1,9 @@
 <?php
 /**
- * @version    1.1.0
+ * @version    2.0
  * @package    nuModusVersus
  * @author     JoomlaWorks - https://www.joomlaworks.net
- * @copyright  Copyright (c) 2006 - 2019 JoomlaWorks Ltd. All rights reserved.
+ * @copyright  Copyright (c) 2006 - 2026 JoomlaWorks Ltd. All rights reserved.
  * @license    https://www.joomlaworks.net/license
  */
 
@@ -88,7 +88,7 @@ $listDirn	= $this->escape($this->state->get('list.direction'));
 		<?php endif; ?>
 
 		<tbody>
-			<?php foreach($this->items as $i => $item) : ?>
+			<?php foreach ($this->items as $i => $item) : ?>
 				<?php if ($this->items[$i]->published == 0) : ?>
 					<tr class="system-unpublished cat-list-row<?php echo $i % 2; ?>">
 				<?php else: ?>

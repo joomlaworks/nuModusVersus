@@ -1,9 +1,9 @@
 <?php
 /**
- * @version    1.1.0
+ * @version    2.0
  * @package    nuModusVersus
  * @author     JoomlaWorks - https://www.joomlaworks.net
- * @copyright  Copyright (c) 2006 - 2019 JoomlaWorks Ltd. All rights reserved.
+ * @copyright  Copyright (c) 2006 - 2026 JoomlaWorks Ltd. All rights reserved.
  * @license    https://www.joomlaworks.net/license
  */
 
@@ -16,20 +16,30 @@ K2HelperUtilities::setDefaultImage($this->item, 'itemlist', $this->params);
 ?>
 
 <!-- Start K2 Item Layout (links) -->
-<div class="liBlock catItemView group<?php echo ucfirst($this->item->itemGroup); ?><?php if($this->item->params->get('pageclass_sfx')) echo ' '.$this->item->params->get('pageclass_sfx'); ?>">
-	  <?php if($this->item->params->get('catItemImage') && !empty($this->item->image)): ?>
+<div class="liBlock catItemView group<?php echo ucfirst($this->item->itemGroup); ?><?php if ($this->item->params->get('pageclass_sfx')) {
+    echo ' '.$this->item->params->get('pageclass_sfx');
+} ?>">
+	  <?php if ($this->item->params->get('catItemImage') && !empty($this->item->image)): ?>
     <!-- Item Image -->
     <div class="liItemImageBlock catItemImageBlock">
       <span class="liItemImage catItemImage">
-        <a href="<?php echo $this->item->link; ?>" title="<?php if(!empty($this->item->image_caption)) echo K2HelperUtilities::cleanHtml($this->item->image_caption); else echo K2HelperUtilities::cleanHtml($this->item->title); ?>">
-          <img src="<?php echo $this->item->image; ?>" alt="<?php if(!empty($this->item->image_caption)) echo K2HelperUtilities::cleanHtml($this->item->image_caption); else echo K2HelperUtilities::cleanHtml($this->item->title); ?>" style="width:<?php echo $this->item->imageWidth; ?>px; height:auto;" />
+        <a href="<?php echo $this->item->link; ?>" title="<?php if (!empty($this->item->image_caption)) {
+            echo K2HelperUtilities::cleanHtml($this->item->image_caption);
+        } else {
+            echo K2HelperUtilities::cleanHtml($this->item->title);
+        } ?>">
+          <img src="<?php echo $this->item->image; ?>" alt="<?php if (!empty($this->item->image_caption)) {
+              echo K2HelperUtilities::cleanHtml($this->item->image_caption);
+          } else {
+              echo K2HelperUtilities::cleanHtml($this->item->title);
+          } ?>" style="width:<?php echo $this->item->imageWidth; ?>px; height:auto;" />
         </a>
       </span>
       <div class="clr"></div>
     </div>
     <?php endif; ?>
 	  
-	  <?php if($this->item->params->get('catItemTitle')): ?>
+	  <?php if ($this->item->params->get('catItemTitle')): ?>
 	  <!-- Item title -->
 	  <h3 class="liItemTitle catItemTitle">
 	  	<?php if ($this->item->params->get('catItemTitleLinked')): ?>

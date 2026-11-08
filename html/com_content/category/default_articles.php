@@ -1,9 +1,9 @@
 <?php
 /**
- * @version    1.1.0
+ * @version    2.0
  * @package    nuModusVersus
  * @author     JoomlaWorks - https://www.joomlaworks.net
- * @copyright  Copyright (c) 2006 - 2019 JoomlaWorks Ltd. All rights reserved.
+ * @copyright  Copyright (c) 2006 - 2026 JoomlaWorks Ltd. All rights reserved.
  * @license    https://www.joomlaworks.net/license
  */
 
@@ -116,21 +116,21 @@ $listDirn	= $this->escape($this->state->get('list.direction'));
 					<?php if ($this->params->get('list_show_date')) : ?>
 					<td class="list-date">
 						<?php echo JHtml::_('date', $article->displayDate, $this->escape(
-						$this->params->get('date_format', JText::_('DATE_FORMAT_LC3')))); ?>
+						    $this->params->get('date_format', JText::_('DATE_FORMAT_LC3')))); ?>
 					</td>
 					<?php endif; ?>
 
 					<?php if ($this->params->get('list_show_author', 1)) : ?>
 					<td class="list-author">
-						<?php if(!empty($article->author) || !empty($article->created_by_alias)) : ?>
+						<?php if (!empty($article->author) || !empty($article->created_by_alias)) : ?>
 							<?php $author =  $article->author ?>
 							<?php $author = ($article->created_by_alias ? $article->created_by_alias : $author);?>
 
-							<?php if (!empty($article->contactid ) &&  $this->params->get('link_author') == true):?>
+							<?php if (!empty($article->contactid) &&  $this->params->get('link_author') == true):?>
 								<?php echo JHtml::_(
-										'link',
-										JRoute::_('index.php?option=com_contact&view=contact&id='.$article->contactid),
-										$author
+								    'link',
+								    JRoute::_('index.php?option=com_contact&view=contact&id='.$article->contactid),
+								    $author
 								); ?>
 
 							<?php else :?>
@@ -146,20 +146,20 @@ $listDirn	= $this->escape($this->state->get('list.direction'));
 					</td>
 					<?php endif; ?>
 
-				<?php else : // Show unauth links. ?>
+				<?php else : // Show unauth links.?>
 					<td>
 						<?php
-							echo $this->escape($article->title).' : ';
-							$menu		= JFactory::getApplication()->getMenu();
-							$active		= $menu->getActive();
-							$itemId		= $active->id;
-							$link = JRoute::_('index.php?option=com_users&view=login&Itemid='.$itemId);
-							$returnURL = JRoute::_(ContentHelperRoute::getArticleRoute($article->slug));
-							$fullURL = new JURI($link);
-							$fullURL->setVar('return', base64_encode($returnURL));
-						?>
+                            echo $this->escape($article->title).' : ';
+				    $menu		= JFactory::getApplication()->getMenu();
+				    $active		= $menu->getActive();
+				    $itemId		= $active->id;
+				    $link = JRoute::_('index.php?option=com_users&view=login&Itemid='.$itemId);
+				    $returnURL = JRoute::_(ContentHelperRoute::getArticleRoute($article->slug));
+				    $fullURL = new JURI($link);
+				    $fullURL->setVar('return', base64_encode($returnURL));
+				    ?>
 						<a href="<?php echo $fullURL; ?>" class="register">
-							<?php echo JText::_( 'COM_CONTENT_REGISTER_TO_READ_MORE' ); ?></a>
+							<?php echo JText::_('COM_CONTENT_REGISTER_TO_READ_MORE'); ?></a>
 					</td>
 				<?php endif; ?>
 				</tr>
@@ -168,14 +168,14 @@ $listDirn	= $this->escape($this->state->get('list.direction'));
 	</table>
 <?php endif; ?>
 
-<?php // Code to add a link to submit an article. ?>
+<?php // Code to add a link to submit an article.?>
 <?php if ($this->category->getParams()->get('access-create')) : ?>
   <span class="itemAddLink">
 	 <?php echo JHtml::_('icon.create', $this->category, $this->category->params); ?>
 	</span>
 <?php  endif; ?>
 
-<?php // Add pagination links ?>
+<?php // Add pagination links?>
 <?php if (!empty($this->items)) : ?>
 	<?php if (($this->params->def('show_pagination', 2) == 1  || ($this->params->get('show_pagination') == 2)) && ($this->pagination->get('pages.total') > 1)) : ?>
 	<div class="pagination">

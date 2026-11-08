@@ -1,9 +1,9 @@
 <?php
 /**
- * @version    1.1.0
+ * @version    2.0
  * @package    nuModusVersus
  * @author     JoomlaWorks - https://www.joomlaworks.net
- * @copyright  Copyright (c) 2006 - 2019 JoomlaWorks Ltd. All rights reserved.
+ * @copyright  Copyright (c) 2006 - 2026 JoomlaWorks Ltd. All rights reserved.
  * @license    https://www.joomlaworks.net/license
  */
 
@@ -14,7 +14,9 @@ JHtml::addIncludePath(JPATH_COMPONENT.'/helpers');
 
 ?>
 
-<div id="joomlaContainer" class="itemListView<?php if($this->params->get('pageclass_sfx')) echo ' '.$this->params->get('pageclass_sfx'); ?>">
+<div id="joomlaContainer" class="itemListView<?php if ($this->params->get('pageclass_sfx')) {
+    echo ' '.$this->params->get('pageclass_sfx');
+} ?>">
   <?php if ($this->params->get('show_page_heading')) : ?>
   <h1 class="componentTitle">
   	<?php echo $this->escape($this->params->get('page_heading')); ?>
@@ -48,7 +50,7 @@ JHtml::addIncludePath(JPATH_COMPONENT.'/helpers');
   		<?php echo $this->loadTemplate('articles'); ?>
   	</div>
   
-  	<?php if (!empty($this->children[$this->category->id])&& $this->maxLevel != 0) : ?>
+  	<?php if (!empty($this->children[$this->category->id]) && $this->maxLevel != 0) : ?>
   	<div class="cat-children">
   		<h3>
   			<?php echo JTEXT::_('JGLOBAL_SUBCATEGORIES'); ?>

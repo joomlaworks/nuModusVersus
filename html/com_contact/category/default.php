@@ -1,9 +1,9 @@
 <?php
 /**
- * @version    1.1.0
+ * @version    2.0
  * @package    nuModusVersus
  * @author     JoomlaWorks - https://www.joomlaworks.net
- * @copyright  Copyright (c) 2006 - 2019 JoomlaWorks Ltd. All rights reserved.
+ * @copyright  Copyright (c) 2006 - 2026 JoomlaWorks Ltd. All rights reserved.
  * @license    https://www.joomlaworks.net/license
  */
 
@@ -17,7 +17,7 @@ defined('_JEXEC') or die;
 	<?php echo $this->escape($this->params->get('page_heading')); ?>
 </h1>
 <?php endif; ?>
-<?php if($this->params->get('show_category_title', 1)) : ?>
+<?php if ($this->params->get('show_category_title', 1)) : ?>
 <h2>
 	<?php echo JHtml::_('content.prepare', $this->category->title, '', 'com_contact.category'); ?>
 </h2>
@@ -36,7 +36,7 @@ defined('_JEXEC') or die;
 
 <?php echo $this->loadTemplate('items'); ?>
 
-<?php if (!empty($this->children[$this->category->id])&& $this->maxLevel != 0) : ?>
+<?php if (!empty($this->children[$this->category->id]) && $this->maxLevel != 0) : ?>
 <div class="cat-children">
 	<h3><?php echo JText::_('JGLOBAL_SUBCATEGORIES') ; ?></h3>
 	<?php echo $this->loadTemplate('children'); ?>

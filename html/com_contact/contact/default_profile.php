@@ -1,39 +1,39 @@
 <?php
 /**
- * @version    1.1.0
+ * @version    2.0
  * @package    nuModusVersus
  * @author     JoomlaWorks - https://www.joomlaworks.net
- * @copyright  Copyright (c) 2006 - 2019 JoomlaWorks Ltd. All rights reserved.
+ * @copyright  Copyright (c) 2006 - 2026 JoomlaWorks Ltd. All rights reserved.
  * @license    https://www.joomlaworks.net/license
  */
 
 defined('_JEXEC') or die;
 ?>
 <?php if (JPluginHelper::isEnabled('user', 'profile')) :
-	$fields = $this->item->profile->getFieldset('profile'); ?>
+    $fields = $this->item->profile->getFieldset('profile'); ?>
 <div class="contact-profile" id="users-profile-custom">
 	<dl>
 	<?php foreach ($fields as $profile) :
-		if ($profile->value) :
-			echo '<dt>'.$profile->label.'</dt>';
-			$profile->text = htmlspecialchars($profile->value, ENT_COMPAT, 'UTF-8');
+	    if ($profile->value) :
+	        echo '<dt>'.$profile->label.'</dt>';
+	        $profile->text = htmlspecialchars($profile->value, ENT_COMPAT, 'UTF-8');
 
-			switch ($profile->id) :
-				case "profile_website":
-					$v_http = substr ($profile->profile_value, 0, 4);
+	        switch ($profile->id) :
+	            case "profile_website":
+	                $v_http = substr($profile->profile_value, 0, 4);
 
-					if ($v_http == "http") :
-						echo '<dd><a href="'.$profile->text.'">'.$profile->text.'</a></dd>';
-					else :
-						echo '<dd><a href="http://'.$profile->text.'">'.$profile->text.'</a></dd>';
-					endif;
-					break;
+	                if ($v_http == "http") :
+	                    echo '<dd><a href="'.$profile->text.'">'.$profile->text.'</a></dd>';
+	                else :
+	                    echo '<dd><a href="http://'.$profile->text.'">'.$profile->text.'</a></dd>';
+	                endif;
+	                break;
 
-				default:
-					echo '<dd>'.$profile->text.'</dd>';
-					break;
-			endswitch;
-		endif;
+	            default:
+	                echo '<dd>'.$profile->text.'</dd>';
+	                break;
+	        endswitch;
+	    endif;
 	endforeach; ?>
 	</dl>
 </div>

@@ -1,17 +1,17 @@
 <?php
 /**
- * @version    1.1.0
+ * @version    2.0
  * @package    nuModusVersus
  * @author     JoomlaWorks - https://www.joomlaworks.net
- * @copyright  Copyright (c) 2006 - 2019 JoomlaWorks Ltd. All rights reserved.
+ * @copyright  Copyright (c) 2006 - 2026 JoomlaWorks Ltd. All rights reserved.
  * @license    https://www.joomlaworks.net/license
  */
 
-$count = 1; 
+$count = 1;
 
 // DO NOT CHANGE ANYTHING BELOW THIS LINE
 $document 	= JFactory::getDocument();
-$numOfPages = floor(count($items)/$count); 
+$numOfPages = floor(count($items) / $count);
 
 // no direct access
 defined('_JEXEC') or die('Restricted access');
@@ -34,17 +34,22 @@ defined('_JEXEC') or die('Restricted access');
   ");
 ?>
 
-<div id="k2ModuleBox<?php echo $module->id; ?>" class="modSlideshowBlock k2ItemsBlock<?php if($params->get('moduleclass_sfx')) echo ' '.$params->get('moduleclass_sfx'); ?>">
+<div id="k2ModuleBox<?php echo $module->id; ?>" class="modSlideshowBlock k2ItemsBlock<?php if ($params->get('moduleclass_sfx')) {
+    echo ' '.$params->get('moduleclass_sfx');
+} ?>">
 
-	<?php if($params->get('itemPreText')): ?>
+	<?php if ($params->get('itemPreText')): ?>
 	<p class="modulePretext"><?php echo $params->get('itemPreText'); ?></p>
 	<?php endif; ?>
 
 	<div class="itemsWrapper">
-	<?php if(count($items)): ?>
+	<?php if (!empty($items)): ?>
 	  <ul class="items">
-	    <?php foreach ($items as $key=>$item):	?>
-	    <li class="<?php echo ($key%2) ? "odd" : "even"; if(count($items)==$key+1) echo ' lastItem'; ?> item">
+	    <?php foreach ($items as $key => $item):	?>
+	    <li class="<?php echo ($key % 2) ? "odd" : "even";
+	        if (count($items) == $key + 1) {
+	            echo ' lastItem';
+	        } ?> item">
 	
 	      <!-- Plugins: BeforeDisplay -->
 	      <?php echo $item->event->BeforeDisplay; ?>
@@ -52,7 +57,7 @@ defined('_JEXEC') or die('Restricted access');
 	      <!-- K2 Plugins: K2BeforeDisplay -->
 	      <?php echo $item->event->K2BeforeDisplay; ?>
 	      
-	      <?php if($params->get('itemImage') && isset($item->image)): ?>
+	      <?php if ($params->get('itemImage') && isset($item->image)): ?>
         <a class="moduleItemImage" href="<?php echo $item->link; ?>" title="<?php echo JText::_('K2_CONTINUE_READING'); ?> &quot;<?php echo K2HelperUtilities::cleanHtml($item->title); ?>&quot;">
           <img src="<?php echo $item->image; ?>" alt="<?php echo K2HelperUtilities::cleanHtml($item->title); ?>"/>
         </a>
@@ -60,43 +65,43 @@ defined('_JEXEC') or die('Restricted access');
         
         <div class="moduleItemBodyWrap">
           <div class="moduleItemBody">
-        		<?php if($params->get('itemDateCreated')): ?>
+        		<?php if ($params->get('itemDateCreated')): ?>
     	      <span class="moduleItemDateCreated"><?php echo JHTML::_('date', $item->created, 'd F Y'); ?></span>
     	      <?php endif; ?>
     	
-    	      <?php if($params->get('itemCategory')): ?>
+    	      <?php if ($params->get('itemCategory')): ?>
     	      <?php echo JText::_('K2_IN') ; ?> <a class="moduleItemCategory" href="<?php echo $item->categoryLink; ?>"><?php echo $item->categoryname; ?></a>
     	      <?php endif; ?>
     	      
-    	      <?php if($params->get('itemAuthor')): ?>
+    	      <?php if ($params->get('itemAuthor')): ?>
     	      <div class="moduleItemAuthor">
     		      <?php echo K2HelperUtilities::writtenBy($item->authorGender); ?>
     		      
-    					<?php if(isset($item->authorLink)): ?>
+    					<?php if (isset($item->authorLink)): ?>
     					<a rel="author" title="<?php echo K2HelperUtilities::cleanHtml($item->author); ?>" href="<?php echo $item->authorLink; ?>"><?php echo $item->author; ?></a>
     					<?php else: ?>
     					<?php echo $item->author; ?>
     					<?php endif; ?>
     					
-    					<?php if($params->get('userDescription')): ?>
+    					<?php if ($params->get('userDescription')): ?>
     					<?php echo $item->authorDescription; ?>
     					<?php endif; ?>
     				</div>
     				<?php endif; ?>
     		      
-    		    <?php if($params->get('itemTitle')): ?>
+    		    <?php if ($params->get('itemTitle')): ?>
     	      <h2 class="slideTitle">
     	      	<a class="moduleItemTitle" href="<?php echo $item->link; ?>"><?php echo $item->title; ?></a>
     	      </h2>
     	      <?php endif; ?>
     	      
-    	      <?php if($params->get('itemAuthorAvatar')): ?>
+    	      <?php if ($params->get('itemAuthorAvatar')): ?>
     	      <a class="k2Avatar moduleItemAuthorAvatar" rel="author" href="<?php echo $item->authorLink; ?>">
     					<img src="<?php echo $item->authorAvatar; ?>" alt="<?php echo K2HelperUtilities::cleanHtml($item->author); ?>" style="width:<?php echo $avatarWidth; ?>px;height:auto;" />
     				</a>
     	      <?php endif; ?>
     							      
-    	      <?php if($params->get('itemIntroText')): ?>
+    	      <?php if ($params->get('itemIntroText')): ?>
           	<div class="moduleItemIntrotext">
           	 <?php echo $item->introtext; ?>
           	</div>
@@ -114,12 +119,12 @@ defined('_JEXEC') or die('Restricted access');
     	      <!-- K2 Plugins: K2BeforeDisplayContent -->
     	      <?php echo $item->event->K2BeforeDisplayContent; ?>		           
     
-    	      <?php if($params->get('itemExtraFields') && count($item->extra_fields)): ?>
+    	      <?php if ($params->get('itemExtraFields') && !empty($item->extra_fields)): ?>
     	      <div class="moduleItemExtraFields">
     		      <b><?php echo JText::_('K2_ADDITIONAL_INFO'); ?></b>
     		      <ul>
     		        <?php foreach ($item->extra_fields as $extraField): ?>
-    						<?php if($extraField->value): ?>
+    						<?php if ($extraField->value): ?>
     						<li class="type<?php echo ucfirst($extraField->type); ?> group<?php echo $extraField->group; ?>">
     							<span class="moduleItemExtraFieldsLabel"><?php echo $extraField->name; ?></span>
     							<span class="moduleItemExtraFieldsValue"><?php echo $extraField->value; ?></span>
@@ -133,7 +138,7 @@ defined('_JEXEC') or die('Restricted access');
     	
     	      <div class="clr"></div>
     	
-    	      <?php if($params->get('itemVideo')): ?>
+    	      <?php if ($params->get('itemVideo')): ?>
     	      <div class="moduleItemVideo">
     	      	<?php echo $item->video ; ?>
     	      	<span class="moduleItemVideoCaption"><?php echo $item->video_caption ; ?></span>
@@ -150,11 +155,11 @@ defined('_JEXEC') or die('Restricted access');
     	      <?php echo $item->event->K2AfterDisplayContent; ?>
     	
     	
-    	      <?php if($params->get('itemTags') && count($item->tags)>0): ?>
+    	      <?php if ($params->get('itemTags') && !empty($item->tags)): ?>
             <div class="moduleItemTags">
-              <b><i class="icon-tags"></i><?php //echo JText::_('K2_TAGS'); ?></b>
-              <?php foreach ($item->tags as $tagCounter=>$tag): ?>
-                <?php if(count($item->tags)==($tagCounter+1)): ?>
+              <b><i class="icon-tags"></i><?php //echo JText::_('K2_TAGS');?></b>
+              <?php foreach ($item->tags as $tagCounter => $tag): ?>
+                <?php if (count($item->tags) == ($tagCounter + 1)): ?>
                   <a href="<?php echo $tag->link; ?>"><?php echo $tag->name; ?></a>
                 <?php else: ?>
                   <a href="<?php echo $tag->link; ?>"><?php echo $tag->name; ?>,</a>
@@ -163,7 +168,7 @@ defined('_JEXEC') or die('Restricted access');
             </div>
             <?php endif; ?>
     	
-    	      <?php if($params->get('itemAttachments') && count($item->attachments)): ?>
+    	      <?php if ($params->get('itemAttachments') && !empty($item->attachments)): ?>
     				<div class="moduleAttachments">
     					<?php foreach ($item->attachments as $attachment): ?>
     					<a title="<?php echo K2HelperUtilities::cleanHtml($attachment->titleAttribute); ?>" href="<?php echo $attachment->link; ?>"><?php echo $attachment->title; ?></a>
@@ -171,31 +176,31 @@ defined('_JEXEC') or die('Restricted access');
     				</div>
     	      <?php endif; ?>
     	
-    				<?php if($params->get('itemCommentsCounter') && $componentParams->get('comments')): ?>		
+    				<?php if ($params->get('itemCommentsCounter') && $componentParams->get('comments')): ?>		
     					<i class="icon-comments"></i>
-    					<?php if(!empty($item->event->K2CommentsCounter)): ?>
+    					<?php if (!empty($item->event->K2CommentsCounter)): ?>
     						<!-- K2 Plugins: K2CommentsCounter -->
     						<?php echo $item->event->K2CommentsCounter; ?>
     					<?php else: ?>
-    						<?php if($item->numOfComments>0): ?>
+    						<?php if ($item->numOfComments > 0): ?>
     						<a class="moduleItemComments" href="<?php echo $item->link.'#itemCommentsAnchor'; ?>">
-    							<?php echo $item->numOfComments; ?> <?php //if($item->numOfComments>1) echo JText::_('K2_COMMENTS'); else echo JText::_('K2_COMMENT'); ?>
+    							<?php echo $item->numOfComments; ?> <?php //if($item->numOfComments>1) echo JText::_('K2_COMMENTS'); else echo JText::_('K2_COMMENT');?>
     						</a>
     						<?php else: ?>
     						<a class="moduleItemComments" href="<?php echo $item->link.'#itemCommentsAnchor'; ?>">
-    							0<?php //echo JText::_('K2_BE_THE_FIRST_TO_COMMENT'); ?>
+    							0<?php //echo JText::_('K2_BE_THE_FIRST_TO_COMMENT');?>
     						</a>
     						<?php endif; ?>
     					<?php endif; ?>
     				<?php endif; ?>
     	
-    				<?php if($params->get('itemHits')): ?>
+    				<?php if ($params->get('itemHits')): ?>
     				<span class="moduleItemHits">
-    					<?php //echo JText::_('K2_READ'); ?><i class="icon-eye-open"></i> <?php echo $item->hits; ?><?php //echo JText::_('K2_TIMES'); ?>
+    					<?php //echo JText::_('K2_READ');?><i class="icon-eye-open"></i> <?php echo $item->hits; ?><?php //echo JText::_('K2_TIMES');?>
     				</span>
     				<?php endif; ?>
     	
-    				<?php if($params->get('itemReadMore') && $item->fulltext): ?>
+    				<?php if ($params->get('itemReadMore') && $item->fulltext): ?>
     				<a class="moduleItemReadMore" href="<?php echo $item->link; ?>">
     					<span><?php echo JText::_('K2_READ_MORE'); ?></span>
     				</a>
@@ -219,20 +224,28 @@ defined('_JEXEC') or die('Restricted access');
 	<div class="nuSliderPagination">
 		<ul>
 			<li><span class="prev"><a class="previousButton"></a></span></li>
-			<?php foreach($items as $key => $item):?>
-				<?php if(($key)%$count == 0){ $class='';} else {$class=' class="hidden"';}?>
-				<?php if($key == 0){ $buttonClass='navigationButton navigationButtonActive';} else {$buttonClass='navigationButton';}?>
+			<?php foreach ($items as $key => $item):?>
+				<?php if (($key) % $count == 0) {
+				    $class = '';
+				} else {
+				    $class = ' class="hidden"';
+				}?>
+				<?php if ($key == 0) {
+				    $buttonClass = 'navigationButton navigationButtonActive';
+				} else {
+				    $buttonClass = 'navigationButton';
+				}?>
 			<li<?php echo $class; ?>><a class="<?php echo $buttonClass;?>"></a></li>
 			<?php endforeach; ?>
 			<li><span class="next"><a class="nextButton"></a></span></li>
 		</ul>
 	</div>
 
-	<?php if($params->get('itemCustomLink')): ?>
+	<?php if ($params->get('itemCustomLink')): ?>
 	<a class="moduleCustomLink" href="<?php echo $params->get('itemCustomLinkURL'); ?>" title="<?php echo K2HelperUtilities::cleanHtml($itemCustomLinkTitle); ?>"><?php echo $itemCustomLinkTitle; ?></a>
 	<?php endif; ?>
 
-	<?php if($params->get('feed')): ?>
+	<?php if ($params->get('feed')): ?>
 	<div class="k2FeedIcon">
 		<a href="<?php echo JRoute::_('index.php?option=com_k2&view=itemlist&format=feed&moduleID='.$module->id); ?>" title="<?php echo JText::_('K2_SUBSCRIBE_TO_THIS_RSS_FEED'); ?>">
 			<span><?php echo JText::_('K2_SUBSCRIBE_TO_THIS_RSS_FEED'); ?></span>

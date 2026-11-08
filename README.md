@@ -1,0 +1,56 @@
+# nuModusVersus
+
+**nuModusVersus is a free, multi-purpose template emphasizing in K2.**
+
+It comes with many content blocks: edge to edge slideshows, feature lists, a screenshots showcase, client spotlight, testimonials, a blog section and more.
+
+It has 3 colour combinations, or your own through the template options, and 350+ icons for the highlight section of your front page. It supports K2 for slideshows and photo and video galleries inside articles, and it is mobile and tablet friendly.
+
+nuModusVersus is a free port of the original ["Modus Versus" PSD template](http://www.webdesignerdepot.com/2013/06/free-psd-template-modus-versus/) designed by Dimitar Tsankov for webdesignerdepot.com.
+
+## Features
+
+- Multi-purpose content blocks
+- 3 colour combinations, plus your own
+- 350+ icons for front page highlights
+- Mobile and tablet friendly design
+- Built for K2
+
+## Links
+
+- [Product page](https://www.joomlaworks.net/joomla-templates/free-templates/numodusversus)
+- [Live demo](https://templates.joomlaworks.net/#numodusversus)
+- [Template documentation](https://www.joomlaworks.net/support/templates)
+- [Installation, content & customization guides](https://www.joomlaworks.net/support/templates/general-resources)
+
+## Requirements
+
+- Joomla 3.9 or newer, including [Joomla 3.x UTD](https://github.com/joomlaworks/joomla-3.x)
+- PHP 7.1 or newer (tested up to PHP 8.5)
+- K2 for the K2 layouts
+
+## License
+
+Free template. See the [Terms of Service](https://www.joomlaworks.net/about/tos).
+
+## Changelog
+
+### v2.0 - November 8th, 2026
+
+- **Requirements:** Joomla 3.9 or newer (including Joomla 3.x UTD) and PHP 7.1 up to PHP 8.5
+- **PHP 8 compatibility:** `count()` calls on values that may be empty (e.g. K2 tags, extra fields, attachments) replaced with `empty()` checks, so they no longer throw fatal errors on PHP 8; template parameters that are unset (e.g. on a fresh install) no longer pass `null` to string functions; the Google Fonts list is handled safely when its cache is missing or incomplete
+- Tested on PHP 8.5 and PHP 7.4 by rendering the main Joomla views (home, featured, article, print view, category blog & list, archive, search, login, error page) and K2 views (item, print view, category, tag, user, search, date archive) for every K2 sub-template set: no PHP errors, warnings, notices or deprecations
+- All PHP code formatted to the PSR-12 coding standard and checked for syntax errors on PHP 5.6, 7.4 and 8.1 to 8.5
+- **Internet Explorer support removed:** conditional comments and IE-only `<html>` classes, the `X-UA-Compatible` and `imagetoolbar` meta tags, the html5shiv loader, IE CSS hacks (`*prop`, `_prop`, `filter: progid:...`, `-ms-` properties, `zoom: 1`, `.lt-ie9`/`.isIE*` rules) and IE-only image filters in inline styles
+- **Vendor prefixes removed** where all browsers support the standard property (`-moz-`, `-o-`, `-ms-` and most `-webkit-` declarations, prefixed gradients and keyframes); legacy gradients converted to the standard syntax; `::-webkit-input-placeholder` & co. replaced by `::placeholder`
+- CSS syntax errors and invalid declarations fixed (see below); empty rule sets and the obsolete `speak` property removed; stylesheets formatted one rule per line
+- Images optimized losslessly (jpegoptim & optipng)
+- Template manifest: Joomla 3.9 minimum, new update server, version 2.0
+
+Fixes specific to nuModusVersus:
+
+- Google Fonts: the cached font list was never read (the code decoded `JFile::exists()` instead of the file's contents), causing warnings on every page
+- The `<body>` class and page class suffix no longer throw warnings
+- Blog/featured "more articles" links now point to the right articles
+- **PHP 8 fatal error fixed:** the Joomla archive view counted a string (`count()` on the pagination links)
+- CSS: the Tumblr social icon now shows (`content"\f173"` was missing its colon)

@@ -1,9 +1,9 @@
 <?php
 /**
- * @version    1.1.0
+ * @version    2.0
  * @package    nuModusVersus
  * @author     JoomlaWorks - https://www.joomlaworks.net
- * @copyright  Copyright (c) 2006 - 2019 JoomlaWorks Ltd. All rights reserved.
+ * @copyright  Copyright (c) 2006 - 2026 JoomlaWorks Ltd. All rights reserved.
  * @license    https://www.joomlaworks.net/license
  */
 
@@ -18,20 +18,26 @@ $info    = $this->item->params->get('info_block_position', 0);
 
 ?>
 
-<div class="liBlock catItemView<?php echo ' '.$this->pageclass_sfx; ?><?php if($this->item->state==0) echo ' system-unpublished'; ?>">
+<div class="liBlock catItemView<?php echo ' '.$this->pageclass_sfx; ?><?php if ($this->item->state == 0) {
+    echo ' system-unpublished';
+} ?>">
   
   <?php if ($params->get('show_create_date')): ?>
   <!-- Created Date -->
   <div class="column small-1 liItemDateCreatedBlock">
     <span class="liItemDateCreated catItemDateCreated">
-      <?php //echo JText::sprintf(JHtml::_('date', $this->item->created, 'd F Y')); ?>
+      <?php //echo JText::sprintf(JHtml::_('date', $this->item->created, 'd F Y'));?>
       <?php echo JHTML::_('date', $this->item->created, 'M'); ?>
       <span><?php echo JHTML::_('date', $this->item->created, 'd'); ?></span>
     </span>
   </div>
   <?php endif; ?>
   
-  <div class="column<?php if (!$params->get('show_create_date')) echo ' small-12'; else echo ' small-11'; ?> liItemBodyBlock">
+  <div class="column<?php if (!$params->get('show_create_date')) {
+      echo ' small-12';
+  } else {
+      echo ' small-11';
+  } ?> liItemBodyBlock">
   
   <div class="liItemHeader catItemHeader">
     
@@ -40,7 +46,7 @@ $info    = $this->item->params->get('info_block_position', 0);
     <h3 class="liItemTitle catItemTitle">
       <?php if ($params->get('link_titles') && $params->get('access-view')): ?>
         <a href="<?php echo JRoute::_(ContentHelperRoute::getArticleRoute($this->item->slug, $this->item->catid)); ?>">
-          <?php echo $this->item->title; //echo $this->escape($this->item->title); ?>
+          <?php echo $this->item->title; //echo $this->escape($this->item->title);?>
         </a>
       <?php else: ?>
         <?php echo $this->escape($this->item->title); ?>
@@ -49,16 +55,16 @@ $info    = $this->item->params->get('info_block_position', 0);
     <?php endif; ?>
 
     
-    <?php if ($params->get('show_author') || $params->get('show_parent_category') || $params->get('show_category') || (version_compare(JVERSION, '3.1', 'ge') && ($this->params->get('show_tags', 1) && count($this->item->tags->itemTags)))): ?>
+    <?php if ($params->get('show_author') || $params->get('show_parent_category') || $params->get('show_category') || (version_compare(JVERSION, '3.1', 'ge') && ($this->params->get('show_tags', 1) && !empty($this->item->tags->itemTags)))): ?>
     <div class="liItemHeaderToolbar">
       
       <?php if ($params->get('show_author') && !empty($this->item->author)): ?>
       <!-- Article Author -->
       <span class="liItemAuthor catItemAuthor">
-        <?php $author=$this->item->author; ?>
-        <?php $author=($this->item->created_by_alias ? $this->item->created_by_alias: $author); ?>
-          <?php if (!empty($this->item->contactid ) && $params->get('link_author')==true): ?>
-            <?php echo JText::sprintf('COM_CONTENT_WRITTEN_BY', JHtml::_('link',JRoute::_('index.php?option=com_contact&view=contact&id='.$this->item->contactid), $author)); ?>
+        <?php $author = $this->item->author; ?>
+        <?php $author = ($this->item->created_by_alias ? $this->item->created_by_alias : $author); ?>
+          <?php if (!empty($this->item->contactid) && $params->get('link_author') == true): ?>
+            <?php echo JText::sprintf('COM_CONTENT_WRITTEN_BY', JHtml::_('link', JRoute::_('index.php?option=com_contact&view=contact&id='.$this->item->contactid), $author)); ?>
           <?php else: ?>
             <?php echo JText::sprintf('COM_CONTENT_WRITTEN_BY', $author); ?>
           <?php endif; ?>
@@ -66,7 +72,7 @@ $info    = $this->item->params->get('info_block_position', 0);
       <?php endif; ?>
       
       <?php if (version_compare(JVERSION, '3.0', 'ge')): ?>  
-      <?php if ($params->get('show_parent_category') && !empty($this->item->parent_slug)): // Joomla 3.0 ?>
+      <?php if ($params->get('show_parent_category') && !empty($this->item->parent_slug)): // Joomla 3.0?>
       <!-- Article Parent Category -->
       <div class="liItemCategory catItemCategory">
         <?php if ($params->get('link_parent_category')): ?>
@@ -89,9 +95,9 @@ $info    = $this->item->params->get('info_block_position', 0);
       </div>
       <?php endif; ?>         
             
-      <?php else: // Joomla 2.5 ?>
+      <?php else: // Joomla 2.5?>
       
-      <?php if ($params->get('show_parent_category') && $this->item->parent_id!=1): ?>
+      <?php if ($params->get('show_parent_category') && $this->item->parent_id != 1): ?>
       <!-- Article Parent Category -->
       <div class="liItemCategory catItemCategory">
         <?php if ($params->get('link_parent_category')): ?>
@@ -117,9 +123,9 @@ $info    = $this->item->params->get('info_block_position', 0);
       <?php endif; ?>
                 
       <?php if (version_compare(JVERSION, '3.1', 'ge')): /* Show Tags (through the Tags field) if Joomla! 3.1 */?>
-        <?php if ($this->params->get('show_tags', 1) && count($this->item->tags->itemTags)) : $this->item->tagLayout = new JLayoutFile('joomla.content.tags'); ?>
+        <?php if ($this->params->get('show_tags', 1) && !empty($this->item->tags->itemTags)) : $this->item->tagLayout = new JLayoutFile('joomla.content.tags'); ?>
           <div class="liItemTagsBlock catItemTagsBlock articleTagsBlockJ31">
-            <span><i class="icon-tags"></i><?php //echo JText::_('COM_CONTENT_TAGS'); ?></span> 
+            <span><i class="icon-tags"></i><?php //echo JText::_('COM_CONTENT_TAGS');?></span> 
             <?php echo $this->item->tagLayout->render($this->item->tags->itemTags); ?>
           </div>  
         <?php endif; ?>
@@ -182,32 +188,32 @@ $info    = $this->item->params->get('info_block_position', 0);
     <?php if ($params->get('show_readmore') && $this->item->readmore): ?>
     <!-- Read More -->
     <?php if ($params->get('access-view')):
-          $link=JRoute::_(ContentHelperRoute::getArticleRoute($this->item->slug, $this->item->catid));
-        else:
-        $menu=JFactory::getApplication()->getMenu();
-        $active=$menu->getActive();
-        $itemId=$active->id;
-        $link1=JRoute::_('index.php?option=com_users&view=login&Itemid='.$itemId);
-        $returnURL=JRoute::_(ContentHelperRoute::getArticleRoute($this->item->slug, $this->item->catid));
-        $link=new JURI($link1);
+        $link = JRoute::_(ContentHelperRoute::getArticleRoute($this->item->slug, $this->item->catid));
+    else:
+        $menu = JFactory::getApplication()->getMenu();
+        $active = $menu->getActive();
+        $itemId = $active->id;
+        $link1 = JRoute::_('index.php?option=com_users&view=login&Itemid='.$itemId);
+        $returnURL = JRoute::_(ContentHelperRoute::getArticleRoute($this->item->slug, $this->item->catid));
+        $link = new JURI($link1);
         $link->setVar('return', base64_encode($returnURL));
-         endif;
-      ?>
+    endif;
+?>
       <div class="liItemReadMore catItemReadMore">
         <a class="joomlaReadMore" href="<?php echo $link; ?>">
           <?php if (!$params->get('access-view')):
-            echo JText::_('COM_CONTENT_REGISTER_TO_READ_MORE');
-          elseif ($readmore=$this->item->alternative_readmore):
-            echo $readmore;
-            if ($params->get('show_readmore_title',0)!=0):
-                echo JHtml::_('string.truncate', ($this->item->title), $params->get('readmore_limit'));
-            endif;
-          elseif ($params->get('show_readmore_title',0)==0):
-            echo JText::sprintf('COM_CONTENT_READ_MORE_TITLE');
-          else:
-            echo JText::_('COM_CONTENT_READ_MORE');
-            echo JHtml::_('string.truncate', ($this->item->title), $params->get('readmore_limit'));
-          endif; ?>
+              echo JText::_('COM_CONTENT_REGISTER_TO_READ_MORE');
+          elseif ($readmore = $this->item->alternative_readmore):
+              echo $readmore;
+              if ($params->get('show_readmore_title', 0) != 0):
+                  echo JHtml::_('string.truncate', ($this->item->title), $params->get('readmore_limit'));
+              endif;
+elseif ($params->get('show_readmore_title', 0) == 0):
+    echo JText::_('COM_CONTENT_READ_MORE_TITLE');
+else:
+    echo JText::_('COM_CONTENT_READ_MORE');
+    echo JHtml::_('string.truncate', ($this->item->title), $params->get('readmore_limit'));
+endif; ?>
           <i class="icon-arrow-right"></i>
         </a>
       </div>

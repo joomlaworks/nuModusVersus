@@ -1,9 +1,9 @@
 <?php
 /**
- * @version    1.1.0
+ * @version    2.0
  * @package    nuModusVersus
  * @author     JoomlaWorks - https://www.joomlaworks.net
- * @copyright  Copyright (c) 2006 - 2019 JoomlaWorks Ltd. All rights reserved.
+ * @copyright  Copyright (c) 2006 - 2026 JoomlaWorks Ltd. All rights reserved.
  * @license    https://www.joomlaworks.net/license
  */
 
@@ -16,7 +16,6 @@ require_once(dirname(__FILE__).'/includes/error.php');
 <!DOCTYPE html>
 <html lang="<?php echo $this->language; ?>" dir="<?php echo $this->direction; ?>" prefix="og: http://ogp.me/ns#">
     <head>
-        <meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1" />
         <meta charset="utf-8" />
         <title><?php echo $this->error->getCode(); ?> | <?php echo $this->title; ?></title>
         <meta name="viewport" content="width=device-width, user-scalable=0, initial-scale=1.0" />
@@ -39,9 +38,6 @@ require_once(dirname(__FILE__).'/includes/error.php');
             }
         </script>
         <script type="text/javascript" src="<?php echo NU_CDN; ?>/templates/error.js"></script>
-        <!--[if lt IE 9]>
-        <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.6.2/html5shiv.js"></script>
-        <![endif]-->
     </head>
     <body class="errorWrapper">
         <div id="loadErrorPage"><?php echo JText::_('TPL_NU_FE_LOADING'); ?></div>

@@ -1,9 +1,9 @@
 <?php
 /**
- * @version    1.1.0
+ * @version    2.0
  * @package    nuModusVersus
  * @author     JoomlaWorks - https://www.joomlaworks.net
- * @copyright  Copyright (c) 2006 - 2019 JoomlaWorks Ltd. All rights reserved.
+ * @copyright  Copyright (c) 2006 - 2026 JoomlaWorks Ltd. All rights reserved.
  * @license    https://www.joomlaworks.net/license
  */
 
@@ -14,25 +14,25 @@ defined('_JEXEC') or die;
 $class = $item->anchor_css ? 'class="'.$item->anchor_css.'" ' : '';
 $title = $item->anchor_title ? 'title="'.$item->anchor_title.'" ' : '';
 if ($item->menu_image) {
-		$item->params->get('menu_text', 1 ) ?
-		$linktype = '<img src="'.$item->menu_image.'" alt="'.$item->title.'" /><span class="image-title">'.$item->title.'</span> ' :
-		$linktype = '<img src="'.$item->menu_image.'" alt="'.$item->title.'" />';
-}
-else { $linktype = $item->title;
+    $item->params->get('menu_text', 1) ?
+    $linktype = '<img src="'.$item->menu_image.'" alt="'.$item->title.'" /><span class="image-title">'.$item->title.'</span> ' :
+    $linktype = '<img src="'.$item->menu_image.'" alt="'.$item->title.'" />';
+} else {
+    $linktype = $item->title;
 }
 
 switch ($item->browserNav) :
-	default:
-	case 0:
-?><a <?php echo $class; ?>href="<?php echo $item->flink; ?>" <?php echo $title; ?>><span><?php echo $linktype; ?></span></a><?php
-		break;
-	case 1:
-		// _blank
-?><a <?php echo $class; ?>href="<?php echo $item->flink; ?>" target="_blank" <?php echo $title; ?>><span><?php echo $linktype; ?></span></a><?php
-		break;
-	case 2:
-	// window.open
-?><a <?php echo $class; ?>href="<?php echo $item->flink; ?>" onclick="window.open(this.href,'targetWindow','toolbar=no,location=no,status=no,menubar=no,scrollbars=yes,resizable=yes');return false;" <?php echo $title; ?>><span><?php echo $linktype; ?></span></a>
+    default:
+    case 0:
+        ?><a <?php echo $class; ?>href="<?php echo $item->flink; ?>" <?php echo $title; ?>><span><?php echo $linktype; ?></span></a><?php
+                break;
+    case 1:
+        // _blank
+        ?><a <?php echo $class; ?>href="<?php echo $item->flink; ?>" target="_blank" <?php echo $title; ?>><span><?php echo $linktype; ?></span></a><?php
+                break;
+    case 2:
+        // window.open
+        ?><a <?php echo $class; ?>href="<?php echo $item->flink; ?>" onclick="window.open(this.href,'targetWindow','toolbar=no,location=no,status=no,menubar=no,scrollbars=yes,resizable=yes');return false;" <?php echo $title; ?>><span><?php echo $linktype; ?></span></a>
 <?php
-		break;
+                break;
 endswitch;

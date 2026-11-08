@@ -1,9 +1,10 @@
 <?php
+
 /**
- * @version    1.1.0
+ * @version    2.0
  * @package    nuModusVersus (Akhtarma)
  * @author     JoomlaWorks - https://www.joomlaworks.net
- * @copyright  Copyright (c) 2006 - 2019 JoomlaWorks Ltd. All rights reserved.
+ * @copyright  Copyright (c) 2006 - 2026 JoomlaWorks Ltd. All rights reserved.
  * @license    https://www.joomlaworks.net/license
  */
 
@@ -62,7 +63,7 @@ function nuText($str)
 // Hex to RGB conversion
 function hex2rgb($hex)
 {
-    $hex = str_replace("#", "", $hex);
+    $hex = str_replace("#", "", (string) $hex);
     if (strlen($hex) == 3) {
         $r = hexdec(substr($hex, 0, 1).substr($hex, 0, 1));
         $g = hexdec(substr($hex, 1, 1).substr($hex, 1, 1));
@@ -89,23 +90,13 @@ if ($menu->getActive() == $menu->getDefault()) {
 
 
 /* -------------------- HTML5 Document for Joomla! 3.x -------------------- */
-if (version_compare(JVERSION, '3.0', 'ge')!==false) {
+if (version_compare(JVERSION, '3.0', 'ge') !== false) {
     $document->setHtml5(true);
 }
 
 
 
 /* -------------------- Meta Information -------------------- */
-if (version_compare(JVERSION, '3.0', 'ge')!==false) {
-    $document->setMetaData('X-UA-Compatible', 'IE=edge,chrome=1', true);
-    $document->setMetaData('imagetoolbar', 'false', true);
-} else {
-    $topMetaTags = '
-        <meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1" />
-        <meta http-equiv="imagetoolbar" content="false" />
-    ';
-}
-
 $document->setMetaData('viewport', 'width=device-width, user-scalable=0, initial-scale=1.0');
 $document->setMetaData('apple-mobile-web-app-capable', 'yes');
 
@@ -132,13 +123,13 @@ if ($this->params->get('nutpBingVerificationID')) {
 
 // Custom global RSS/Atom feeds
 if ($this->params->get('nutpFeedLink1') && $this->params->get('nutpFeedLink1Title')) {
-    $document->addHeadLink($this->params->get('nutpFeedLink1'), 'alternate', 'rel', array('type'=>'application/rss+xml', 'title'=>$this->params->get('nutpFeedLink1Title')));
+    $document->addHeadLink($this->params->get('nutpFeedLink1'), 'alternate', 'rel', array('type' => 'application/rss+xml', 'title' => $this->params->get('nutpFeedLink1Title')));
 }
 if ($this->params->get('nutpFeedLink2') && $this->params->get('nutpFeedLink2Title')) {
-    $document->addHeadLink($this->params->get('nutpFeedLink2'), 'alternate', 'rel', array('type'=>'application/rss+xml', 'title'=>$this->params->get('nutpFeedLink2Title')));
+    $document->addHeadLink($this->params->get('nutpFeedLink2'), 'alternate', 'rel', array('type' => 'application/rss+xml', 'title' => $this->params->get('nutpFeedLink2Title')));
 }
 if ($this->params->get('nutpFeedLink3') && $this->params->get('nutpFeedLink3Title')) {
-    $document->addHeadLink($this->params->get('nutpFeedLink3'), 'alternate', 'rel', array('type'=>'application/rss+xml', 'title'=>$this->params->get('nutpFeedLink3Title')));
+    $document->addHeadLink($this->params->get('nutpFeedLink3'), 'alternate', 'rel', array('type' => 'application/rss+xml', 'title' => $this->params->get('nutpFeedLink3Title')));
 }
 
 // Open Graph
@@ -163,21 +154,21 @@ if ($isFrontpage) {
 
 // Apple Touch Icons
 $document->addHeadLink($this->params->get('nutpIconIOS57x57', $templatePath.'/includes/images/ios/icon.png'), 'apple-touch-icon', 'rel');
-$document->addHeadLink($this->params->get('nutpIconIOS72x72', $templatePath.'/includes/images/ios/icon-72.png'), 'apple-touch-icon', 'rel', array('sizes'=>'72x72'));
-$document->addHeadLink($this->params->get('nutpIconIOS114x114', $templatePath.'/includes/images/ios/icon@2x.png'), 'apple-touch-icon', 'rel', array('sizes'=>'114x114'));
-$document->addHeadLink($this->params->get('nutpIconIOS144x144', $templatePath.'/includes/images/ios/icon-72@2x.png'), 'apple-touch-icon', 'rel', array('sizes'=>'144x144'));
+$document->addHeadLink($this->params->get('nutpIconIOS72x72', $templatePath.'/includes/images/ios/icon-72.png'), 'apple-touch-icon', 'rel', array('sizes' => '72x72'));
+$document->addHeadLink($this->params->get('nutpIconIOS114x114', $templatePath.'/includes/images/ios/icon@2x.png'), 'apple-touch-icon', 'rel', array('sizes' => '114x114'));
+$document->addHeadLink($this->params->get('nutpIconIOS144x144', $templatePath.'/includes/images/ios/icon-72@2x.png'), 'apple-touch-icon', 'rel', array('sizes' => '144x144'));
 
 // Remove the canonical meta tag in Joomla! 3.x
-if (version_compare(JVERSION, '3.0', 'ge')!==false && $this->params->get('nutpRemoveCanonicalMeta', 0)) {
+if (version_compare(JVERSION, '3.0', 'ge') !== false && $this->params->get('nutpRemoveCanonicalMeta', 0)) {
     foreach ($document->_links as $key => $link) {
-        if ($link['relation']=='canonical') {
+        if ($link['relation'] == 'canonical') {
             unset($document->_links[$key]);
         }
     }
 }
 
 // Force load Bootstrap
-if (version_compare(JVERSION, '3.0', 'ge')!==false && $this->params->get('nutpForceLoadBootstrap', 0)) {
+if (version_compare(JVERSION, '3.0', 'ge') !== false && $this->params->get('nutpForceLoadBootstrap', 0)) {
     JHtml::_('bootstrap.framework');
 }
 
@@ -209,10 +200,10 @@ if ($itemid) {
 if ($tmpl) {
     $nuBodyClass .= ' tmplIs'.ucfirst($tmpl);
 }
-if ($tmpl=='component') {
+if ($tmpl == 'component') {
     $nuBodyClass .= ' contentpane component componentWrapper componentContainer';
 }
-if ($tmpl=='raw') {
+if ($tmpl == 'raw') {
     $nuBodyClass .= ' rawWrapper';
 }
 $nuBodyClass = trim($nuBodyClass);
@@ -221,17 +212,9 @@ $nuBodyClass = trim($nuBodyClass);
 
 /* -------------------- Special Template Positions -------------------- */
 $nuHeadTop = ($this->params->get('nutpHeadTop')) ? $this->params->get('nutpHeadTop')."\n" : '';
-if (version_compare(JVERSION, '3.0', 'ge')===false) {
-    $nuHeadTop .= $topMetaTags;
-}
 
 $nuHeadBottom = $this->params->get('nutpHeadBottom');
 $nuHeadBottom .= (isset($ogMetaTags)) ? $ogMetaTags : '';
-$nuHeadBottom .= '
-    <!--[if lt IE 9]>
-    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.6.2/html5shiv.js"></script>
-    <![endif]-->
-';
 if ($this->params->get('nutpGAID')) {
     $nuHeadBottom .= '
     <!-- Google Analytics -->
@@ -286,7 +269,7 @@ if (!in_array($tmpl, array('error','raw'))) {
 $nutpGoogleWebFonts = $this->params->get('nutpGoogleWebFonts');
 
 if (!is_object($nutpGoogleWebFonts)) {
-    $nutpGoogleWebFonts = new stdClass;
+    $nutpGoogleWebFonts = new stdClass();
 }
 
 // No value saved in the database, so read the XML to get the defaults
@@ -304,14 +287,14 @@ if ($nutpGoogleWebFonts && !isset($nutpGoogleWebFonts->fonts)) {
     $fontsData = array();
     // Read fonts from cache. If cache file is not available download from CDN and create it.
     if (JFile::exists(JPATH_SITE.'/templates/'.$app->getTemplate().'/includes/elements/cache/gwf.json')) {
-        $fontsData = json_decode(JFile::exists(JPATH_SITE.'/templates/'.$app->getTemplate().'/includes/elements/cache/gwf.json'));
+        $fontsData = json_decode(JFile::read(JPATH_SITE.'/templates/'.$app->getTemplate().'/includes/elements/cache/gwf.json'));
     } else {
         $field = $form->getField('nutpGoogleWebFonts', 'params');
         $fontsData = json_decode(JFile::read($field->getFile('https://cdn.joomlaworks.org/gwf/gwf.php')));
     }
 
     // Build the URLs array
-    foreach ($fontsData as $entry) {
+    foreach ((array) $fontsData as $entry) {
         $nutpGoogleWebFonts->urls[$entry->family] = $entry->url;
     }
 }
@@ -323,13 +306,25 @@ if ($nutpGoogleWebFonts && isset($nutpGoogleWebFonts->fonts) && is_array($nutpGo
     foreach ($nutpGoogleWebFonts->fonts as $font) {
         if ($font) {
             // Get URL vars
+            if (empty($nutpGoogleWebFonts->urls[$font])) {
+                continue;
+            }
             $fontURL = $nutpGoogleWebFonts->urls[$font];
             $fontURLParts = parse_url($fontURL);
+            if (empty($fontURLParts['query'])) {
+                continue;
+            }
             parse_str($fontURLParts['query'], $vars);
-            $googleWebFonts[] = $vars['family'];
+            if (!empty($vars['family'])) {
+                $googleWebFonts[] = $vars['family'];
+            }
         }
     }
-    $googleWebFonts = '//fonts.googleapis.com/css?family='.implode('|', $googleWebFonts).'&amp;subset=latin,latin-ext,cyrillic,cyrillic-ext,greek,greek-ext,khmer,vietnamese';
+    if (!empty($googleWebFonts)) {
+        $googleWebFonts = '//fonts.googleapis.com/css?family='.implode('|', $googleWebFonts).'&amp;subset=latin,latin-ext,cyrillic,cyrillic-ext,greek,greek-ext,khmer,vietnamese';
+    } else {
+        unset($googleWebFonts);
+    }
 }
 
 // Template CSS
@@ -387,8 +382,8 @@ $socialProviders = array(
 );
 $social = array();
 foreach ($socialProviders as $socialProviderParam => $socialProviderURL) {
-    if ($this->params->get($socialProviderParam)!='') {
-        $socialObject = new JObject;
+    if ($this->params->get($socialProviderParam) != '') {
+        $socialObject = new JObject();
         $socialObject->name = str_replace('siteSocial', '', $socialProviderParam);
         $socialObject->url = $socialProviderURL.$this->params->get($socialProviderParam);
         $socialObject->class = strtolower($socialObject->name);

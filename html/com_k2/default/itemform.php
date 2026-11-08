@@ -1,9 +1,9 @@
 <?php
 /**
- * @version    1.1.0
+ * @version    2.0
  * @package    nuModusVersus
  * @author     JoomlaWorks - https://www.joomlaworks.net
- * @copyright  Copyright (c) 2006 - 2019 JoomlaWorks Ltd. All rights reserved.
+ * @copyright  Copyright (c) 2006 - 2026 JoomlaWorks Ltd. All rights reserved.
  * @license    https://www.joomlaworks.net/license
  */
 
@@ -37,7 +37,7 @@ $document->addScriptDeclaration("
 ?>
 
 <form action="<?php echo JURI::root(true); ?>/index.php" enctype="multipart/form-data" method="post" name="adminForm" id="adminForm">
-	<?php if($this->mainframe->isSite()): ?>
+	<?php if ($this->mainframe->isSite()): ?>
 	<div id="k2FrontendContainer">
 		<div id="k2Frontend">
 			<table class="k2FrontendToolbar" cellpadding="2" cellspacing="4">
@@ -57,7 +57,7 @@ $document->addScriptDeclaration("
 			</div>
 			<div class="clr"></div>
 			<hr class="sep" />
-			<?php if(!$this->permissions->get('publish')): ?>
+			<?php if (!$this->permissions->get('publish')): ?>
 			<div id="k2FrontendPermissionsNotice">
 				<p><?php echo JText::_('K2_FRONTEND_PERMISSIONS_NOTICE'); ?></p>
 			</div>
@@ -98,11 +98,11 @@ $document->addScriptDeclaration("
 										<label><?php echo JText::_('K2_TAGS'); ?></label>
 									</td>
 									<td class="adminK2RightCol">
-										<?php if($this->params->get('taggingSystem')): ?>
+										<?php if ($this->params->get('taggingSystem')): ?>
 										<!-- Free tagging -->
 										<ul class="tags">
-											<?php if(isset($this->row->tags) && count($this->row->tags)): ?>
-											<?php foreach($this->row->tags as $tag): ?>
+											<?php if (isset($this->row->tags) && !empty($this->row->tags)): ?>
+											<?php foreach ($this->row->tags as $tag): ?>
 											<li class="tagAdded">
 												<?php echo $tag->name; ?>
 												<span title="<?php echo JText::_('K2_CLICK_TO_REMOVE_TAG'); ?>" class="tagRemove">x</span>
@@ -118,7 +118,7 @@ $document->addScriptDeclaration("
 										<span class="k2Note"> <?php echo JText::_('K2_WRITE_A_TAG_AND_PRESS_RETURN_OR_COMMA_TO_ADD_IT'); ?> </span>
 										<?php else: ?>
 										<!-- Selection based tagging -->
-										<?php if( !$this->params->get('lockTags') || $this->user->gid>23): ?>
+										<?php if (!$this->params->get('lockTags') || $this->user->gid > 23): ?>
 										<div style="float:left;">
 											<input type="text" name="tag" id="tag" />
 											<input type="button" id="newTagButton" value="<?php echo JText::_('K2_ADD'); ?>" />
@@ -146,7 +146,7 @@ $document->addScriptDeclaration("
 										<?php endif; ?>
 									</td>
 								</tr>
-								<?php if($this->mainframe->isAdmin() || ($this->mainframe->isSite() && $this->permissions->get('publish'))): ?>
+								<?php if ($this->mainframe->isAdmin() || ($this->mainframe->isSite() && $this->permissions->get('publish'))): ?>
 								<tr>
 									<td class="adminK2LeftCol">
 										<label for="featured"><?php echo JText::_('K2_IS_IT_FEATURED'); ?></label>
@@ -185,14 +185,14 @@ $document->addScriptDeclaration("
 									<?php if ($this->params->get('showAttachmentsTab')): ?>
 									<li id="tabAttachments"><a href="#k2Tab6"><?php echo JText::_('K2_ATTACHMENTS'); ?></a></li>
 									<?php endif; ?>
-									<?php if(count(array_filter($this->K2PluginsItemOther)) && $this->params->get('showK2Plugins')): ?>
+									<?php if (!empty(array_filter($this->K2PluginsItemOther)) && $this->params->get('showK2Plugins')): ?>
 									<li id="tabPlugins"><a href="#k2Tab7"><?php echo JText::_('K2_PLUGINS'); ?></a></li>
 									<?php endif; ?>
 								</ul>
 								
 								<!-- Tab content -->
 								<div class="simpleTabsContent" id="k2Tab1">
-									<?php if($this->params->get('mergeEditors')): ?>
+									<?php if ($this->params->get('mergeEditors')): ?>
 									<div class="k2ItemFormEditor"> <?php echo $this->text; ?>
 										<div class="dummyHeight"></div>
 										<div class="clr"></div>
@@ -207,10 +207,10 @@ $document->addScriptDeclaration("
 										<div class="clr"></div>
 									</div>
 									<?php endif; ?>
-									<?php if (count($this->K2PluginsItemContent)): ?>
+									<?php if (!empty($this->K2PluginsItemContent)): ?>
 									<div class="itemPlugins">
-										<?php foreach($this->K2PluginsItemContent as $K2Plugin): ?>
-										<?php if(!is_null($K2Plugin)): ?>
+										<?php foreach ($this->K2PluginsItemContent as $K2Plugin): ?>
+										<?php if (!is_null($K2Plugin)): ?>
 										<fieldset>
 											<legend><?php echo $K2Plugin->name; ?></legend>
 											<?php echo $K2Plugin->fields; ?>
@@ -271,10 +271,10 @@ $document->addScriptDeclaration("
 										</tr>
 										<?php endif; ?>
 									</table>
-									<?php if (count($this->K2PluginsItemImage)): ?>
+									<?php if (!empty($this->K2PluginsItemImage)): ?>
 									<div class="itemPlugins">
-										<?php foreach($this->K2PluginsItemImage as $K2Plugin): ?>
-										<?php if(!is_null($K2Plugin)): ?>
+										<?php foreach ($this->K2PluginsItemImage as $K2Plugin): ?>
+										<?php if (!is_null($K2Plugin)): ?>
 										<fieldset>
 											<legend><?php echo $K2Plugin->name; ?></legend>
 											<?php echo $K2Plugin->fields; ?>
@@ -322,7 +322,7 @@ $document->addScriptDeclaration("
 												</ul>
 											</dd>
 										</dl>
-										<?php elseif(K2_JVERSION == '25'): ?>
+										<?php elseif (K2_JVERSION == '25'): ?>
 										<div id="system-message-container">
 											<dl id="system-message">
 												<dt class="notice"><?php echo JText::_('K2_NOTICE'); ?></dt>
@@ -340,10 +340,10 @@ $document->addScriptDeclaration("
 										</div>
 										<?php endif; ?>
 									<?php endif; ?>
-									<?php if (count($this->K2PluginsItemGallery)): ?>
+									<?php if (!empty($this->K2PluginsItemGallery)): ?>
 									<div class="itemPlugins">
-										<?php foreach($this->K2PluginsItemGallery as $K2Plugin): ?>
-										<?php if(!is_null($K2Plugin)): ?>
+										<?php foreach ($this->K2PluginsItemGallery as $K2Plugin): ?>
+										<?php if (!is_null($K2Plugin)): ?>
 										<fieldset>
 											<legend><?php echo $K2Plugin->name; ?></legend>
 											<?php echo $K2Plugin->fields; ?>
@@ -416,7 +416,7 @@ $document->addScriptDeclaration("
 												<input type="text" name="video_credits" size="50" class="text_area" value="<?php echo $this->row->video_credits; ?>" />
 											</td>
 										</tr>
-										<?php if($this->row->video): ?>
+										<?php if ($this->row->video): ?>
 										<tr>
 											<td align="right" class="key">
 												<?php echo JText::_('K2_MEDIA_PREVIEW'); ?>
@@ -440,7 +440,7 @@ $document->addScriptDeclaration("
 												</ul>
 											</dd>
 										</dl>
-										<?php elseif(K2_JVERSION == '25'): ?>
+										<?php elseif (K2_JVERSION == '25'): ?>
 										<div id="system-message-container">
 											<dl id="system-message">
 												<dt class="notice"><?php echo JText::_('K2_NOTICE'); ?></dt>
@@ -493,7 +493,7 @@ $document->addScriptDeclaration("
 												<input type="text" name="video_credits" size="50" class="text_area" value="<?php echo $this->row->video_credits; ?>" />
 											</td>
 										</tr>
-										<?php if($this->row->video): ?>
+										<?php if ($this->row->video): ?>
 										<tr>
 											<td align="right" class="key">
 												<?php echo JText::_('K2_MEDIA_PREVIEW'); ?>
@@ -508,10 +508,10 @@ $document->addScriptDeclaration("
 										<?php endif; ?>
 									</table>
 									<?php endif; ?>
-									<?php if (count($this->K2PluginsItemVideo)): ?>
+									<?php if (!empty($this->K2PluginsItemVideo)): ?>
 									<div class="itemPlugins">
-										<?php foreach($this->K2PluginsItemVideo as $K2Plugin): ?>
-										<?php if(!is_null($K2Plugin)): ?>
+										<?php foreach ($this->K2PluginsItemVideo as $K2Plugin): ?>
+										<?php if (!is_null($K2Plugin)): ?>
 										<fieldset>
 											<legend><?php echo $K2Plugin->name; ?></legend>
 											<?php echo $K2Plugin->fields; ?>
@@ -526,10 +526,10 @@ $document->addScriptDeclaration("
 								<!-- Tab extra fields -->
 								<div class="simpleTabsContent" id="k2Tab5">
 									<div id="extraFieldsContainer">
-										<?php if (count($this->extraFields)): ?>
+										<?php if (!empty($this->extraFields)): ?>
 										<table class="admintable" id="extraFields">
-											<?php foreach($this->extraFields as $extraField): ?>
-											<?php if($extraField->type == 'header'): ?>
+											<?php foreach ($this->extraFields as $extraField): ?>
+											<?php if ($extraField->type == 'header'): ?>
 											<tr>
 												<td colspan="2" ><h4 class="k2ExtraFieldHeader"><?php echo $extraField->name; ?></h4></td>
 											</tr>												
@@ -576,10 +576,10 @@ $document->addScriptDeclaration("
 											<?php endif; ?>
 										<?php endif; ?>
 									</div>
-									<?php if (count($this->K2PluginsItemExtraFields)): ?>
+									<?php if (!empty($this->K2PluginsItemExtraFields)): ?>
 									<div class="itemPlugins">
-										<?php foreach($this->K2PluginsItemExtraFields as $K2Plugin): ?>
-										<?php if(!is_null($K2Plugin)): ?>
+										<?php foreach ($this->K2PluginsItemExtraFields as $K2Plugin): ?>
+										<?php if (!is_null($K2Plugin)): ?>
 										<fieldset>
 											<legend><?php echo $K2Plugin->name; ?></legend>
 											<?php echo $K2Plugin->fields; ?>
@@ -594,7 +594,7 @@ $document->addScriptDeclaration("
 								<!-- Tab attachements -->
 								<div class="simpleTabsContent" id="k2Tab6">
 									<div class="itemAttachments">
-										<?php if (count($this->row->attachments)): ?>
+										<?php if (!empty($this->row->attachments)): ?>
 										<table class="adminlist">
 											<tr>
 												<th>
@@ -613,7 +613,7 @@ $document->addScriptDeclaration("
 													<?php echo JText::_('K2_OPERATIONS'); ?>
 												</th>
 											</tr>
-											<?php foreach($this->row->attachments as $attachment): ?>
+											<?php foreach ($this->row->attachments as $attachment): ?>
 											<tr>
 												<td class="attachment_entry">
 													<?php echo $attachment->filename; ?>
@@ -639,10 +639,10 @@ $document->addScriptDeclaration("
 										<input type="button" id="addAttachmentButton" value="<?php echo JText::_('K2_ADD_ATTACHMENT_FIELD'); ?>" />
 										<i>(<?php echo JText::_('K2_MAX_UPLOAD_SIZE'); ?>: <?php echo ini_get('upload_max_filesize'); ?>)</i> </div>
 									<div id="itemAttachments"></div>
-									<?php if (count($this->K2PluginsItemAttachments)): ?>
+									<?php if (!empty($this->K2PluginsItemAttachments)): ?>
 									<div class="itemPlugins">
-										<?php foreach($this->K2PluginsItemAttachments as $K2Plugin): ?>
-										<?php if(!is_null($K2Plugin)): ?>
+										<?php foreach ($this->K2PluginsItemAttachments as $K2Plugin): ?>
+										<?php if (!is_null($K2Plugin)): ?>
 										<fieldset>
 											<legend><?php echo $K2Plugin->name; ?></legend>
 											<?php echo $K2Plugin->fields; ?>
@@ -653,12 +653,12 @@ $document->addScriptDeclaration("
 									<?php endif; ?>
 								</div>
 								<?php endif; ?>
-								<?php if(count(array_filter($this->K2PluginsItemOther)) && $this->params->get('showK2Plugins')): ?>
+								<?php if (!empty(array_filter($this->K2PluginsItemOther)) && $this->params->get('showK2Plugins')): ?>
 								<!-- Tab other plugins -->
 								<div class="simpleTabsContent" id="k2Tab7">
 									<div class="itemPlugins">
-										<?php foreach($this->K2PluginsItemOther as $K2Plugin): ?>
-										<?php if(!is_null($K2Plugin)): ?>
+										<?php foreach ($this->K2PluginsItemOther as $K2Plugin): ?>
+										<?php if (!is_null($K2Plugin)): ?>
 										<fieldset>
 											<legend><?php echo $K2Plugin->name; ?></legend>
 											<?php echo $K2Plugin->fields; ?>
@@ -672,7 +672,7 @@ $document->addScriptDeclaration("
 							<!-- Tabs end here -->
 							
 							<input type="hidden" name="isSite" value="<?php echo (int)$this->mainframe->isSite(); ?>" />
-							<?php if($this->mainframe->isSite()): ?>
+							<?php if ($this->mainframe->isSite()): ?>
 							<input type="hidden" name="lang" value="<?php echo JRequest::getCmd('lang'); ?>" />
 							<?php endif; ?>
 							<input type="hidden" name="id" value="<?php echo $this->row->id; ?>" />
@@ -682,8 +682,8 @@ $document->addScriptDeclaration("
 							<input type="hidden" name="Itemid" value="<?php echo JRequest::getInt('Itemid'); ?>" />
 							<?php echo JHTML::_('form.token'); ?>
 						</td>
-						<td id="adminFormK2Sidebar"<?php if($this->mainframe->isSite() && !$this->params->get('sideBarDisplayFrontend')): ?> style="display:none;"<?php endif; ?> class="xmlParamsFields">
-							<?php if($this->row->id): ?>
+						<td id="adminFormK2Sidebar"<?php if ($this->mainframe->isSite() && !$this->params->get('sideBarDisplayFrontend')): ?> style="display:none;"<?php endif; ?> class="xmlParamsFields">
+							<?php if ($this->row->id): ?>
 							<table class="sidebarDetails">
 								<tr>
 									<td>
@@ -706,7 +706,7 @@ $document->addScriptDeclaration("
 										<strong><?php echo JText::_('K2_FEATURED'); ?></strong>
 									</td>
 									<td>
-										<?php echo ($this->row->featured > 0) ? JText::_('K2_YES'):	JText::_('K2_NO'); ?>
+										<?php echo ($this->row->featured > 0) ? JText::_('K2_YES') : JText::_('K2_NO'); ?>
 									</td>
 								</tr>
 								<tr>
@@ -747,22 +747,22 @@ $document->addScriptDeclaration("
 									</td>
 									<td>
 										<?php echo $this->row->hits; ?>
-										<?php if($this->row->hits): ?>
+										<?php if ($this->row->hits): ?>
 										<input id="resetHitsButton" type="button" value="<?php echo JText::_('K2_RESET'); ?>" class="button" name="resetHits" />
 										<?php endif; ?>
 									</td>
 								</tr>
 								<?php endif; ?>
-								<?php if($this->row->id): ?>
+								<?php if ($this->row->id): ?>
 								<tr>
 									<td>
 										<strong><?php echo JText::_('K2_RATING'); ?></strong>
 									</td>
 									<td>
 										<?php echo $this->row->ratingCount; ?> <?php echo JText::_('K2_VOTES'); ?>
-										<?php if($this->row->ratingCount): ?>
+										<?php if ($this->row->ratingCount): ?>
 										<br />
-										(<?php echo JText::_('K2_AVERAGE_RATING'); ?>: <?php echo number_format(($this->row->ratingSum/$this->row->ratingCount),2); ?>/5.00)
+										(<?php echo JText::_('K2_AVERAGE_RATING'); ?>: <?php echo number_format(($this->row->ratingSum / $this->row->ratingCount), 2); ?>/5.00)
 										<?php endif; ?>
 										<input id="resetRatingButton" type="button" value="<?php echo JText::_('K2_RESET'); ?>" class="button" name="resetRating" />
 									</td>
@@ -773,7 +773,7 @@ $document->addScriptDeclaration("
 								<h3><a href="#"><?php echo JText::_('K2_AUTHOR_PUBLISHING_STATUS'); ?></a></h3>
 								<div>
 									<table class="admintable">
-										<?php if(isset($this->lists['language'])): ?>
+										<?php if (isset($this->lists['language'])): ?>
 										<tr>
 											<td align="right" class="key">
 												<?php echo JText::_('K2_LANGUAGE'); ?>
@@ -789,7 +789,7 @@ $document->addScriptDeclaration("
 											</td>
 											<td id="k2AuthorOptions">
 												<span id="k2Author"><?php echo $this->row->author; ?></span>
-												<?php if($this->mainframe->isAdmin() || ($this->mainframe->isSite() && $this->permissions->get('editAll'))): ?>
+												<?php if ($this->mainframe->isAdmin() || ($this->mainframe->isSite() && $this->permissions->get('editAll'))): ?>
 												<a class="modal" rel="{handler:'iframe', size: {x: 800, y: 460}}" href="index.php?option=com_k2&amp;view=users&amp;task=element&amp;tmpl=component"><?php echo JText::_('K2_CHANGE'); ?></a>
 												<input type="hidden" name="created_by" value="<?php echo $this->row->created_by; ?>" />
 												<?php endif; ?>
@@ -874,17 +874,17 @@ $document->addScriptDeclaration("
 										</tr>
 									</table>
 								</div>
-								<?php if($this->mainframe->isAdmin()): ?>
+								<?php if ($this->mainframe->isAdmin()): ?>
 								<h3><a href="#"><?php echo JText::_('K2_ITEM_VIEW_OPTIONS_IN_CATEGORY_LISTINGS'); ?></a></h3>
 								<div>
-									<?php if(version_compare( JVERSION, '1.6.0', 'ge' )): ?>
+									<?php if (version_compare(JVERSION, '1.6.0', 'ge')): ?>
 									<fieldset class="panelform">
 										<ul class="adminformlist">
-											<?php foreach($this->form->getFieldset('item-view-options-listings') as $field): ?>
+											<?php foreach ($this->form->getFieldset('item-view-options-listings') as $field): ?>
 											<li>
-												<?php if($field->type=='header'): ?>
+												<?php if ($field->type == 'header'): ?>
 												<div class="paramValueHeader"><?php echo $field->input; ?></div>
-												<?php elseif($field->type=='Spacer'): ?>
+												<?php elseif ($field->type == 'Spacer'): ?>
 												<div class="paramValueSpacer">&nbsp;</div>
 												<div class="clr"></div>
 												<?php else: ?>
@@ -902,14 +902,14 @@ $document->addScriptDeclaration("
 								</div>
 								<h3><a href="#"><?php echo JText::_('K2_ITEM_VIEW_OPTIONS'); ?></a></h3>
 								<div>
-									<?php if(version_compare( JVERSION, '1.6.0', 'ge' )): ?>
+									<?php if (version_compare(JVERSION, '1.6.0', 'ge')): ?>
 									<fieldset class="panelform">
 										<ul class="adminformlist">
-											<?php foreach($this->form->getFieldset('item-view-options') as $field): ?>
+											<?php foreach ($this->form->getFieldset('item-view-options') as $field): ?>
 											<li>
-												<?php if($field->type=='header'): ?>
+												<?php if ($field->type == 'header'): ?>
 												<div class="paramValueHeader"><?php echo $field->input; ?></div>
-												<?php elseif($field->type=='Spacer'): ?>
+												<?php elseif ($field->type == 'Spacer'): ?>
 												<div class="paramValueSpacer">&nbsp;</div>
 												<div class="clr"></div>
 												<?php else: ?>
@@ -926,7 +926,7 @@ $document->addScriptDeclaration("
 									<?php endif; ?>
 								</div>
 								<?php endif; ?>
-								<?php if($this->aceAclFlag): ?>
+								<?php if ($this->aceAclFlag): ?>
 								<h3><a href="#"><?php echo JText::_('AceACL') . ' ' . JText::_('COM_ACEACL_COMMON_PERMISSIONS'); ?></a></h3>
 								<div><?php AceaclApi::getWidget('com_k2.item.'.$this->row->id, true); ?></div>
 								<?php endif; ?>
@@ -936,7 +936,7 @@ $document->addScriptDeclaration("
 				</tbody>
 			</table>
 			<div class="clr"></div>
-			<?php if($this->mainframe->isSite()): ?>
+			<?php if ($this->mainframe->isSite()): ?>
 		</div>
 	</div>
 	<?php endif; ?>

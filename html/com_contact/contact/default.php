@@ -1,20 +1,20 @@
 <?php
 /**
- * @version    1.1.0
+ * @version    2.0
  * @package    nuModusVersus
  * @author     JoomlaWorks - https://www.joomlaworks.net
- * @copyright  Copyright (c) 2006 - 2019 JoomlaWorks Ltd. All rights reserved.
+ * @copyright  Copyright (c) 2006 - 2026 JoomlaWorks Ltd. All rights reserved.
  * @license    https://www.joomlaworks.net/license
  */
 
 defined('_JEXEC') or die;
 
-$cparams = JComponentHelper::getParams ('com_media');
+$cparams = JComponentHelper::getParams('com_media');
 
 // check if the user vCard or the user profile is enabled and then load the appropriate classes
 $formLayout = (($this->params->get('address_check') > 0) && ($this->contact->address || $this->contact->suburb  || $this->contact->state || $this->contact->country || $this->contact->postcode)) ||
-$this->params->get('show_email') || $this->params->get('show_telephone')||$this->params->get('show_fax')||$this->params->get('show_mobile')|| $this->params->get('show_webpage') || 
-($this->contact->con_position && $this->params->get('show_position')) || $this->params->get('allow_vcard')  ?'small-9 ':'small-12 ';
+$this->params->get('show_email') || $this->params->get('show_telephone') || $this->params->get('show_fax') || $this->params->get('show_mobile') || $this->params->get('show_webpage') ||
+($this->contact->con_position && $this->params->get('show_position')) || $this->params->get('allow_vcard') ? 'small-9 ' : 'small-12 ';
 
 ?>
 <div class="contact<?php echo $this->pageclass_sfx?>">
@@ -47,13 +47,14 @@ $this->params->get('show_email') || $this->params->get('show_telephone')||$this-
   <?php if ($this->params->get('show_contact_list') && count($this->contacts) > 1) : ?>
     <form action="#" method="get" name="selectForm" id="selectForm">
       <?php echo JText::_('COM_CONTACT_SELECT_CONTACT'); ?>
-      <?php echo JHtml::_('select.genericlist',  $this->contacts, 'id', 'class="inputbox" onchange="document.location.href = this.value"', 'link', 'name', $this->contact->link);?>
+      <?php echo JHtml::_('select.genericlist', $this->contacts, 'id', 'class="inputbox" onchange="document.location.href = this.value"', 'link', 'name', $this->contact->link);?>
     </form>
   <?php endif; ?>
   
   <?php if ($this->contact->misc && $this->params->get('show_misc')) : ?>
-      <?php if ($this->params->get('presentation_style')!='plain'){?>
-        <?php echo JHtml::_($this->params->get('presentation_style').'.panel', JText::_('COM_CONTACT_OTHER_INFORMATION'), 'display-misc');} ?>
+      <?php if ($this->params->get('presentation_style') != 'plain') {?>
+        <?php echo JHtml::_($this->params->get('presentation_style').'.panel', JText::_('COM_CONTACT_OTHER_INFORMATION'), 'display-misc');
+      } ?>
       <?php /* if ($this->params->get('presentation_style')=='plain'):?>
         <?php echo '<h3>'. JText::_('COM_CONTACT_OTHER_INFORMATION').'</h3>'; ?>
       <?php endif; */ ?>
@@ -70,7 +71,7 @@ $this->params->get('show_email') || $this->params->get('show_telephone')||$this-
     
     
   <?php if ($this->contact->con_position && $this->params->get('show_position') || $this->params->get('allow_vcard') || (($this->params->get('address_check') > 0) && ($this->contact->address || $this->contact->suburb  || $this->contact->state || $this->contact->country || $this->contact->postcode)) ||
-$this->params->get('show_email') || $this->params->get('show_telephone')||$this->params->get('show_fax')||$this->params->get('show_mobile')|| $this->params->get('show_webpage')): ?>
+$this->params->get('show_email') || $this->params->get('show_telephone') || $this->params->get('show_fax') || $this->params->get('show_mobile') || $this->params->get('show_webpage')): ?>
 
   <div class="column small-3 omega mobile-4"> 
     <div class="contactDetails lightGrey">
@@ -89,10 +90,11 @@ $this->params->get('show_email') || $this->params->get('show_telephone')||$this-
   </div>
   <?php endif; ?>       
     
-  <div class="column <?php echo $formLayout; // The layout check on the top of the page ?> alpha mobile-4">
-    <?php  if ($this->params->get('presentation_style')!='plain'){?>
+  <div class="column <?php echo $formLayout; // The layout check on the top of the page?> alpha mobile-4">
+    <?php  if ($this->params->get('presentation_style') != 'plain') {?>
       <?php  echo  JHtml::_($this->params->get('presentation_style').'.start', 'contact-slider'); ?>
-    <?php  echo JHtml::_($this->params->get('presentation_style').'.panel', JText::_('COM_CONTACT_DETAILS'), 'basic-details'); } ?>
+    <?php  echo JHtml::_($this->params->get('presentation_style').'.panel', JText::_('COM_CONTACT_DETAILS'), 'basic-details');
+    } ?>
 
     <?php if ($this->contact->image && $this->params->get('show_image')) : ?>
       <div class="contact-image">
@@ -101,10 +103,10 @@ $this->params->get('show_email') || $this->params->get('show_telephone')||$this-
     <?php endif; ?>      
     
     <?php if ($this->params->get('show_email_form') && ($this->contact->email_to || $this->contact->user_id)) : ?>
-      <?php if ($this->params->get('presentation_style')!='plain'):?>
+      <?php if ($this->params->get('presentation_style') != 'plain'):?>
         <?php  echo JHtml::_($this->params->get('presentation_style').'.panel', JText::_('COM_CONTACT_EMAIL_FORM'), 'display-form');  ?>
       <?php endif; ?>
-      <?php if ($this->params->get('presentation_style')=='plain'):?>
+      <?php if ($this->params->get('presentation_style') == 'plain'):?>
       <?php endif; ?>
       <?php  echo $this->loadTemplate('form');  ?>
     <?php endif; ?>
@@ -113,27 +115,28 @@ $this->params->get('show_email') || $this->params->get('show_telephone')||$this-
     <?php endif; ?>
     
     <?php if ($this->params->get('show_articles') && $this->contact->user_id && $this->contact->articles) : ?>
-      <?php if ($this->params->get('presentation_style')!='plain'):?>
+      <?php if ($this->params->get('presentation_style') != 'plain'):?>
         <?php echo JHtml::_($this->params->get('presentation_style').'.panel', JText::_('JGLOBAL_ARTICLES'), 'display-articles'); ?>
         <?php endif; ?>
-        <?php if  ($this->params->get('presentation_style')=='plain'):?>
+        <?php if ($this->params->get('presentation_style') == 'plain'):?>
         <?php echo '<h3>'. JText::_('JGLOBAL_ARTICLES').'</h3>'; ?>
         <?php endif; ?>
         <?php echo $this->loadTemplate('articles'); ?>
     <?php endif; ?>
     
     <?php if ($this->params->get('show_profile') && $this->contact->user_id && JPluginHelper::isEnabled('user', 'profile')) : ?>
-      <?php if ($this->params->get('presentation_style')!='plain'):?>
+      <?php if ($this->params->get('presentation_style') != 'plain'):?>
         <?php echo JHtml::_($this->params->get('presentation_style').'.panel', JText::_('COM_CONTACT_PROFILE'), 'display-profile'); ?>
       <?php endif; ?>
-      <?php if ($this->params->get('presentation_style')=='plain'):?>
+      <?php if ($this->params->get('presentation_style') == 'plain'):?>
         <?php echo '<h3>'. JText::_('COM_CONTACT_PROFILE').'</h3>'; ?>
       <?php endif; ?>
       <?php echo $this->loadTemplate('profile'); ?>
     <?php endif; ?>
     
-    <?php if ($this->params->get('presentation_style')!='plain'){?>
-        <?php echo JHtml::_($this->params->get('presentation_style').'.end');} ?>
+    <?php if ($this->params->get('presentation_style') != 'plain') {?>
+        <?php echo JHtml::_($this->params->get('presentation_style').'.end');
+    } ?>
   </div>
   
  

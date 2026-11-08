@@ -1,9 +1,9 @@
 <?php
 /**
- * @version    1.1.0
+ * @version    2.0
  * @package    nuModusVersus
  * @author     JoomlaWorks - https://www.joomlaworks.net
- * @copyright  Copyright (c) 2006 - 2019 JoomlaWorks Ltd. All rights reserved.
+ * @copyright  Copyright (c) 2006 - 2026 JoomlaWorks Ltd. All rights reserved.
  * @license    https://www.joomlaworks.net/license
  */
 
@@ -20,13 +20,13 @@ JHtml::addIncludePath(JPATH_COMPONENT.'/helpers');
 </h1>
 <?php endif; ?>
 	<?php if ($this->params->get('show_base_description')) : ?>
-	<?php 	//If there is a description in the menu parameters use that; ?>
-		<?php if($this->params->get('categories_description')) : ?>
+	<?php 	//If there is a description in the menu parameters use that;?>
+		<?php if ($this->params->get('categories_description')) : ?>
 		<div class="category-desc base-desc">
 			<?php echo  JHtml::_('content.prepare', $this->params->get('categories_description'), '', 'com_contact.categories'); ?>
 			</div>
-		<?php  else: ?>
-			<?php //Otherwise get one from the database if it exists. ?>
+		<?php else: ?>
+			<?php //Otherwise get one from the database if it exists.?>
 			<?php  if ($this->parent->description) : ?>
 				<div class="category-desc base-desc">
 					<?php  echo JHtml::_('content.prepare', $this->parent->description, '', 'com_contact.categories'); ?>

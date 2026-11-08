@@ -1,9 +1,9 @@
 <?php
 /**
- * @version    1.1.0
+ * @version    2.0
  * @package    nuModusVersus
  * @author     JoomlaWorks - https://www.joomlaworks.net
- * @copyright  Copyright (c) 2006 - 2019 JoomlaWorks Ltd. All rights reserved.
+ * @copyright  Copyright (c) 2006 - 2026 JoomlaWorks Ltd. All rights reserved.
  * @license    https://www.joomlaworks.net/license
  */
 
@@ -26,7 +26,7 @@ JHtml::addIncludePath(JPATH_COMPONENT . '/helpers');
 		<fieldset class="catItemFilters">
 			<div class="catItemFilterSearch">
 				<legend class="catItemHideLabelTxt"><?php echo JText::_('JGLOBAL_FILTER_LABEL'); ?></legend>
-				<?php if ($this->params->get('filter_field')!='hide'): ?>
+				<?php if ($this->params->get('filter_field') != 'hide'): ?>
 					<label class="filter-search-lbl" for="filter-search"><?php echo JText::_('COM_CONTENT_'.$this->params->get('filter_field').'_FILTER_LABEL').'&#160;'; ?></label>
 					<input type="text" name="filter-search" id="filter-search" value="<?php echo $this->escape($this->filter); ?>" class="inputbox" onchange="document.getElementById('adminForm').submit();" />
 				<?php endif; ?>
@@ -48,21 +48,21 @@ JHtml::addIncludePath(JPATH_COMPONENT . '/helpers');
 			<?php if (!empty($this->items)): ?>
 			<!-- List of archived articles -->
 			<div id="itemListArchive">
-				<?php foreach ($this->items as $i=>&$item): ?>
+				<?php foreach ($this->items as $i => &$item): ?>
 				<?php
-					// Define a CSS class for the last container of the list
-					if (count($this->items)==($i+1)) {
-						$lastItemList= ' itemContainerLast';
-					} else {
-						$lastItemList='';
-					}
-				?>
+                    // Define a CSS class for the last container of the list
+                    if (count($this->items) == ($i + 1)) {
+                        $lastItemList = ' itemContainerLast';
+                    } else {
+                        $lastItemList = '';
+                    }
+				    ?>
 
 				<div class="itemContainer<?php echo $lastItemList; ?>">
 					<?php
-						$this->item=&$item;
-						echo $this->loadTemplate('items');
-					?>
+				            $this->item = &$item;
+				    echo $this->loadTemplate('items');
+				    ?>
 				</div>
 				<?php endforeach; ?>
 			<div class="clr"></div>
@@ -73,7 +73,7 @@ JHtml::addIncludePath(JPATH_COMPONENT . '/helpers');
 		</div>
 	</form>
 
-	<?php if(count($this->pagination->getPagesLinks())>1): ?>
+	<?php if ($this->pagination->pagesTotal > 1): ?>
 	<!-- Joomla Pagination -->
 	<div class="joomlaPagination">
 		<?php echo $this->pagination->getPagesLinks(); ?>		

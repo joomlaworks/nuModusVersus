@@ -1,9 +1,9 @@
 <?php
 /**
- * @version    1.1.0
+ * @version    2.0
  * @package    nuModusVersus
  * @author     JoomlaWorks - https://www.joomlaworks.net
- * @copyright  Copyright (c) 2006 - 2019 JoomlaWorks Ltd. All rights reserved.
+ * @copyright  Copyright (c) 2006 - 2026 JoomlaWorks Ltd. All rights reserved.
  * @license    https://www.joomlaworks.net/license
  */
 
@@ -60,12 +60,12 @@ JHtml::_('behavior.caption');
 				<!-- Article Author -->
 				<span class="itemAuthor">
 					<?php $author = $this->item->created_by_alias ? $this->item->created_by_alias : $this->item->author; ?>
-					<?php if (!empty($this->item->contactid) && $params->get('link_author')==true): ?>
+					<?php if (!empty($this->item->contactid) && $params->get('link_author') == true): ?>
 					<?php
-						$needle = 'index.php?option=com_contact&view=contact&id='.$this->item->contactid;
-						$item   = JSite::getMenu()->getItems('link', $needle, true);
-						$cntlink= !empty($item) ? $needle.'&Itemid='.$item->id : $needle;
-					?>
+                        $needle = 'index.php?option=com_contact&view=contact&id='.$this->item->contactid;
+					    $item   = JSite::getMenu()->getItems('link', $needle, true);
+					    $cntlink = !empty($item) ? $needle.'&Itemid='.$item->id : $needle;
+					    ?>
 						<?php echo JText::sprintf('COM_CONTENT_WRITTEN_BY', JHtml::_('link', JRoute::_($cntlink), $author)); ?>
 					<?php else: ?>
 						<?php echo JText::sprintf('COM_CONTENT_WRITTEN_BY', $author); ?>
@@ -89,7 +89,7 @@ JHtml::_('behavior.caption');
       
         <?php else: ?>
       
-          <?php if ($params->get('show_parent_category') && $this->item->parent_slug!='1:root'): ?>
+          <?php if ($params->get('show_parent_category') && $this->item->parent_slug != '1:root'): ?>
           <!-- Article Parent Category -->
           <div class="itemCategory">
             <?php if ($params->get('link_parent_category') && $this->item->parent_slug): ?>
@@ -114,10 +114,10 @@ JHtml::_('behavior.caption');
         <?php endif; ?>
         
         <?php if (version_compare(JVERSION, '3.1', 'ge')): /* Show Tags (through the Tags field) if Joomla! 3.1 */?>      
-          <?php if ($params->get('show_tags', 1) && !empty($this->item->tags)): 
+          <?php if ($params->get('show_tags', 1) && !empty($this->item->tags)):
               $this->item->tagLayout = new JLayoutFile('joomla.content.tags'); ?>
               <div class="itemTagsBlock articleTagsBlockJ31">
-                <span><i class="icon-tags"></i><?php //echo JText::_('COM_CONTENT_TAGS'); ?></span> 
+                <span><i class="icon-tags"></i><?php //echo JText::_('COM_CONTENT_TAGS');?></span> 
                 <?php echo $this->item->tagLayout->render($this->item->tags->itemTags); ?>
               </div>             
           <?php endif; ?>        
@@ -180,14 +180,18 @@ JHtml::_('behavior.caption');
 		</div>
 		<?php endif; ?>
 		
-		<?php if (!$params->get('show_intro')) echo $this->item->event->afterDisplayTitle; ?>
+		<?php if (!$params->get('show_intro')) {
+		    echo $this->item->event->afterDisplayTitle;
+		} ?>
 
 		<?php if ($params->get('access-view')): ?>		  
 		  <?php if (isset($images->image_fulltext) && !empty($images->image_fulltext)) : ?>
       <?php $imgfloat = (empty($images->float_fulltext)) ? $params->get('float_fulltext') : $images->float_fulltext; ?>
       <div class="itemImageBlock img-fulltext-<?php echo htmlspecialchars($imgfloat); ?>"> 
         <span class="itemImage">
-          <img <?php if ($images->image_fulltext_caption) echo 'class="caption"'.' title="' .htmlspecialchars($images->image_fulltext_caption) . '"'; ?> src="<?php echo htmlspecialchars($images->image_fulltext); ?>" alt="<?php echo htmlspecialchars($images->image_fulltext_alt); ?>"/>
+          <img <?php if ($images->image_fulltext_caption) {
+              echo 'class="caption"'.' title="' .htmlspecialchars($images->image_fulltext_caption) . '"';
+          } ?> src="<?php echo htmlspecialchars($images->image_fulltext); ?>" alt="<?php echo htmlspecialchars($images->image_fulltext_alt); ?>"/>
         </span>
       <div class="clr"></div>
       </div>
@@ -196,19 +200,19 @@ JHtml::_('behavior.caption');
   		<div class="itemFullText">
   			<?php echo $this->item->text; ?>      
   		</div>
-		<?php elseif ($params->get('show_noauth')==true && $user->get('guest')): ?>
+		<?php elseif ($params->get('show_noauth') == true && $user->get('guest')): ?>
   		<!-- Optional Intro text for guests -->
   		<div class="itemIntroText">
   			<?php echo $this->item->introtext; ?>
   		</div>
 		<?php endif; ?>		
 				
-		<?php if($params->get('show_hits') || $params->get('show_publish_date') || $params->get('show_modify_date')): ?>
+		<?php if ($params->get('show_hits') || $params->get('show_publish_date') || $params->get('show_modify_date')): ?>
 		<div class="itemContentFooter">
 		  <?php if ($params->get('show_hits')): ?>
       <!-- Article Hits -->     
       <span class="itemHits">
-        <i class="icon-eye-open"></i> <?php echo $this->item->hits; ?><?php //echo JText::sprintf('COM_CONTENT_ARTICLE_HITS'); ?>
+        <i class="icon-eye-open"></i> <?php echo $this->item->hits; ?><?php //echo JText::_('JGLOBAL_HITS');?>
       </span>     
       <?php endif; ?>
 		  

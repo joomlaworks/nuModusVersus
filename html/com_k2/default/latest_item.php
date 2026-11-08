@@ -1,9 +1,9 @@
 <?php
 /**
- * @version    1.1.0
+ * @version    2.0
  * @package    nuModusVersus
  * @author     JoomlaWorks - https://www.joomlaworks.net
- * @copyright  Copyright (c) 2006 - 2019 JoomlaWorks Ltd. All rights reserved.
+ * @copyright  Copyright (c) 2006 - 2026 JoomlaWorks Ltd. All rights reserved.
  * @license    https://www.joomlaworks.net/license
  */
 
@@ -22,7 +22,7 @@ defined('_JEXEC') or die;
 	<?php echo $this->item->event->K2BeforeDisplay; ?>
 
 	<div class="liItemHeader latestItemHeader">
-	  <?php if($this->item->params->get('latestItemTitle')): ?>
+	  <?php if ($this->item->params->get('latestItemTitle')): ?>
 	  <!-- Item title -->
 	  <h3 class="liItemTitle latestItemTitle">
 	  	<?php if ($this->item->params->get('latestItemTitleLinked')): ?>
@@ -35,14 +35,14 @@ defined('_JEXEC') or die;
 	  </h3>
 	  <?php endif; ?>
 	  
-	  <?php if($this->item->params->get('latestItemDateCreated')): ?>
+	  <?php if ($this->item->params->get('latestItemDateCreated')): ?>
     <!-- Date created -->
     <span class="liItemDateCreated latestItemDateCreated">
-      <?php echo JHTML::_('date', $this->item->created , 'd F Y'); ?>
+      <?php echo JHTML::_('date', $this->item->created, 'd F Y'); ?>
     </span>
     <?php endif; ?>
     
-    <?php if($this->item->params->get('latestItemCategory')): ?>
+    <?php if ($this->item->params->get('latestItemCategory')): ?>
     <!-- Item category name -->
     <div class="liItemCategory latestItemCategory">
       <span><?php echo JText::_('K2_PUBLISHED_IN'); ?></span>
@@ -50,17 +50,17 @@ defined('_JEXEC') or die;
     </div>
     <?php endif; ?>
     
-    <?php if($this->item->params->get('latestItemCommentsAnchor') && ( ($this->item->params->get('comments') == '2' && !$this->user->guest) || ($this->item->params->get('comments') == '1')) ): ?>
+    <?php if ($this->item->params->get('latestItemCommentsAnchor') && (($this->item->params->get('comments') == '2' && !$this->user->guest) || ($this->item->params->get('comments') == '1'))): ?>
     <!-- Anchor link to comments below -->
     <div class="liItemCommentsLink latestItemCommentsLink">
       <i class="icon-comments"></i>
-      <?php if(!empty($this->item->event->K2CommentsCounter)): ?>
+      <?php if (!empty($this->item->event->K2CommentsCounter)): ?>
         <!-- K2 Plugins: K2CommentsCounter -->
         <?php echo $this->item->event->K2CommentsCounter; ?>
       <?php else: ?>
-        <?php if($this->item->numOfComments > 0): ?>
+        <?php if ($this->item->numOfComments > 0): ?>
         <a href="<?php echo $this->item->link; ?>#itemCommentsAnchor">
-          <?php echo $this->item->numOfComments; ?> <?php echo ($this->item->numOfComments>1) ? JText::_('K2_COMMENTS') : JText::_('K2_COMMENT'); ?>
+          <?php echo $this->item->numOfComments; ?> <?php echo ($this->item->numOfComments > 1) ? JText::_('K2_COMMENTS') : JText::_('K2_COMMENT'); ?>
         </a>
         <?php else: ?>
         <a href="<?php echo $this->item->link; ?>#itemCommentsAnchor">
@@ -71,14 +71,14 @@ defined('_JEXEC') or die;
     </div>
     <?php endif; ?>
 
-    <?php if($this->item->params->get('latestItemTags') && count($this->item->tags)): ?>
+    <?php if ($this->item->params->get('latestItemTags') && !empty($this->item->tags)): ?>
     <!-- Item tags -->
     <div class="liItemTagsBlock latestItemTagsBlock">
-      <span><i class="icon-tags"></i><?php //echo JText::_('K2_TAGGED_UNDER'); ?></span>
+      <span><i class="icon-tags"></i><?php //echo JText::_('K2_TAGGED_UNDER');?></span>
       <ul class="liItemTags latestItemTags">
-        <?php foreach ($this->item->tags as $tagCounter=>$tag): ?>
+        <?php foreach ($this->item->tags as $tagCounter => $tag): ?>
         <li>
-         <?php if (($tagCounter+1)==count($this->item->tags)): ?>  
+         <?php if (($tagCounter + 1) == count($this->item->tags)): ?>  
             <a href="<?php echo $tag->link; ?>"><?php echo $tag->name; ?></a>
           <?php else: ?>
             <a href="<?php echo $tag->link; ?>"><?php echo $tag->name; ?>,</a>
@@ -108,19 +108,27 @@ defined('_JEXEC') or die;
 	  <!-- K2 Plugins: K2BeforeDisplayContent -->
 	  <?php echo $this->item->event->K2BeforeDisplayContent; ?>
 
-	  <?php if($this->item->params->get('latestItemImage') && !empty($this->item->image)): ?>
+	  <?php if ($this->item->params->get('latestItemImage') && !empty($this->item->image)): ?>
 	  <!-- Item Image -->
 	  <div class="liItemImageBlock latestItemImageBlock">
 		  <span class="liItemImage latestItemImage">
-		    <a href="<?php echo $this->item->link; ?>" title="<?php if(!empty($this->item->image_caption)) echo K2HelperUtilities::cleanHtml($this->item->image_caption); else echo K2HelperUtilities::cleanHtml($this->item->title); ?>">
-		    	<img src="<?php echo $this->item->image; ?>" alt="<?php if(!empty($this->item->image_caption)) echo K2HelperUtilities::cleanHtml($this->item->image_caption); else echo K2HelperUtilities::cleanHtml($this->item->title); ?>" style="width:<?php echo $this->item->imageWidth; ?>px;height:auto;" />
+		    <a href="<?php echo $this->item->link; ?>" title="<?php if (!empty($this->item->image_caption)) {
+		        echo K2HelperUtilities::cleanHtml($this->item->image_caption);
+		    } else {
+		        echo K2HelperUtilities::cleanHtml($this->item->title);
+		    } ?>">
+		    	<img src="<?php echo $this->item->image; ?>" alt="<?php if (!empty($this->item->image_caption)) {
+		    	    echo K2HelperUtilities::cleanHtml($this->item->image_caption);
+		    	} else {
+		    	    echo K2HelperUtilities::cleanHtml($this->item->title);
+		    	} ?>" style="width:<?php echo $this->item->imageWidth; ?>px;height:auto;" />
 		    </a>
 		  </span>
 		  <div class="clr"></div>
 	  </div>
 	  <?php endif; ?>
 
-	  <?php if($this->item->params->get('latestItemIntroText')): ?>
+	  <?php if ($this->item->params->get('latestItemIntroText')): ?>
 	  <!-- Item introtext -->
 	  <div class="liItemIntroText latestItemIntroText">
 	  	<?php echo $this->item->introtext; ?>
@@ -138,11 +146,11 @@ defined('_JEXEC') or die;
 	  <div class="clr"></div>
   </div>  
 
-  <?php if($this->params->get('latestItemVideo') && !empty($this->item->video)): ?>
+  <?php if ($this->params->get('latestItemVideo') && !empty($this->item->video)): ?>
   <!-- Item video -->
   <div class="liItemVideoBlock latestItemVideoBlock">
   	<h3><?php echo JText::_('K2_RELATED_VIDEO'); ?></h3>
-	  <span class="latestItemVideo<?php if($this->item->videoType=='embedded'): ?> embedded<?php endif; ?>"><?php echo $this->item->video; ?></span>
+	  <span class="latestItemVideo<?php if ($this->item->videoType == 'embedded'): ?> embedded<?php endif; ?>"><?php echo $this->item->video; ?></span>
   </div>
   <?php endif; ?>	
 

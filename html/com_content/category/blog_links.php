@@ -1,9 +1,9 @@
 <?php
 /**
- * @version    1.1.0
+ * @version    2.0
  * @package    nuModusVersus
  * @author     JoomlaWorks - https://www.joomlaworks.net
- * @copyright  Copyright (c) 2006 - 2019 JoomlaWorks Ltd. All rights reserved.
+ * @copyright  Copyright (c) 2006 - 2026 JoomlaWorks Ltd. All rights reserved.
  * @license    https://www.joomlaworks.net/license
  */
 
@@ -15,8 +15,8 @@ defined('_JEXEC') or die;
 <!-- Links Article Title -->
 <div class="liBlock catItemView<?php echo $this->pageclass_sfx; ?>">
 	<h3 class="liItemTitle catItemTitle">
-		<a href="<?php echo JRoute::_(ContentHelperRoute::getArticleRoute($item->slug, $item->catid)); ?>">
-			<?php echo $item->title; ?>
+		<a href="<?php echo JRoute::_(ContentHelperRoute::getArticleRoute($this->item->slug, $this->item->catid)); ?>">
+			<?php echo $this->item->title; ?>
 		</a>
 	</h3>
 </div>

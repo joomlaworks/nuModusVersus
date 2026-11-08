@@ -1,9 +1,9 @@
 <?php
 /**
- * @version    1.1.0
+ * @version    2.0
  * @package    nuModusVersus
  * @author     JoomlaWorks - https://www.joomlaworks.net
- * @copyright  Copyright (c) 2006 - 2019 JoomlaWorks Ltd. All rights reserved.
+ * @copyright  Copyright (c) 2006 - 2026 JoomlaWorks Ltd. All rights reserved.
  * @license    https://www.joomlaworks.net/license
  */
 
@@ -23,7 +23,7 @@ $urls = json_decode($this->item->urls);
 // This checks if the editor config options have ever been saved. If they haven't they will fall back to the original settings.
 $editoroptions = isset($params->show_publishing_options);
 if (!$editoroptions):
-	$params->show_urls_images_frontend = '0';
+    $params->show_urls_images_frontend = '0';
 endif;
 ?>
 
@@ -67,7 +67,7 @@ endif;
 	<div class="clr"></div>
 
 	<ul class="tabsPlain">
-		<?php if ($params->get('show_urls_images_frontend')  ): ?>
+		<?php if ($params->get('show_urls_images_frontend')): ?>
 		<li><?php echo JText::_('COM_CONTENT_IMAGES_AND_URLS'); ?></li>
 		<?php endif; ?>
 		<li><?php echo JText::_('COM_CONTENT_PUBLISHING'); ?></li>
@@ -76,7 +76,7 @@ endif;
 	</ul>
 
 
-	<?php if ($params->get('show_urls_images_frontend')  ): ?>
+	<?php if ($params->get('show_urls_images_frontend')): ?>
 	<div class="panePlain">
 		<div class="formelm">
 		<?php echo $this->form->getLabel('image_intro', 'images'); ?>
@@ -215,10 +215,10 @@ endif;
 
 		<input type="hidden" name="task" value="" />
 		<input type="hidden" name="return" value="<?php echo $this->return_page;?>" />
-		<?php if($this->params->get('enable_category', 0) == 1) :?>
+		<?php if ($this->params->get('enable_category', 0) == 1) :?>
 		<input type="hidden" name="jform[catid]" value="<?php echo $this->params->get('catid', 1);?>"/>
 		<?php endif;?>
-		<?php echo JHtml::_( 'form.token' ); ?>
+		<?php echo JHtml::_('form.token'); ?>
 	</div>
 
 	<div class="clr"></div>

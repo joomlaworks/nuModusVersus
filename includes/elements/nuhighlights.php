@@ -1,9 +1,10 @@
 <?php
+
 /**
- * @version    1.1.0
+ * @version    2.0
  * @package    nuModusVersus (Akhtarma)
  * @author     JoomlaWorks - https://www.joomlaworks.net
- * @copyright  Copyright (c) 2006 - 2019 JoomlaWorks Ltd. All rights reserved.
+ * @copyright  Copyright (c) 2006 - 2026 JoomlaWorks Ltd. All rights reserved.
  * @license    https://www.joomlaworks.net/license
  */
 
@@ -30,7 +31,7 @@ class JFormFieldNuHighlights extends JFormField
 
         require_once dirname(__FILE__).'/nuimage.php';
 
-        $media = new JFormFieldNuImage;
+        $media = new JFormFieldNuImage();
         $xml = '<field name="'.$this->name.'[entries][][image]'.'" type="nuImage" label="TPL_NU_BE_LOGO_IMAGE" description="TPL_NU_BE_LOGO_IMAGE_DESC" filter="raw" />';
         $element = new SimpleXMLElement($xml);
         $media->setup($element, null);

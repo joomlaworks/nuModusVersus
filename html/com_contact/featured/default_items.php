@@ -1,9 +1,9 @@
 <?php
 /**
- * @version    1.1.0
+ * @version    2.0
  * @package    nuModusVersus
  * @author     JoomlaWorks - https://www.joomlaworks.net
- * @copyright  Copyright (c) 2006 - 2019 JoomlaWorks Ltd. All rights reserved.
+ * @copyright  Copyright (c) 2006 - 2026 JoomlaWorks Ltd. All rights reserved.
  * @license    https://www.joomlaworks.net/license
  */
 
@@ -46,7 +46,7 @@ $params = &$this->item->params;
 			</th>
 			<?php if ($this->params->get('show_position_headings')) : ?>
 			<th class="item-position">
-				<?php echo JHtml::_('grid.sort',  'COM_CONTACT_POSITION', 'a.con_position', $listDirn, $listOrder); ?>
+				<?php echo JHtml::_('grid.sort', 'COM_CONTACT_POSITION', 'a.con_position', $listDirn, $listOrder); ?>
 			</th>
 			<?php endif; ?>
 			<?php if ($this->params->get('show_email_headings')) : ?>
@@ -95,7 +95,7 @@ $params = &$this->item->params;
 		<?php endif; ?>
 
 		<tbody>
-			<?php foreach($this->items as $i => $item) : ?>
+			<?php foreach ($this->items as $i => $item) : ?>
 				<tr class="<?php echo ($i % 2) ? "odd" : "even"; ?>">
 					<td class="item-num">
 						<?php echo $i; ?>

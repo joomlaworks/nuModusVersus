@@ -1,17 +1,17 @@
 <?php
 /**
- * @version    1.1.0
+ * @version    2.0
  * @package    nuModusVersus
  * @author     JoomlaWorks - https://www.joomlaworks.net
- * @copyright  Copyright (c) 2006 - 2019 JoomlaWorks Ltd. All rights reserved.
+ * @copyright  Copyright (c) 2006 - 2026 JoomlaWorks Ltd. All rights reserved.
  * @license    https://www.joomlaworks.net/license
  */
- 
+
 defined('_JEXEC') or die;
 JHtml::_('behavior.keepalive');
 JHtml::_('behavior.formvalidation');
 JHtml::_('behavior.tooltip');
- if (isset($this->error)) : ?>
+if (isset($this->error)) : ?>
   <div class="contact-error">
     <?php echo $this->error; ?>
   </div>
@@ -34,11 +34,11 @@ JHtml::_('behavior.tooltip');
         <?php echo $this->form->getLabel('contact_message'); ?>
         <?php echo $this->form->getInput('contact_message'); ?>        
         <div class="clr"></div>
-        <?php //Dynamically load any additional fields from plugins. ?>
+        <?php //Dynamically load any additional fields from plugins.?>
          <?php foreach ($this->form->getFieldsets() as $fieldset): ?>
               <?php if ($fieldset->name != 'contact'):?>
                    <?php $fields = $this->form->getFieldset($fieldset->name);?>
-                   <?php foreach($fields as $field): ?>
+                   <?php foreach ($fields as $field): ?>
                         <?php if ($field->hidden): ?>
                              <?php echo $field->input;?>
                         <?php else:?>                            
@@ -51,7 +51,7 @@ JHtml::_('behavior.tooltip');
                    <?php endforeach;?>
               <?php endif ?>
          <?php endforeach;?>       
-        <?php if ($this->params->get('show_email_copy')){ ?>           
+        <?php if ($this->params->get('show_email_copy')) { ?>           
             <?php echo $this->form->getLabel('contact_email_copy'); ?>
             <?php echo $this->form->getInput('contact_email_copy'); ?>
           <?php } ?>
@@ -63,7 +63,7 @@ JHtml::_('behavior.tooltip');
         <input type="hidden" name="task" value="contact.submit" />
         <input type="hidden" name="return" value="<?php echo $this->return_page;?>" />
         <input type="hidden" name="id" value="<?php echo $this->contact->slug; ?>" />
-        <?php echo JHtml::_( 'form.token' ); ?>
+        <?php echo JHtml::_('form.token'); ?>
   
     </fieldset>
   </form>

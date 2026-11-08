@@ -1,9 +1,9 @@
 <?php
 /**
- * @version    1.1.0
+ * @version    2.0
  * @package    nuModusVersus
  * @author     JoomlaWorks - https://www.joomlaworks.net
- * @copyright  Copyright (c) 2006 - 2019 JoomlaWorks Ltd. All rights reserved.
+ * @copyright  Copyright (c) 2006 - 2026 JoomlaWorks Ltd. All rights reserved.
  * @license    https://www.joomlaworks.net/license
  */
 
@@ -23,14 +23,14 @@ JHtml::_('behavior.caption');
   <?php endif; ?>
 
 	<div class="itemList">
-		<?php $leadingcount=0 ; ?>
+		<?php $leadingcount = 0 ; ?>
     <?php if (!empty($this->lead_items)) : ?>
     <div id="itemListLeading">
       <?php foreach ($this->lead_items as &$item) : ?>
         <div class="itemContainer">
           <?php
             $this->item = &$item;
-            echo $this->loadTemplate('item');
+          echo $this->loadTemplate('item');
           ?>
         </div>
         <?php $leadingcount++; ?>
@@ -40,30 +40,32 @@ JHtml::_('behavior.caption');
     <?php endif; ?>
 
 
-  <?php $counter=0; ?>
+  <?php $counter = 0; ?>
   <?php if (!empty($this->intro_items)) : ?>      
   <div id="itemListPrimary">
-    <?php foreach ($this->intro_items as $key=>&$item) : ?>     
+    <?php foreach ($this->intro_items as $key => &$item) : ?>     
        <?php
       // Define a CSS class for the last container on each row
-      if( (($key+1)%($this->columns)==0) || count($this->intro_items)<$this->columns)
-        $lastContainer= ' itemContainerLast';
-      else
-        $lastContainer='';
-      
-      if ($this->columns==3 || $this->columns==4)
-        $changeMargins= ' newMargins';
-      else 
-        $changeMargins= '';       
-      ?>              
+      if ((($key + 1) % ($this->columns) == 0) || count($this->intro_items) < $this->columns) {
+          $lastContainer = ' itemContainerLast';
+      } else {
+          $lastContainer = '';
+      }
+
+        if ($this->columns == 3 || $this->columns == 4) {
+            $changeMargins = ' newMargins';
+        } else {
+            $changeMargins = '';
+        }
+        ?>              
           
-    <div class="itemContainer<?php echo $lastContainer.$changeMargins; ?>"<?php echo (count($this->intro_items)==1) ? '' : ' style="width:'.number_format(100/$this->columns, 1).'%;"'; ?>>
+    <div class="itemContainer<?php echo $lastContainer.$changeMargins; ?>"<?php echo (count($this->intro_items) == 1) ? '' : ' style="width:'.number_format(100 / $this->columns, 1).'%;"'; ?>>
     <?php
-        $this->item = &$item;
+          $this->item = &$item;
         echo $this->loadTemplate('item_grid');
-      ?>
+        ?>
     </div>
-    <?php if(($key+1)%($this->columns)==0): ?>
+    <?php if (($key + 1) % ($this->columns) == 0): ?>
       <div class="clr"></div>
     <?php endif; ?>
     <?php $counter++; ?>  
@@ -73,7 +75,7 @@ JHtml::_('behavior.caption');
     <?php endif; ?> 
 
 
-  	<?php if(!empty($this->link_items)): ?>
+  	<?php if (!empty($this->link_items)): ?>
     <div id="itemListLinks">
       <h4><?php echo JText::_('NU_MORE'); ?></h4>      
       <?php echo $this->loadTemplate('links'); ?>

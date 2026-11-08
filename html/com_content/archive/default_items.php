@@ -1,9 +1,9 @@
 <?php
 /**
- * @version    1.1.0
+ * @version    2.0
  * @package    nuModusVersus
  * @author     JoomlaWorks - https://www.joomlaworks.net
- * @copyright  Copyright (c) 2006 - 2019 JoomlaWorks Ltd. All rights reserved.
+ * @copyright  Copyright (c) 2006 - 2026 JoomlaWorks Ltd. All rights reserved.
  * @license    https://www.joomlaworks.net/license
  */
 
@@ -20,7 +20,9 @@ JHtml::_('behavior.tooltip');
 
 ?>
 
-<div class="liBlock catItemArchiveView<?php echo ' '.$this->pageclass_sfx; ?><?php if($this->item->state==0) echo ' system-unpublished'; ?>">
+<div class="liBlock catItemArchiveView<?php echo ' '.$this->pageclass_sfx; ?><?php if ($this->item->state == 0) {
+    echo ' system-unpublished';
+} ?>">
   
 		<div class="liItemHeader">
 		  
@@ -29,7 +31,7 @@ JHtml::_('behavior.tooltip');
       <h3 class="liItemTitle catItemTitle">
         <?php if ($params->get('link_titles') && $params->get('access-view')): ?>
           <a href="<?php echo JRoute::_(ContentHelperRoute::getArticleRoute($this->item->slug, $this->item->catid)); ?>">
-            <?php echo $this->item->title; //echo $this->escape($this->item->title); ?>
+            <?php echo $this->item->title; //echo $this->escape($this->item->title);?>
           </a>
         <?php else: ?>
           <?php echo $this->escape($this->item->title); ?>
@@ -47,17 +49,17 @@ JHtml::_('behavior.tooltip');
 			<?php if ($params->get('show_author') && !empty($this->item->author)): ?>
 			<!-- Article Author -->
 			<span class="liItemAuthor">
-				<?php $author=$this->item->author; ?>
-				<?php $author=($this->item->created_by_alias ? $this->item->created_by_alias: $author); ?>
-					<?php if (!empty($this->item->contactid ) && $params->get('link_author')==true): ?>
-						<?php echo JText::sprintf('COM_CONTENT_WRITTEN_BY', JHtml::_('link',JRoute::_('index.php?option=com_contact&view=contact&id='.$this->item->contactid), $author)); ?>
+				<?php $author = $this->item->author; ?>
+				<?php $author = ($this->item->created_by_alias ? $this->item->created_by_alias : $author); ?>
+					<?php if (!empty($this->item->contactid) && $params->get('link_author') == true): ?>
+						<?php echo JText::sprintf('COM_CONTENT_WRITTEN_BY', JHtml::_('link', JRoute::_('index.php?option=com_contact&view=contact&id='.$this->item->contactid), $author)); ?>
 					<?php else: ?>
 						<?php echo JText::sprintf('COM_CONTENT_WRITTEN_BY', $author); ?>
 					<?php endif; ?>
 			</span>
 			<?php endif; ?>
 	
-			<?php if ($params->get('show_parent_category') && $this->item->parent_id!=1): ?>
+			<?php if ($params->get('show_parent_category') && $this->item->parent_id != 1): ?>
 			<!-- Article Parent Category -->
 			<div class="liItemCategory">
 				<?php if ($params->get('link_parent_category')): ?>
@@ -108,10 +110,10 @@ JHtml::_('behavior.tooltip');
 			
 			<?php if ($params->get('show_readmore') && $this->item->readmore): ?>
 			<!-- Read More -->
-			<?php	$link=JRoute::_(ContentHelperRoute::getArticleRoute($this->item->slug, $this->item->catid)); ?>
+			<?php	$link = JRoute::_(ContentHelperRoute::getArticleRoute($this->item->slug, $this->item->catid)); ?>
 			<div class="liItemReadMore">
 				<a class="joomlaReadMore" href="<?php echo $link; ?>">
-					<?php echo JText::sprintf('COM_CONTENT_READ_MORE_TITLE'); ?>
+					<?php echo JText::_('COM_CONTENT_READ_MORE_TITLE'); ?>
 					<i class="icon-arrow-right"></i>
 				</a>
 			</div>

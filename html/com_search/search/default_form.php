@@ -1,9 +1,9 @@
 <?php
 /**
- * @version    1.1.0
+ * @version    2.0
  * @package    nuModusVersus
  * @author     JoomlaWorks - https://www.joomlaworks.net
- * @copyright  Copyright (c) 2006 - 2019 JoomlaWorks Ltd. All rights reserved.
+ * @copyright  Copyright (c) 2006 - 2026 JoomlaWorks Ltd. All rights reserved.
  * @license    https://www.joomlaworks.net/license
  */
 
@@ -38,8 +38,8 @@ $upper_limit = $lang->getUpperLimitSearchWord();
 		<fieldset class="only">
 		<legend><?php echo JText::_('COM_SEARCH_SEARCH_ONLY');?></legend>
 		<?php foreach ($this->searchareas['search'] as $val => $txt) :
-			$checked = is_array($this->searchareas['active']) && in_array($val, $this->searchareas['active']) ? 'checked="checked"' : '';
-		?>
+		    $checked = is_array($this->searchareas['active']) && in_array($val, $this->searchareas['active']) ? 'checked="checked"' : '';
+		    ?>
 		<input type="checkbox" name="areas[]" value="<?php echo $val;?>" id="area-<?php echo $val;?>" <?php echo $checked;?> />
 			<label for="area-<?php echo $val;?>">
 				<?php echo JText::_($txt); ?>
@@ -58,7 +58,7 @@ $upper_limit = $lang->getUpperLimitSearchWord();
 	</fieldset>	
 </div>
 
-<?php if (!empty($this->searchword) && $this->total>0): ?>
+<?php if (!empty($this->searchword) && $this->total > 0): ?>
 <div class="searchNumResults">
   <div class="searchintro<?php echo $this->params->get('pageclass_sfx'); ?>">
     <?php if (!empty($this->searchword)): ?>
@@ -66,7 +66,7 @@ $upper_limit = $lang->getUpperLimitSearchWord();
     <?php endif; ?> 
   </div>
 
-  <?php if ($this->total>0): ?>
+  <?php if ($this->total > 0): ?>
   <div class="formLimit">
     <label for="limit">
       <?php echo JText::_('JGLOBAL_DISPLAY_NUM'); ?>

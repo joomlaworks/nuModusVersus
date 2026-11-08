@@ -1,9 +1,10 @@
 <?php
+
 /**
- * @version    1.1.0
+ * @version    2.0
  * @package    nuModusVersus (Akhtarma)
  * @author     JoomlaWorks - https://www.joomlaworks.net
- * @copyright  Copyright (c) 2006 - 2019 JoomlaWorks Ltd. All rights reserved.
+ * @copyright  Copyright (c) 2006 - 2026 JoomlaWorks Ltd. All rights reserved.
  * @license    https://www.joomlaworks.net/license
  */
 
@@ -42,11 +43,6 @@ class JFormFieldNuBase extends JFormField
                 var s = document.getElementsByTagName(\'script\')[0];
                 s.parentNode.insertBefore(wf, s);
             })();
-        ');
-        $document->addCustomTag('
-            <!--[if IE 7]>
-            <link rel="stylesheet" href="//cdn.joomlaworks.org/webfonts/entypoftp/css/fontello-ie7.css">
-            <![endif]-->
         ');
         */
         ob_start();

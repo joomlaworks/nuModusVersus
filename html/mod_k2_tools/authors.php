@@ -1,9 +1,9 @@
 <?php
 /**
- * @version    1.1.0
+ * @version    2.0
  * @package    nuModusVersus
  * @author     JoomlaWorks - https://www.joomlaworks.net
- * @copyright  Copyright (c) 2006 - 2019 JoomlaWorks Ltd. All rights reserved.
+ * @copyright  Copyright (c) 2006 - 2026 JoomlaWorks Ltd. All rights reserved.
  * @license    https://www.joomlaworks.net/license
  */
 
@@ -12,7 +12,9 @@ defined('_JEXEC') or die;
 
 ?>
 
-<div id="k2ModuleBox<?php echo $module->id; ?>" class="modAuthorsListBlock k2AuthorsListBlock<?php if($params->get('moduleclass_sfx')) echo ' '.$params->get('moduleclass_sfx'); ?>">
+<div id="k2ModuleBox<?php echo $module->id; ?>" class="modAuthorsListBlock k2AuthorsListBlock<?php if ($params->get('moduleclass_sfx')) {
+    echo ' '.$params->get('moduleclass_sfx');
+} ?>">
   <ul>
     <?php foreach ($authors as $author): ?>
     <li>
@@ -36,7 +38,7 @@ defined('_JEXEC') or die;
         <a href="<?php echo $author->latest->link; ?>" title="<?php echo K2HelperUtilities::cleanHtml($author->latest->title); ?>">
         	<span><?php echo $author->latest->title; ?></span>
   	      <span class="abAuthorCommentsCount">
-  	      	<i class="icon-comments"></i> <?php echo $author->latest->numOfComments; ?> <?php //if($author->latest->numOfComments=='1') echo JText::_('K2_MODK2TOOLS_COMMENT'); else echo JText::_('K2_MODK2TOOLS_COMMENTS'); ?>
+  	      	<i class="icon-comments"></i> <?php echo $author->latest->numOfComments; ?> <?php //if($author->latest->numOfComments=='1') echo JText::_('K2_MODK2TOOLS_COMMENT'); else echo JText::_('K2_MODK2TOOLS_COMMENTS');?>
   	      </span>
         </a>
       </div>

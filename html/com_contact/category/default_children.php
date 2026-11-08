@@ -1,26 +1,25 @@
 <?php
 /**
- * @version    1.1.0
+ * @version    2.0
  * @package    nuModusVersus
  * @author     JoomlaWorks - https://www.joomlaworks.net
- * @copyright  Copyright (c) 2006 - 2019 JoomlaWorks Ltd. All rights reserved.
+ * @copyright  Copyright (c) 2006 - 2026 JoomlaWorks Ltd. All rights reserved.
  * @license    https://www.joomlaworks.net/license
  */
 
 // no direct access
 defined('_JEXEC') or die;
 $class = ' class="first"';
-if (count($this->children[$this->category->id]) > 0 && $this->maxLevel != 0) :
-?>
+if (!empty($this->children[$this->category->id]) && $this->maxLevel != 0) :
+    ?>
 <ul>
-<?php foreach($this->children[$this->category->id] as $id => $child) : ?>
+<?php foreach ($this->children[$this->category->id] as $id => $child) : ?>
 	<?php
-	if($this->params->get('show_empty_categories') || $child->numitems || count($child->getChildren())) :
-	if(!isset($this->children[$this->category->id][$id + 1]))
-	{
-		$class = ' class="last"';
-	}
-	?>
+        if ($this->params->get('show_empty_categories') || $child->numitems || !empty($child->getChildren())) :
+            if (!isset($this->children[$this->category->id][$id + 1])) {
+                $class = ' class="last"';
+            }
+            ?>
 	<li<?php echo $class; ?>>
 		<?php $class = ''; ?>
 			<span class="item-title"><a href="<?php echo JRoute::_(ContactHelperRoute::getCategoryRoute($child->id));?>">
@@ -41,14 +40,14 @@ if (count($this->children[$this->category->id]) > 0 && $this->maxLevel != 0) :
 				<dd><?php echo $child->numitems; ?></dd>
 			</dl>
 		<?php endif; ?>
-            <?php if(count($child->getChildren()) > 0 ) :
-				$this->children[$child->id] = $child->getChildren();
-				$this->category = $child;
-				$this->maxLevel--;
-				echo $this->loadTemplate('children');
-				$this->category = $child->getParent();
-				$this->maxLevel++;
-			endif; ?>
+            <?php if (!empty($child->getChildren())) :
+                $this->children[$child->id] = $child->getChildren();
+                $this->category = $child;
+                $this->maxLevel--;
+                echo $this->loadTemplate('children');
+                $this->category = $child->getParent();
+                $this->maxLevel++;
+            endif; ?>
 		</li>
 	<?php endif; ?>
 	<?php endforeach; ?>

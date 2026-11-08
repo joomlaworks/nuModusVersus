@@ -1,26 +1,25 @@
 <?php
 /**
- * @version    1.1.0
+ * @version    2.0
  * @package    nuModusVersus
  * @author     JoomlaWorks - https://www.joomlaworks.net
- * @copyright  Copyright (c) 2006 - 2019 JoomlaWorks Ltd. All rights reserved.
+ * @copyright  Copyright (c) 2006 - 2026 JoomlaWorks Ltd. All rights reserved.
  * @license    https://www.joomlaworks.net/license
  */
 
 // no direct access
 defined('_JEXEC') or die;
 $class = ' class="first"';
-if (count($this->items[$this->parent->id]) > 0 && $this->maxLevelcat != 0) :
-?>
+if (!empty($this->items[$this->parent->id]) && $this->maxLevelcat != 0) :
+    ?>
 <ul>
-<?php foreach($this->items[$this->parent->id] as $id => $item) : ?>
+<?php foreach ($this->items[$this->parent->id] as $id => $item) : ?>
 	<?php
-	if($this->params->get('show_empty_categories_cat') || $item->numitems || count($item->getChildren())) :
-	if(!isset($this->items[$this->parent->id][$id + 1]))
-	{
-		$class = ' class="last"';
-	}
-	?>
+        if ($this->params->get('show_empty_categories_cat') || $item->numitems || !empty($item->getChildren())) :
+            if (!isset($this->items[$this->parent->id][$id + 1])) {
+                $class = ' class="last"';
+            }
+            ?>
 	<li<?php echo $class; ?>>
 	<?php $class = ''; ?>
 		<span class="item-title"><a href="<?php echo JRoute::_(ContactHelperRoute::getCategoryRoute($item->id));?>">
@@ -42,13 +41,13 @@ if (count($this->items[$this->parent->id]) > 0 && $this->maxLevelcat != 0) :
 			</dl>
 		<?php endif; ?>
 
-		<?php if(count($item->getChildren()) > 0) :
-			$this->items[$item->id] = $item->getChildren();
-			$this->parent = $item;
-			$this->maxLevelcat--;
-			echo $this->loadTemplate('items');
-			$this->parent = $item->getParent();
-			$this->maxLevelcat++;
+		<?php if (!empty($item->getChildren())) :
+		    $this->items[$item->id] = $item->getChildren();
+		    $this->parent = $item;
+		    $this->maxLevelcat--;
+		    echo $this->loadTemplate('items');
+		    $this->parent = $item->getParent();
+		    $this->maxLevelcat++;
 		endif; ?>
 
 	</li>

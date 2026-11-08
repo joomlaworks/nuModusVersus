@@ -1,9 +1,10 @@
 <?php
+
 /**
- * @version    1.1.0
+ * @version    2.0
  * @package    nuModusVersus
  * @author     JoomlaWorks - https://www.joomlaworks.net
- * @copyright  Copyright (c) 2006 - 2019 JoomlaWorks Ltd. All rights reserved.
+ * @copyright  Copyright (c) 2006 - 2026 JoomlaWorks Ltd. All rights reserved.
  * @license    https://www.joomlaworks.net/license
  */
 
@@ -49,11 +50,6 @@ if ($this->params->get('contentHighlights')) {
                 s.parentNode.insertBefore(wf, s);
             })();
         ');
-        $document->addCustomTag('
-            <!--[if IE 7]>
-            <link rel="stylesheet" href="//cdn.joomlaworks.org/webfonts/'.$font.'/css/fontello-ie7.css">
-            <![endif]-->
-        ');
     }
 
     // Set the rest of the output
@@ -75,14 +71,14 @@ if ($this->params->get('contentVariations', 'default')) {
 
 
 /* -------------------- Color Variations [CAN EDIT] -------------------- */
-if ($this->params->get('colorVariations', 'default') && $this->params->get('colorVariations')!='default') {
+if ($this->params->get('colorVariations', 'default') && $this->params->get('colorVariations') != 'default') {
     ob_start();
     include(JPATH_SITE.'/templates/'.$this->template.'/css/colorvariations.css');
     $colorVariations = ob_get_clean();
-    if (strpos($this->params->get('colorVariations'), '|')!==false && $this->params->get('colorVariations')!='custom') {
+    if (strpos((string) $this->params->get('colorVariations'), '|') !== false && $this->params->get('colorVariations') != 'custom') {
         $colors = explode('|', $this->params->get('colorVariations'));
-        foreach ($colors as $key=>$color) {
-            if ($key==0) {
+        foreach ($colors as $key => $color) {
+            if ($key == 0) {
                 $colorVariations = str_replace('_IMAGEFOLDER_', $color, $colorVariations);
             } else {
                 $colorsInRGB = hex2rgb($color);
@@ -95,11 +91,11 @@ if ($this->params->get('colorVariations', 'default') && $this->params->get('colo
         $colorsInRGB_2 =  hex2rgb($this->params->get('_COLOR2_'));
         $colorVariations = str_replace('_IMAGEFOLDER_', 'default', $colorVariations);
         $colorVariations = str_replace('_COLOR1_RGB_', $colorsInRGB_1, $colorVariations);
-        $colorVariations = str_replace('_COLOR1_', $this->params->get('_COLOR1_'), $colorVariations);
+        $colorVariations = str_replace('_COLOR1_', (string) $this->params->get('_COLOR1_'), $colorVariations);
         $colorVariations = str_replace('_COLOR2_RGB_', $colorsInRGB_2, $colorVariations);
-        $colorVariations = str_replace('_COLOR2_', $this->params->get('_COLOR2_'), $colorVariations);
+        $colorVariations = str_replace('_COLOR2_', (string) $this->params->get('_COLOR2_'), $colorVariations);
     }
-    if (strlen($colorVariations)>10) {
+    if (strlen($colorVariations) > 10) {
         $colorVariations = str_replace('_TEMPLATEPATH_', $templatePath, $colorVariations);
         $document->addStyleDeclaration($colorVariations);
     }
@@ -121,18 +117,21 @@ if ($this->params->get('categoryColors')) {
 
 /* -------------------- Sub-templates [CAN EDIT] -------------------- */
 /* component.php */
-if ($tmpl=='component') {
+if ($tmpl == 'component') {
     // do stuff here for the component sub-template
 }
 
 /* raw.php */
-if ($tmpl=='raw') {
+if ($tmpl == 'raw') {
     // do stuff here for the raw sub-template
 }
 
 
 /* -------------------- Custom Template Logic [CAN EDIT] -------------------- */
 // Get pageSuffix in the body
+$bodyClass = '';
+$pageHeading = '';
+$pageSuffix = '';
 $active = $menu->getActive();
 if ($active) {
     $pageHeading = $active->params->get('page_heading');

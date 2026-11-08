@@ -1,9 +1,10 @@
 <?php
+
 /**
- * @version    1.1.0
+ * @version    2.0
  * @package    nuModusVersus (Akhtarma)
  * @author     JoomlaWorks - https://www.joomlaworks.net
- * @copyright  Copyright (c) 2006 - 2019 JoomlaWorks Ltd. All rights reserved.
+ * @copyright  Copyright (c) 2006 - 2026 JoomlaWorks Ltd. All rights reserved.
  * @license    https://www.joomlaworks.net/license
  */
 
@@ -73,7 +74,7 @@ class JFormFieldNuGwf extends JFormField
                         $body = '';
                         do {
                             $header .= fgets($fp, 128);
-                        } while (strpos($header, "\r\n\r\n")=== false);// get the header data
+                        } while (strpos($header, "\r\n\r\n") === false);// get the header data
                         while (!feof($fp)) {
                             $body .= fgets($fp, 128);
                         }

@@ -1,37 +1,42 @@
 <?php
 /**
- * @version    1.1.0
+ * @version    2.0
  * @package    nuModusVersus
  * @author     JoomlaWorks - https://www.joomlaworks.net
- * @copyright  Copyright (c) 2006 - 2019 JoomlaWorks Ltd. All rights reserved.
+ * @copyright  Copyright (c) 2006 - 2026 JoomlaWorks Ltd. All rights reserved.
  * @license    https://www.joomlaworks.net/license
  */
- 
+
 // no direct access
 defined('_JEXEC') or die;
 
 ?>
 
-<div id="k2ModuleBox<?php echo $module->id; ?>" class="modUsersBlock k2UsersBlock<?php if($params->get('moduleclass_sfx')) echo ' '.$params->get('moduleclass_sfx'); ?>">
+<div id="k2ModuleBox<?php echo $module->id; ?>" class="modUsersBlock k2UsersBlock<?php if ($params->get('moduleclass_sfx')) {
+    echo ' '.$params->get('moduleclass_sfx');
+} ?>">
 	<ul>
-		<?php foreach($users as $key=>$user): ?>
-		<li class="<?php echo ($key%2) ? "odd" : "even"; if(count($users)==$key+1) echo ' lastItem'; ?>">
+		<?php foreach ($users as $key => $user): ?>
+		<li class="<?php echo ($key % 2) ? "odd" : "even";
+		    if (count($users) == $key + 1) {
+		        echo ' lastItem';
+		    } ?>">
 
-			<?php if($userAvatar && !empty($user->avatar)): ?>
+			<?php if ($userAvatar && !empty($user->avatar)): ?>
 			<a class="k2Avatar ubUserAvatar" rel="author" href="<?php echo $user->link; ?>" title="<?php echo K2HelperUtilities::cleanHtml($user->name); ?>">
 				<img src="<?php echo $user->avatar; ?>" alt="<?php echo K2HelperUtilities::cleanHtml($user->name); ?>" style="width:<?php echo $avatarWidth; ?>px;height:auto;" />
 			</a>
 			<?php endif; ?>
 
-			<?php if($userName): ?>
+			<?php if ($userName): ?>
 			<a class="ubUserName" rel="author" href="<?php echo $user->link; ?>" title="<?php echo K2HelperUtilities::cleanHtml($user->name); ?>">
 				<?php echo $user->name; ?>
 			</a>
 			<?php endif; ?>
 
-			<?php if($userDescription && $user->description): ?>
+			<?php if ($userDescription && $user->description): ?>
 			<div class="ubUserDescription">
-				<?php if($userDescriptionWordLimit): ?>
+				<?php if ($userDescriptionWordLimit): ?>
 				<?php echo K2HelperUtilities::wordLimit($user->description, $userDescriptionWordLimit) ?>
 				<?php else: ?>
 				<?php echo $user->description; ?>
@@ -39,10 +44,10 @@ defined('_JEXEC') or die;
 			</div>
 			<?php endif; ?>
 
-			<?php if($userFeed || ($userURL && $user->url) || $userEmail): ?>
+			<?php if ($userFeed || ($userURL && $user->url) || $userEmail): ?>
 			<div class="ubUserAdditionalInfo">
 
-				<?php if($userFeed): ?>
+				<?php if ($userFeed): ?>
 				<!-- RSS feed icon -->
 				<div class="k2FeedIcon">
   				<a class="ubUserFeedIcon" href="<?php echo $user->feed; ?>" title="<?php echo JText::_('K2_SUBSCRIBE_TO_THIS_USERS_RSS_FEED'); ?>">
@@ -51,13 +56,13 @@ defined('_JEXEC') or die;
 				</div>
 				<?php endif; ?>
 
-				<?php if($userURL && $user->url): ?>
+				<?php if ($userURL && $user->url): ?>
 				<a class="ubUserURL" rel="me" href="<?php echo $user->url; ?>" title="<?php echo JText::_('K2_WEBSITE'); ?>" target="_blank">
 					<span><?php echo JText::_('K2_WEBSITE'); ?></span>
 				</a>
 				<?php endif; ?>
 
-				<?php if($userEmail): ?>
+				<?php if ($userEmail): ?>
 				<span class="ubUserEmail" title="<?php echo JText::_('K2_EMAIL'); ?>">
 					<?php echo JHTML::_('Email.cloak', $user->email); ?>
 				</span>
@@ -66,7 +71,7 @@ defined('_JEXEC') or die;
 			</div>
 			<?php endif; ?>
 
-			<?php if($userItemCount && count($user->items)): ?>
+			<?php if ($userItemCount && !empty($user->items)): ?>
 			<h3><?php echo JText::_('K2_RECENT_ITEMS'); ?></h3>
 			<ul class="ubUserItems">
 				<?php foreach ($user->items as $item): ?>

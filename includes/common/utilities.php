@@ -1,9 +1,10 @@
 <?php
+
 /**
- * @version    1.1.0
+ * @version    2.0
  * @package    nuModusVersus (Akhtarma)
  * @author     JoomlaWorks - https://www.joomlaworks.net
- * @copyright  Copyright (c) 2006 - 2019 JoomlaWorks Ltd. All rights reserved.
+ * @copyright  Copyright (c) 2006 - 2026 JoomlaWorks Ltd. All rights reserved.
  * @license    https://www.joomlaworks.net/license
  */
 
@@ -21,7 +22,7 @@ class NuTemplateUtilities
     public function getFile($url, $cacheTime = 86400)
     {
         jimport('joomla.filesystem.file');
-    
+
         // Check cache folder
         $cacheFolderPath = dirname(__FILE__).'/cache';
         if (file_exists($cacheFolderPath) && is_dir($cacheFolderPath)) {
@@ -29,11 +30,11 @@ class NuTemplateUtilities
         } else {
             mkdir($cacheFolderPath);
         }
-    
+
         $url = trim($url);
-    
+
         $tmpFile = $cacheFolderPath.'/gwf.json';
-    
+
         // Check if a cached copy exists otherwise create it
         if (file_exists($tmpFile) && is_readable($tmpFile) && ((filemtime($tmpFile) + $cacheTime) > time() || $cacheTime == 0)) {
             $result = $tmpFile;
@@ -74,7 +75,7 @@ class NuTemplateUtilities
                         $body = '';
                         do {
                             $header .= fgets($fp, 128);
-                        } while (strpos($header, "\r\n\r\n")=== false); // get the header data
+                        } while (strpos($header, "\r\n\r\n") === false); // get the header data
                         while (!feof($fp)) {
                             $body .= fgets($fp, 128);
                         }
